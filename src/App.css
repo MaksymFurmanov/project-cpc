@@ -11,9 +11,6 @@
     transition: all 0.8s ease;
 }
 
-.content {
-}
-
 /* 2. Tablet styles – shrink layout if needed */
 @media (max-width: 1024px) {
 
