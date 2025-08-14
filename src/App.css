@@ -1,0 +1,25 @@
+* {
+    font-family: Inter, sans-serif;
+}
+
+.h-placeholder {
+    height: 100vh;
+}
+
+.main {
+    display: flex;
+    transition: all 0.8s ease;
+}
+
+.content {
+}
+
+/* 2. Tablet styles – shrink layout if needed */
+@media (max-width: 1024px) {
+
+}
+
+/* 3. Mobile styles – single-column layout */
+@media (max-width: 768px) {
+
+}
