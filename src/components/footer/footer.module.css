@@ -1,3 +1,153 @@
-.container {
-    background-color: yellow;
-}
+:root {
+    --bg: #0f0f10;
+    --text: #cfd3d6;
+    --muted: #9aa2a8;
+    --heading: #ffffff;
+    --accent: #21c788;
+    --line: #242628;
+  }
+  
+  /* Зовнішній контейнер футера (фон на всю ширину) */
+  .container {
+    background: var(--bg);
+    color: var(--text);
+    width: 100%; /* тягнеться на всю ширину екрану */
+    padding: 48px 0 24px;
+  }
+  
+  /* Внутрішній контейнер для вирівнювання контенту */
+  .content {
+    max-width: 1200px; /* обмеження ширини тексту */
+    margin: 0 auto;    /* вирівнювання по центру */
+    padding: 0 20px;   /* відступи з боків для мобільних */
+  }
+  
+  /* верхня сітка з двома колонками (на мобілках 1) */
+  .topGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  
+  @media (min-width: 768px) {
+    .topGrid {
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+  }
+  
+  .block {
+    line-height: 1.7;
+  }
+  
+  .title {
+    color: var(--heading);
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    margin: 0 0 16px;
+    text-transform: uppercase;
+  }
+  
+  .address {
+    font-style: normal;
+    margin: 0 0 12px;
+    color: var(--text);
+  }
+  
+  .line {
+    margin: 6px 0;
+  }
+  
+  .link {
+    color: var(--accent);
+    text-decoration: none;
+  }
+  .link:hover,
+  .link:focus {
+    text-decoration: underline;
+  }
+  
+  .icons {
+    display: flex;
+    gap: 16px;
+    margin-top: 16px;
+  }
+  
+  .iconBtn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 999px;
+    background: #1a1c1f;
+    color: var(--heading);
+    transition: transform .15s ease, background .15s ease, color .15s ease;
+  }
+  
+  .iconBtn:hover,
+  .iconBtn:focus {
+    transform: translateY(-2px);
+    background: #202328;
+    color: var(--accent);
+  }
+  
+  .hours {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 8px;
+  }
+  
+  .hours li {
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 0;
+    border-bottom: 1px dashed var(--line);
+  }
+  
+  .hours li:last-child {
+    border-bottom: none;
+  }
+  
+  .hours span:first-child {
+    font-weight: 600;
+    color: var(--heading);
+    min-width: 2.5rem;
+  }
+  
+  .note {
+    color: var(--muted);
+    margin-top: 8px;
+  }
+  
+  .divider {
+    border: none;
+    border-top: 1px solid var(--line);
+    margin: 32px 0;
+  }
+  
+  .bottomGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  
+  .copyRow {
+    border-top: 1px solid var(--line);
+    margin-top: 16px;
+    padding-top: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--muted);
+    font-size: 0.95rem;
+  }
+  
+  /* адаптив для копірайту на малих екранах */
+  @media (max-width: 480px) {
+    .copyRow {
+      flex-direction: column;
+      gap: 8px;
+      text-align: center;
+    }
+  }
