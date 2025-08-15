@@ -1,0 +1,40 @@
+.container {
+    padding-bottom: 2em;
+    color: #444;
+}
+
+.mainLogo {
+    display: block;
+    width: 8em;
+    margin: 0 auto;
+}
+
+.container h2 {
+    font-size: 1.25rem;
+    width: fit-content;
+    margin: 2em auto;
+}
+
+.container p {
+    text-align: center;
+    margin: 0 5em;
+}
+
+.container button {
+    display: block;
+    width: fit-content;
+    padding: 1em 2em;
+    border: #444 2px solid;
+    background-color: #f4f4f4;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin: 2em auto 0.5em auto;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.container button:hover {
+    background-color: #000000;
+    border-color: #000000;
+    color: #f4f4f4;
+}
