@@ -3,7 +3,10 @@ import styles from "./hero-section.module.css";
 export default function HeroSection() {
     return (
         <section className={styles.container}>
-            <video autoPlay muted loop className={styles.bgVideo}>
+            <video autoPlay
+                   muted
+                   loop
+                   playsInline className={styles.bgVideo}>
                 <source src="/videos/bg-kosice-1080.mp4"
                         type="video/mp4"
                 />

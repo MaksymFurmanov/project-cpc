@@ -1,6 +1,7 @@
 .container {
     min-height: 105dvh;
     transform: translateY(-16dvh);
+    overflow: hidden;
 }
 
 .bgVideo {
@@ -27,5 +28,12 @@
 }
 
 .cover h1 {
-    font-size: 3.5rem;
+    font-size: 3rem;
+    padding: 0 1em;
+}
+
+@media (min-width: 1024px) {
+    .cover h1 {
+        font-size: 3.5rem;
+    }
 }
