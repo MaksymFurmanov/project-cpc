@@ -6,8 +6,10 @@
     color: #f4f4f4;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     transition: all 0.8s ease;
     padding: 0.75em 1.5em;
+
 }
 
 .scrolled {
