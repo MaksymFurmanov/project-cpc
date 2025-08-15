@@ -1,0 +1,130 @@
+.section{
+    /* кольори для блакитної заливки картки */
+    --grad-1: #7dd3fc;  /* sky-300 */
+    --grad-2: #60a5fa;  /* blue-400 */
+    --grad-3: #3b82f6;  /* blue-500 */
+  
+    /* новий м'який сірий фон секції, як на скріншоті */
+    --surface: #f5f6f8;
+  
+    background: var(--surface);        /* <-- було #fff */
+    padding: clamp(48px, 6vw, 96px) 0;
+  }
+  
+  .container{
+    width: min(1200px, 92vw);
+    margin: 0 auto;
+  }
+  
+  .title{
+    text-align: center;
+    font-size: clamp(28px, 4.5vw, 56px);
+    font-weight: 800;
+    color:#22272a;
+    letter-spacing: .4px;
+    margin: 0 0 clamp(32px, 5vw, 64px);
+  }
+  
+  /* Grid: 2 колонки мобайл / 3 колонки md+ */
+  .grid{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0,1fr));
+    gap: clamp(20px, 4vw, 32px);
+  }
+  @media (min-width: 768px){
+    .grid{ grid-template-columns: repeat(3, minmax(0,1fr)); }
+  }
+  
+  /* --- КАРТКА --- */
+  .card{ display:block; }
+  
+  /* статична рамка у блакитних тонах */
+  .border{
+    position: relative;
+    padding: 2px;                    /* товщина рамки */
+    border-radius: 16px;
+    background: linear-gradient(135deg,var(--grad-1),var(--grad-2),var(--grad-3));
+  }
+  
+  /* вміст картки */
+  .inner{
+    position: relative;
+    isolation: isolate;              /* псевдоелемент під контентом */
+    min-height: 180px;
+    border-radius: 14px;
+    background: #ffffff;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    gap: 10px;
+    padding: 24px 18px;
+    box-shadow: 0 6px 18px rgba(0,0,0,.06);
+    transition: transform .25s ease, box-shadow .25s ease, color .3s ease;
+    overflow: hidden;
+  }
+  
+  /* повна заливка на hover — блакитний градієнт */
+  .inner::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    border-radius: inherit;
+    background: linear-gradient(135deg,var(--grad-1) 0%,var(--grad-2) 50%,var(--grad-3) 100%);
+    transform: scale(0);
+    transform-origin: 50% 50%;
+    transition: transform .45s ease;
+    z-index: -1;                     /* під текстом/іконкою */
+  }
+  
+  .icon{
+    font-size: clamp(40px, 5vw, 64px);
+    line-height: 1;
+    color:#111;
+    transition: color .3s ease, transform .25s ease;
+  }
+  
+  .label{
+    font-size: clamp(15px, 2vw, 20px);
+    line-height: 1.45;
+    color:#2a2f33;
+    transition: color .3s ease;
+  }
+  
+  /* hover/focus */
+  .border:hover .inner,
+  .border:focus-within .inner{
+    transform: translateY(-6px);
+    box-shadow: 0 14px 32px rgba(0,0,0,.12);
+  }
+  .border:hover .inner::before,
+  .border:focus-within .inner::before{
+    transform: scale(1);             /* заповнює всю картку */
+  }
+  .border:hover .icon,
+  .border:hover .label,
+  .border:focus-within .icon,
+  .border:focus-within .label{
+    color: #ffffff;                  /* контраст на блакитній заливці */
+  }
+  
+  /* доступність */
+  .border:focus-within .inner{
+    outline: 3px solid rgba(59,130,246,.35); /* blue-500 */
+    outline-offset: 2px;
+  }
+  
+  /* reduce motion */
+  @media (prefers-reduced-motion: reduce){
+    .inner{ transition: none; }
+    .inner::before{ transition: none; }
+  }
+  
+  
+  
+  
+  
