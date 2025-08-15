@@ -1,0 +1,157 @@
+/* Білий фон лише для цієї секції */
+.section{
+    position: relative;
+    width: 100%;
+    padding: 48px 0;
+    background: #ffffff;
+  }
+  
+  /* Центрований контейнер */
+  .container{
+    width: min(1200px, 92vw);
+    margin: 0 auto;
+  }
+  
+  /* Блок "текст + карта" */
+  .block{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 28px;
+    align-items: stretch;          /* однакова висота колонок */
+    margin-bottom: 56px;
+  }
+  
+  /* На десктопі — дві колонки */
+  @media (min-width: 992px){
+    .block{
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+    }
+  }
+  
+  /* Для другого офісу — карта зліва */
+  .blockReverse .textCol{ order: 2; }
+  .blockReverse .mapCol{ order: 1; }
+  
+  /* Колонки тягнемо по висоті блоку */
+  .textCol,
+  .mapCol{
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  /* Текст — як був */
+  .textCol{ color: #22272a; }
+  
+  .h2{
+    font-size: clamp(28px, 3.5vw, 40px);
+    line-height: 1.15;
+    font-weight: 800;
+    margin: 0 0 18px;
+    color: #22272a;
+  }
+  
+  .address{
+    font-style: normal;
+    font-size: 18px;
+    line-height: 1.8;
+    margin: 0 0 12px;
+    color: #22272a;
+  }
+  
+  .kv{ margin: 10px 0; font-size: 18px; color: #22272a; }
+  .k{ font-weight: 600; }
+  
+  .link{
+    color: #1b73e8;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  
+  .h3{
+    margin: 22px 0 10px;
+    font-size: clamp(18px, 2.2vw, 22px);
+    font-weight: 800;
+    color: #22272a;
+  }
+  
+  /* Години роботи: підкреслення темніше і товстіше */
+  .hours{
+    list-style: none;
+    padding: 0;
+    margin: 0 0 6px;
+  }
+  .hours li{
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    font-size: 17px;
+    line-height: 1.9;
+    color: #22272a;
+    border-bottom: 2px dashed #b2bac3;  /* було 1px #e8eaed → стало темніше й товстіше */
+    padding: 6px 0;
+  }
+  .hours li:last-child{ border-bottom: none; }
+  
+  /* ширше під повні назви (Pondelok, ...) */
+  .day{ font-weight: 600; min-width: 7.5rem; }
+  .time{ text-align: right; }
+  
+  .lunch{
+    margin-top: 10px;
+    font-size: 16px;
+    color: #6b737a;
+  }
+  
+  /* Карта — зменшена ~на 15%, поцентру у своїй колонці */
+  .mapCol{ width: 100%; }
+  
+  .mapFrame{
+    flex: 1;
+    width: 100%;
+    min-height: 360px;
+    border-radius: 12px;
+    overflow: hidden;
+  
+    /* було #f8fafc — ставимо білий, щоб «рамки» не було видно */
+    background: #ffffff;
+  
+    /* на всякий випадок прибираємо будь-які бордери/тіні */
+    border: none;
+    box-shadow: none;
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .mapFrame iframe{
+    width: 100%;
+    height: 100%;
+    border: 0;
+  
+    /* зменшення ~15%, карта по центру */
+    transform: scale(0.85);
+    transform-origin: center;
+    background: #ffffff; /* не обов’язково, але безпечно */
+  }
+  
+  
+  /* Трохи вище на більших екранах */
+  @media (min-width: 768px){
+    .mapFrame{ min-height: 420px; }
+  }
+  @media (min-width: 1200px){
+    .mapFrame{ min-height: 460px; }
+  }
+  
+
+  
+  
+  
+  
+  
+  
+  
+  

@@ -1,8 +1,10 @@
+import ContactsMaps from "../components/home/contact-maps";
+
 export default function Home() {
 
     return (
         <main>
-            <div className={"h-placeholder"}/>
+            <ContactsMaps />
         </main>
     );
 }
