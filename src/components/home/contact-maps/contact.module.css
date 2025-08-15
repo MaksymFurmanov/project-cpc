@@ -16,6 +16,10 @@
   .block{
     display: grid;
     grid-template-columns: 1fr;
+    /* MOBILE: спочатку ТЕКСТ, потім КАРТА */
+    grid-template-areas:
+      "text"
+      "map";
     gap: 28px;
     align-items: stretch;          /* однакова висота колонок */
     margin-bottom: 56px;
@@ -26,12 +30,18 @@
     .block{
       grid-template-columns: 1fr 1fr;
       gap: 56px;
+      /* DESKTOP (звичайний блок): текст ліворуч, карта праворуч */
+      grid-template-areas: "text map";
+    }
+    /* DESKTOP (реверс-блок): карта ліворуч, текст праворуч */
+    .blockReverse{
+      grid-template-areas: "map text";
     }
   }
   
-  /* Для другого офісу — карта зліва */
-  .blockReverse .textCol{ order: 2; }
-  .blockReverse .mapCol{ order: 1; }
+  /* Прив’язуємо елементи до областей сітки */
+  .textCol{ grid-area: text; }
+  .mapCol { grid-area: map; }
   
   /* Колонки тягнемо по висоті блоку */
   .textCol,
@@ -89,7 +99,7 @@
     font-size: 17px;
     line-height: 1.9;
     color: #22272a;
-    border-bottom: 2px dashed #b2bac3;  /* було 1px #e8eaed → стало темніше й товстіше */
+    border-bottom: 2px dashed #b2bac3;
     padding: 6px 0;
   }
   .hours li:last-child{ border-bottom: none; }
@@ -114,10 +124,8 @@
     border-radius: 12px;
     overflow: hidden;
   
-    /* було #f8fafc — ставимо білий, щоб «рамки» не було видно */
+    /* білий фон, щоб не було видимої "рамки" */
     background: #ffffff;
-  
-    /* на всякий випадок прибираємо будь-які бордери/тіні */
     border: none;
     box-shadow: none;
   
@@ -134,9 +142,8 @@
     /* зменшення ~15%, карта по центру */
     transform: scale(0.85);
     transform-origin: center;
-    background: #ffffff; /* не обов’язково, але безпечно */
+    background: #ffffff;
   }
-  
   
   /* Трохи вище на більших екранах */
   @media (min-width: 768px){
@@ -145,6 +152,8 @@
   @media (min-width: 1200px){
     .mapFrame{ min-height: 460px; }
   }
+  
+  
   
 
   

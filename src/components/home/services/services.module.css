@@ -18,12 +18,14 @@
   
   .title{
     text-align: center;
-    font-size: clamp(28px, 4.5vw, 56px);
+    font-size: clamp(28px, 3.5vw, 40px); /* було 4.5vw / 56px */
+    line-height: 1.15;                   /* як у Kontaktujte nás */
     font-weight: 800;
     color:#22272a;
     letter-spacing: .4px;
     margin: 0 0 clamp(32px, 5vw, 64px);
   }
+  
   
   /* Grid: 2 колонки мобайл / 3 колонки md+ */
   .grid{
