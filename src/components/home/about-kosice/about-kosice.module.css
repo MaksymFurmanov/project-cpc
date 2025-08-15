@@ -1,0 +1,101 @@
+/* ===== About Košice (parallax) ===== */
+
+.cover{
+    position: relative;
+  
+    /* базові значення для mobile/tablet паралаксу */
+    --imgTop: -8%;
+    --imgHeight: 116%;
+  
+    min-height: 68vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+  
+    overflow: hidden;      /* ховаємо краї картинки під час руху */
+    line-height: 0;        /* прибирає "білу лінію" */
+    background-color: #000;/* фолбек під картинку */
+    background-repeat: no-repeat; /* для desktop-варіанту */
+  }
+  
+  .parallaxWrap{
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;            /* фоновий шар */
+  }
+  
+  .parallaxImg{
+    position: absolute;
+    left: 0; right: 0;
+    top: var(--imgTop);
+    height: var(--imgHeight);
+    background-size: cover;
+    background-position: center 35%;
+    background-repeat: no-repeat;
+    will-change: transform;
+  }
+  
+  /* затемнення для контрасту тексту — має бути поверх будь-якого фону */
+  .overlay{
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.45));
+    z-index: 1;
+  }
+  
+  /* контент зверху */
+  .content{
+    position: relative;
+    z-index: 2;
+    line-height: 1.6;
+    text-align: center;
+    padding: clamp(16px, 3vw, 32px);
+    max-width: min(980px, 92vw);
+  }
+  
+  .kicker{
+    margin: 0 0 10px;
+    font-size: clamp(18px, 2.2vw, 24px);
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    opacity: .95;
+  }
+  
+  .text{
+    margin: 0;
+    font-size: clamp(16px, 2.1vw, 20px);
+    opacity: .95;
+  }
+  
+  /* мобільні */
+  @media (max-width: 640px){
+    .cover{ min-height: 60vh; }
+  }
+  
+  /* ===== DESKTOP =====
+     Показуємо майже всю фотку без трансформацій: */
+  @media (min-width: 1024px){
+    .cover{
+      min-height: 56vh;
+  
+      /* фон переносимо на саму секцію + вмикаємо fixed */
+      background-size: cover;
+      background-position: center 30%;
+      background-attachment: fixed;
+    }
+    /* мобільний паралакс на десктопі відключаємо */
+    .parallaxWrap{ display: none; }
+  }
+  
+  /* дуже широкі екрани — ще делікатніше */
+  @media (min-width: 1280px){
+    .cover{ min-height: 52vh; }
+  }
+  
+  
+  
+
+  
