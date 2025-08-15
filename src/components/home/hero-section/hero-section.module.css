@@ -1,6 +1,6 @@
 .container {
-    min-height: 100dvh;
-    aspect-ratio: unset;
+    min-height: 105dvh;
+    transform: translateY(-16dvh);
 }
 
 .bgVideo {
