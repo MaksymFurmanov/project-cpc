@@ -6,9 +6,8 @@
     height: 100vh;
 }
 
-.main {
-    display: flex;
-    transition: all 0.8s ease;
+.content {
+    transition: transform 0.5s ease-in-out;
 }
 
 .moveContent {

@@ -21,6 +21,5 @@ export default function NavSidebar({sidebarToggle}) {
                 })}
             </ul>
         </div>
-
     );
 }
