@@ -5,13 +5,11 @@ import "aos/dist/aos.css";
 
 export default function Step({number, heading, delay, className, children}) {
     useEffect(() => {
-        return () => {
-            AOS.init({
-                duration: 1000,
-                easing: "ease-in-out",
-                once: false,
-            });
-        };
+        AOS.init({
+            duration: 1000,
+            easing: "ease-in-out",
+            once: false,
+        });
     }, []);
 
 
