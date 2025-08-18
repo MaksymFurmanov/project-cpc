@@ -1,10 +1,14 @@
 import styles from "./hero-section.module.css";
-import {useRef} from "react";
+import {useEffect, useRef} from "react";
 
 export default function HeroSection() {
     const videoRef = useRef(null);
 
-    videoRef.current.setAttribute("playsinline", true);
+    useEffect(() => {
+        if (videoRef.current) {
+            videoRef.current.setAttribute("playsinline", "");
+        }
+    }, []);
 
     return (
         <section className={styles.container}>
