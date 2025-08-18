@@ -1,0 +1,50 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.step {
+    padding: 0 2em;
+    max-width: 20em;
+}
+
+.step2, .step3 {
+    padding-top: 2em;
+}
+
+.step h2 {
+    font-size: 2.75rem;
+    font-family: Inter, sans-serif;
+    font-weight: 400;
+}
+
+.step h3 {
+    font-size: 1.5rem;
+}
+
+.step p {
+    line-height: 1.75em;
+}
+
+@media (min-width: 768px) {
+    .container {
+        flex-direction: row;
+    }
+
+    .step3 {
+        padding-top: 0;
+    }
+}
+
+@media (min-width: 1200px) {
+    .step2 {
+        padding-top: 5em;
+    }
+
+    .step3 {
+        padding-top: 10em;
+    }
+}
