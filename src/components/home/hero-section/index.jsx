@@ -1,14 +1,18 @@
 import styles from "./hero-section.module.css";
+import {useRef} from "react";
 
 export default function HeroSection() {
+    const videoRef = useRef(null);
 
+    videoRef.current.setAttribute("playsinline", true);
 
     return (
         <section className={styles.container}>
-            <video autoPlay
+            <video ref={videoRef}
+                autoPlay
                    muted
                    loop
-                   playsInline
+                   playsInline={true}
                    className={styles.bgVideo}
             >
                 <source src="/videos/bg-kosice-1080.mp4"
