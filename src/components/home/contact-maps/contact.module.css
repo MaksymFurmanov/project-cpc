@@ -1,157 +1,189 @@
 /* Білий фон лише для цієї секції */
 .section{
-    position: relative;
-    width: 100%;
-    padding: 48px 0;
-    background: #ffffff;
-  }
-  
-  /* Центрований контейнер */
-  .container{
-    width: min(1200px, 92vw);
-    margin: 0 auto;
-  }
-  
-  /* Блок "текст + карта" */
+  position: relative;
+  width: 100%;
+  padding: 48px 0;
+  background: #ffffff;
+
+  /* NEW: керуємо розміром квадрата однією змінною */
+  --mapSize: 360px; /* базово ~як твій попередній min-height */
+}
+
+/* Центрований контейнер */
+.container{
+  width: min(1200px, 92vw);
+  margin: 0 auto;
+}
+
+/* Блок "текст + карта" */
+.block{
+  display: grid;
+  grid-template-columns: 1fr;
+  /* MOBILE: спочатку ТЕКСТ, потім КАРТА */
+  grid-template-areas:
+    "text"
+    "map";
+  gap: 28px;
+  align-items: stretch;          /* однакова висота колонок */
+  margin-bottom: 56px;
+}
+
+/* На десктопі — дві колонки */
+@media (min-width: 992px){
   .block{
-    display: grid;
-    grid-template-columns: 1fr;
-    /* MOBILE: спочатку ТЕКСТ, потім КАРТА */
-    grid-template-areas:
-      "text"
-      "map";
-    gap: 28px;
-    align-items: stretch;          /* однакова висота колонок */
-    margin-bottom: 56px;
+    grid-template-columns: 1fr 1fr;
+    gap: 56px;
+    /* DESKTOP (звичайний блок): текст ліворуч, карта праворуч */
+    grid-template-areas: "text map";
   }
-  
-  /* На десктопі — дві колонки */
-  @media (min-width: 992px){
-    .block{
-      grid-template-columns: 1fr 1fr;
-      gap: 56px;
-      /* DESKTOP (звичайний блок): текст ліворуч, карта праворуч */
-      grid-template-areas: "text map";
-    }
-    /* DESKTOP (реверс-блок): карта ліворуч, текст праворуч */
-    .blockReverse{
-      grid-template-areas: "map text";
-    }
+  /* DESKTOP (реверс-блок): карта ліворуч, текст праворуч */
+  .blockReverse{
+    grid-template-areas: "map text";
   }
-  
-  /* Прив’язуємо елементи до областей сітки */
-  .textCol{ grid-area: text; }
-  .mapCol { grid-area: map; }
-  
-  /* Колонки тягнемо по висоті блоку */
-  .textCol,
-  .mapCol{
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-  }
-  
-  /* Текст — як був */
-  .textCol{ color: #22272a; }
-  
-  .h2{
-    font-size: clamp(28px, 3.5vw, 40px);
-    line-height: 1.15;
-    font-weight: 800;
-    margin: 0 0 18px;
-    color: #22272a;
-  }
-  
-  .address{
-    font-style: normal;
-    font-size: 18px;
-    line-height: 1.8;
-    margin: 0 0 12px;
-    color: #22272a;
-  }
-  
-  .kv{ margin: 10px 0; font-size: 18px; color: #22272a; }
-  .k{ font-weight: 600; }
-  
-  .link{
-    color: #1b73e8;
-    text-decoration: underline;
-    text-underline-offset: 2px;
-  }
-  
-  .h3{
-    margin: 22px 0 10px;
-    font-size: clamp(18px, 2.2vw, 22px);
-    font-weight: 800;
-    color: #22272a;
-  }
-  
-  /* Години роботи: підкреслення темніше і товстіше */
-  .hours{
-    list-style: none;
-    padding: 0;
-    margin: 0 0 6px;
-  }
-  .hours li{
-    display: flex;
-    justify-content: space-between;
-    gap: 12px;
-    font-size: 17px;
-    line-height: 1.9;
-    color: #22272a;
-    border-bottom: 2px dashed #b2bac3;
-    padding: 6px 0;
-  }
-  .hours li:last-child{ border-bottom: none; }
-  
-  /* ширше під повні назви (Pondelok, ...) */
-  .day{ font-weight: 600; min-width: 7.5rem; }
-  .time{ text-align: right; }
-  
-  .lunch{
-    margin-top: 10px;
-    font-size: 16px;
-    color: #6b737a;
-  }
-  
-  /* Карта — зменшена ~на 15%, поцентру у своїй колонці */
-  .mapCol{ width: 100%; }
-  
+}
+
+/* Прив’язуємо елементи до областей сітки */
+.textCol{ grid-area: text; }
+.mapCol { grid-area: map; }
+
+/* Колонки тягнемо по висоті блоку */
+.textCol,
+.mapCol{
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+/* Текст — як був */
+.textCol{ color: #22272a; }
+
+.h2{
+  font-size: clamp(28px, 3.5vw, 40px);
+  line-height: 1.15;
+  font-weight: 800;
+  margin: 0 0 18px;
+  color: #22272a;
+}
+
+.address{
+  font-style: normal;
+  font-size: 18px;
+  line-height: 1.8;
+  margin: 0 0 12px;
+  color: #22272a;
+}
+
+.kv{ margin: 10px 0; font-size: 18px; color: #22272a; }
+.k{ font-weight: 600; }
+
+.link{
+  color: #1b73e8;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.h3{
+  margin: 22px 0 10px;
+  font-size: clamp(18px, 2.2vw, 22px);
+  font-weight: 800;
+  color: #22272a;
+}
+
+/* Години роботи: підкреслення темніше і товстіше */
+.hours{
+  list-style: none;
+  padding: 0;
+  margin: 0 0 6px;
+}
+.hours li{
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 17px;
+  line-height: 1.9;
+  color: #22272a;
+  border-bottom: 2px dashed #b2bac3;
+  padding: 6px 0;
+}
+.hours li:last-child{ border-bottom: none; }
+
+/* ширше під повні назви (Pondelok, ...) */
+.day{ font-weight: 600; min-width: 7.5rem; }
+.time{ text-align: right; }
+
+.lunch{
+  margin-top: 10px;
+  font-size: 16px;
+  color: #6b737a;
+}
+
+/* --- КАРТА: квадратна, адаптивна, по центру --- */
+.mapCol{ width: 100%; } /* залишаємо як було */
+
+/* CHANGED: замість мін-висоти + scale робимо квадрат 1:1 */
+.mapFrame{
+  /* не підганяємо висоту під текстову колонку */
+  flex: 0 0 auto; /* було flex: 1; */
+
+  /* квадрат: не ширше за колонку і не більше за --mapSize */
+  width: min(100%, var(--mapSize));
+  aspect-ratio: 1 / 1;        /* NEW: точне співвідношення 1:1 */
+  height: auto;
+
+  border-radius: 12px;
+  overflow: hidden;
+
+  /* білий фон, щоб не було видимої "рамки" */
+  background: #ffffff;
+  border: none;
+  box-shadow: none;
+
+  /* центруємо карту в колонці і по горизонталі, і по вертикалі */
+  margin-inline: auto;
+  margin-block: auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* CHANGED: iframe заповнює квадрат повністю (без scale) */
+.mapFrame iframe{
+  width: 100%;
+  height: 100%;
+  border: 0;
+  transform: none;            /* було: scale(0.85) */
+  transform-origin: center;
+  background: #ffffff;
+}
+
+/* Раніше тут були min-height для .mapFrame.
+   Тепер ми керуємо розміром через змінну --mapSize під брейкпоінти. */
+@media (min-width: 768px){
+  .section{ --mapSize: 420px; } /* було min-height: 420px */
+}
+@media (min-width: 1200px){
+  .section{ --mapSize: 460px; } /* було min-height: 460px */
+}
+
+/* Fallback для дуже старих браузерів без aspect-ratio */
+@supports not (aspect-ratio: 1 / 1){
   .mapFrame{
-    flex: 1;
-    width: 100%;
-    min-height: 360px;
-    border-radius: 12px;
-    overflow: hidden;
-  
-    /* білий фон, щоб не було видимої "рамки" */
-    background: #ffffff;
-    border: none;
-    box-shadow: none;
-  
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    position: relative;
+    width: min(100%, var(--mapSize));
+    height: auto;
   }
-  
+  .mapFrame::before{
+    content: "";
+    display: block;
+    padding-top: 100%; /* 1:1 через «padding-top» трюк */
+  }
   .mapFrame iframe{
-    width: 100%;
-    height: 100%;
-    border: 0;
-  
-    /* зменшення ~15%, карта по центру */
-    transform: scale(0.85);
-    transform-origin: center;
-    background: #ffffff;
+    position: absolute;
+    inset: 0;
   }
-  
-  /* Трохи вище на більших екранах */
-  @media (min-width: 768px){
-    .mapFrame{ min-height: 420px; }
-  }
-  @media (min-width: 1200px){
-    .mapFrame{ min-height: 460px; }
-  }
+}
+
   
   
   
