@@ -13,7 +13,7 @@
 }
 
 .scrolled {
-    background-color: black;
+    background-color: var(--main-blue);
     padding: 0.25em 1.5em;
 }
 
@@ -28,15 +28,13 @@
 }
 
 .burgerIconContainer svg:hover {
-    fill: #c5c5c5;
+    color: #c5c5c5;
 }
 
-.logo {
-
-}
-
-.logo img {
+.logo svg {
     width: 8em;
+    height: fit-content;
+    fill: #f4f4f4;
 }
 
 .links {

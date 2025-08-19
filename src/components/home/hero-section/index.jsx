@@ -7,7 +7,6 @@ export default function HeroSection() {
                    muted
                    loop
                    playsInline={true}
-
                    className={styles.bgVideo}
             >
                 <source src="/videos/bg-kosice-1080.hevc.mp4"

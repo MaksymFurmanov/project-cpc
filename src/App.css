@@ -19,6 +19,18 @@
     font-style: normal;
 }
 
+@property --main-blue {
+    syntax: "<color>";
+    inherits: false;
+    initial-value: #6896ca;
+}
+
+@property --main-yellow {
+    syntax: "<color>";
+    inherits: false;
+    initial-value: #f6d400;
+}
+
 root {
     font-size: 14px;
 }

@@ -4,6 +4,7 @@ import navLinks from "../../lib/nav-links";
 import {useNavigate} from "react-router-dom";
 import {RiMenu2Line} from "react-icons/ri";
 import {IoMdClose} from "react-icons/io";
+import { ReactComponent as Logo } from '../../assets/logo-white.svg';
 
 export default function Header({sidebarToggle, setSidebarToggle}) {
     const navigate = useNavigate();
@@ -32,9 +33,7 @@ export default function Header({sidebarToggle, setSidebarToggle}) {
     return (
         <header className={`${styles.header} ${scrolled ? styles.scrolled : ""}`}>
             <div className={styles.logo}>
-                <img alt={"Košice"}
-                     src={"logo-white.png"}
-                />
+                <Logo/>
             </div>
             <nav className={styles.links}>
                 {navLinks.map((link, index) => {
