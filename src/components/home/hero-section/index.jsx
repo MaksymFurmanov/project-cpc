@@ -1,9 +1,6 @@
 import styles from "./hero-section.module.css";
-import {useTranslation} from "react-i18next";
 
 export default function HeroSection() {
-    const {t} = useTranslation();
-
     return (
         <section className={styles.container}>
             <video autoPlay
@@ -18,7 +15,7 @@ export default function HeroSection() {
             </video>
             <div className={styles.cover}>
                 <h1>
-                    {t("welcomeMessage")}
+                    Vítajte v Košiciach
                 </h1>
             </div>
         </section>
