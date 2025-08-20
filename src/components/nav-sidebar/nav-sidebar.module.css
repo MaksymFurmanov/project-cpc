@@ -4,7 +4,7 @@
     top: 0;
     width: 20em;
     height: 100vh;
-    background-color: black;
+    background-color: var(--main-blue);
     box-sizing: border-box;
     transform: translateX(20em);
     z-index: 100;
