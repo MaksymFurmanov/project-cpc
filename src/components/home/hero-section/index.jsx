@@ -5,51 +5,38 @@ import {useTranslation} from "react-i18next";
 export default function HeroSection() {
     const {t} = useTranslation(["home"]);
 
-    /*const videoRef = useRef(null);
+    const videoRef = useRef(null);
 
     useEffect(() => {
         const video = videoRef.current;
         if (!video) return;
 
-        const tryPlay = () => video.play().catch(() => {});
-        const onLoaded = () => {
-            tryPlay();
+        video.muted = true;
+        video.defaultMuted = true;
+
+        const onTouch = () => {
+            video.play().catch(() => {});
+            window.removeEventListener("touchstart", onTouch);
         };
 
-        tryPlay();
-/!*        const onVisible = () => {
-            tryPlay();
-        };*!/
-/!*        const onTouch = () => {
-            tryPlay();
-            window.removeEventListener("touchstart", onTouch);
-        };*!/
-
-        //video.addEventListener("loadeddata", onLoaded, {once: true});
-        //document.addEventListener("visibilitychange", onVisible);
-        //window.addEventListener("touchstart", onTouch, {passive: true});
-        window.addEventListener("load", onLoaded);
+        window.addEventListener("touchstart", onTouch, {passive: true});
 
         return () => {
-            //video.removeEventListener("loadeddata", onLoaded);
-/!*            document.removeEventListener("visibilitychange", onVisible);
-            window.removeEventListener("touchstart", onTouch);*!/
-            window.removeEventListener("touchstart", onLoaded);
+            window.removeEventListener("touchstart", onTouch);
         };
-    }, [videoRef]);*/
+    }, [videoRef]);
 
     return (
         <section className={styles.container}>
-            <div dangerouslySetInnerHTML={{
-                __html: `
-        <video
-            playsinline
-            autoplay
-            muted
-          loop
-          class="${styles.bgVideo}"
-        >
-                        <source
+            <video
+                ref={videoRef}
+                playsInline
+                autoPlay
+                loop
+                preload
+                className={styles.bgVideo}
+            >
+                <source
                     src="/videos/bg-kosice-1080.avc.mp4"
                     type='video/mp4; codecs="avc1.640029, mp4a.40.2"'
                 />
@@ -57,20 +44,7 @@ export default function HeroSection() {
                     src="/videos/bg-kosice-1080.hevc.hvc1.mp4"
                     type='video/mp4; codecs="hvc1"'
                 />
-</video>,
-      `
-            }}></div>
-{/*            <video
-                ref={videoRef}
-                playsInline
-                autoPlay
-                muted={true}
-                loop
-                preload="none"
-                className={styles.bgVideo}
-            >
-
-            </video>*/}
+            </video>
 
             <div className={styles.cover}>
                 <h1>{t("heroSection.welcomeMsg")}</h1>
