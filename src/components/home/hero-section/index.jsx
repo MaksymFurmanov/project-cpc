@@ -5,7 +5,7 @@ import {useTranslation} from "react-i18next";
 export default function HeroSection() {
     const {t} = useTranslation(["home"]);
 
-    /*const videoRef = useRef(null);
+    const videoRef = useRef(null);
 
     useEffect(() => {
         const video = videoRef.current;
@@ -17,13 +17,13 @@ export default function HeroSection() {
         };
 
         tryPlay();
-/!*        const onVisible = () => {
+/*        const onVisible = () => {
             tryPlay();
-        };*!/
-/!*        const onTouch = () => {
+        };*/
+/*        const onTouch = () => {
             tryPlay();
             window.removeEventListener("touchstart", onTouch);
-        };*!/
+        };*/
 
         //video.addEventListener("loadeddata", onLoaded, {once: true});
         //document.addEventListener("visibilitychange", onVisible);
@@ -32,15 +32,16 @@ export default function HeroSection() {
 
         return () => {
             //video.removeEventListener("loadeddata", onLoaded);
-/!*            document.removeEventListener("visibilitychange", onVisible);
-            window.removeEventListener("touchstart", onTouch);*!/
+/*            document.removeEventListener("visibilitychange", onVisible);
+            window.removeEventListener("touchstart", onTouch);*/
             window.removeEventListener("touchstart", onLoaded);
         };
-    }, []);*/
+    }, [videoRef]);
 
     return (
         <section className={styles.container}>
             <video
+                ref={videoRef}
                 playsInline
                 autoPlay
                 muted
@@ -49,7 +50,7 @@ export default function HeroSection() {
                 className={styles.bgVideo}
             >
                 <source
-                    src="/videos/bg-kosice-1080.H264"
+                    src="/videos/bg-kosice-1080.avc.mp4"
                     type='video/mp4; codecs="avc1.640029, mp4a.40.2"'
                 />
                 <source
