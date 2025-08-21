@@ -15,6 +15,8 @@ export default function HeroSection() {
         const onLoaded = () => {
             tryPlay();
         };
+
+        tryPlay();
 /*        const onVisible = () => {
             tryPlay();
         };*/
