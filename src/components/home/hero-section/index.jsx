@@ -50,7 +50,7 @@ export default function HeroSection() {
                 className={styles.bgVideo}
             >
                 <source
-                    src="/videos/bg-kosice-1080.avc.mp4"
+                    src="/videos/bg-kosice-1080.H264"
                     type='video/mp4; codecs="avc1.640029, mp4a.40.2"'
                 />
                 <source
