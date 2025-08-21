@@ -1,5 +1,5 @@
 .container {
-      position: relative;           /* щоб створити локальний стек шарів */
+      /*position: relative;           /* щоб створити локальний стек шарів */
       min-height: 90dvh;
       overflow: hidden;
     }
