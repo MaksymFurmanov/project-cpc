@@ -33,7 +33,6 @@ export default function HeroSection() {
                 playsInline
                 autoPlay
                 loop
-                preload
                 className={styles.bgVideo}
             >
                 <source
