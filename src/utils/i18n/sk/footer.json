@@ -1,0 +1,18 @@
+{
+  "leftSide": {
+    "name": "KONTAKTNÉ SPOLOČENSKO-INFORMAČNÉ CENTRUM"
+  },
+  "phone": "Tel. č.",
+  "openingHours": "OTVÁRACIE HODINY",
+  "week": {
+    "monday": "Pondelok",
+    "tuesday": "Utorok",
+    "wednesday": "Streda",
+    "thursday": "Štvrtok",
+    "friday": "Piatok"
+  },
+  "lunchBreak": "Obedňajšia prestávka",
+  "rightSide": {
+    "name": "KANCELÁRIA PRVÉHO KONTAKTU PRE CUDZINCOV"
+  }
+}

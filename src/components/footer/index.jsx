@@ -59,7 +59,7 @@ export default function Footer() {
               <li><span>{t("week.thursday")}{/*Štvrtok*/}</span><span>8:00 – 15:00 h.</span></li>
               <li><span>{t("week.friday")}{/*Piatok*/}</span><span>8:00 – 14:00 h.</span></li>
             </ul>
-            <p className={styles.note}>{t("lunchBreak")}Obedňajšia prestávka: 12:00 – 12:30 h.</p>
+            <p className={styles.note}>{t("lunchBreak")}{/*Obedňajšia prestávka*/}: 12:00 – 12:30 h.</p>
           </div>
         </div>
 
@@ -68,7 +68,7 @@ export default function Footer() {
         {/* нижній блок */}
         <div className={styles.bottomGrid}>
           <div className={styles.block}>
-            <h3 className={styles.title}>KANCELÁRIA PRVÉHO KONTAKTU PRE CUDZINCOV</h3>
+            <h3 className={styles.title}>{t("rightSide.name")}{/*KANCELÁRIA PRVÉHO KONTAKTU PRE CUDZINCOV*/}</h3>
             <address className={styles.address}>
               Tr. SNP 48/A, Košice
               <br />

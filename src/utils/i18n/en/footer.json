@@ -1,0 +1,18 @@
+{
+  "leftSide": {
+    "name": "CONTACT SOCIAL-INFORMATION CENTER"
+  },
+  "phone": "Tel.",
+  "openingHours": "OPENING HOURS",
+  "week": {
+    "monday": "Monday",
+    "tuesday": "Tuesday",
+    "wednesday": "Wednesday",
+    "thursday": "Thursday",
+    "friday": "Friday"
+  },
+  "lunchBreak": "Lunch Break",
+  "rightSide": {
+    "name": "FIRST CONTACT OFFICE FOR FOREIGNERS"
+  }
+}
