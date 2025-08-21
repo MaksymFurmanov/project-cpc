@@ -45,7 +45,7 @@ export default function HeroSection() {
                 autoPlay
                 muted
                 loop
-                preload="auto"
+                preload="none"
                 className={styles.bgVideo}
             >
                 <source
