@@ -41,10 +41,10 @@ export default function HeroSection() {
     return (
         <section className={styles.container}>
             <video
+                playsInline
                 autoPlay
                 muted
                 loop
-                playsInline
                 preload="none"
                 className={styles.bgVideo}
             >
