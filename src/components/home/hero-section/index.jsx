@@ -11,23 +11,30 @@ export default function HeroSection() {
         const video = videoRef.current;
         if (!video) return;
 
-        video.play().catch(() => {});
-        /*const onLoaded = () => {
+        const tryPlay = () => video.play().catch(() => {});
+        const onLoaded = () => {
             tryPlay();
         };
-
-        tryPlay();*/
 /*        const onVisible = () => {
             tryPlay();
         };*/
+/*        const onTouch = () => {
+            tryPlay();
+            window.removeEventListener("touchstart", onTouch);
+        };*/
+
         //video.addEventListener("loadeddata", onLoaded, {once: true});
         //document.addEventListener("visibilitychange", onVisible);
+        //window.addEventListener("touchstart", onTouch, {passive: true});
+        window.addEventListener("load", onLoaded);
 
         return () => {
             //video.removeEventListener("loadeddata", onLoaded);
-            //document.removeEventListener("visibilitychange", onVisible);
+/*            document.removeEventListener("visibilitychange", onVisible);
+            window.removeEventListener("touchstart", onTouch);*/
+            window.removeEventListener("touchstart", onLoaded);
         };
-    }, [videoRef]);
+    }, []);
 
     return (
         <section className={styles.container}>
