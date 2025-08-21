@@ -40,10 +40,10 @@ export default function HeroSection() {
         <section className={styles.container}>
             <video
                 ref={videoRef}
-                /*autoPlay*/
+                autoPlay
                 muted
                 loop
-                /*playsInline*/
+                playsInline
                 preload="auto"
                 className={styles.bgVideo}
             >
