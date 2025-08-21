@@ -12,23 +12,25 @@ export default function HeroSection() {
         if (!video) return;
 
         const tryPlay = () => video.play().catch(() => {});
-        const onLoaded = () => tryPlay();
-        const onVisible = () => {
-            if (!document.hidden) tryPlay();
+        const onLoaded = () => {
+            tryPlay();
         };
-        const onTouch = () => {
+/*        const onVisible = () => {
+            tryPlay();
+        };*/
+/*        const onTouch = () => {
             tryPlay();
             window.removeEventListener("touchstart", onTouch);
-        };
+        };*/
 
         video.addEventListener("loadeddata", onLoaded, {once: true});
-        document.addEventListener("visibilitychange", onVisible);
-        window.addEventListener("touchstart", onTouch, {passive: true});
+        //document.addEventListener("visibilitychange", onVisible);
+        //window.addEventListener("touchstart", onTouch, {passive: true});
 
         return () => {
             video.removeEventListener("loadeddata", onLoaded);
-            document.removeEventListener("visibilitychange", onVisible);
-            window.removeEventListener("touchstart", onTouch);
+/*            document.removeEventListener("visibilitychange", onVisible);
+            window.removeEventListener("touchstart", onTouch);*/
         };
     }, []);
 
