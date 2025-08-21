@@ -1,14 +1,10 @@
 const navLinks = [
     {
-        label: "Home",
+        label: "homeLink",
         url: "/"
     },
     {
-        label: "O Nás",
-        url: "/"
-    },
-    {
-        label: "Link",
+        label: "aboutUsLink",
         url: "/"
     }
 ];

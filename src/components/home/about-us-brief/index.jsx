@@ -1,6 +1,9 @@
 import styles from "./about-us-brief.module.css";
+import {useTranslation} from "react-i18next";
 
 export default function AboutUsBrief() {
+    const {t} = useTranslation(["home"]);
+
     return (
         <article className={styles.container}>
             <img className={styles.mainLogo}
@@ -8,15 +11,18 @@ export default function AboutUsBrief() {
                  alt={"Košice"}
             />
             <h2>
-                Centrum podpory cudzincov
+                {t("aboutUsBrief.title")}
+                {/*Centrum podpory cudzincov*/}
             </h2>
             <p>
-                Ciel’om Magistrátu mesta Košice je túto podporu systematicky rozvíjať. Aj preto v jeho štruktúrach
+                {t("aboutUsBrief.text")}
+                {/*Ciel’om Magistrátu mesta Košice je túto podporu systematicky rozvíjať. Aj preto v jeho štruktúrach
                 pôsobí Centrum podpory cudzincov, ktoré poskytuje svoje služby prostredníctvom kancelárie prvého
-                kontaktu (KPK) pre cudzincov.
+                kontaktu (KPK) pre cudzincov.*/}
             </p>
             <button>
-                Kontakty
+                {t("aboutUsBrief.contactsButton")}
+                {/*Kontakty*/}
             </button>
         </article>
     );

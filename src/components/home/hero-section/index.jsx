@@ -2,7 +2,7 @@ import styles from "./hero-section.module.css";
 import {useTranslation} from "react-i18next";
 
 export default function HeroSection() {
-    const {t} = useTranslation();
+    const {t} = useTranslation(["home"]);
 
     return (
         <section className={styles.container}>
@@ -18,7 +18,7 @@ export default function HeroSection() {
             </video>
             <div className={styles.cover}>
                 <h1>
-                    {t("home.heroSection.welcomeMsg")}
+                    {t("heroSection.welcomeMsg")}
                 </h1>
             </div>
         </section>

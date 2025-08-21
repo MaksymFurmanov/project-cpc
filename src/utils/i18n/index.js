@@ -1,35 +1,31 @@
 import i18n from "i18next";
 import {initReactI18next} from "react-i18next";
-import enLang from "./en/en.json";
-import skLang from "./sk/sk.json";
-import uaLang from "./ua/ua.json";
 
-// the translations
-// (tip move them in a JSON file and import them,
-// or even better, manage them separated from your code: https://react.i18next.com/guides/multiple-translation-files)
+const importAllNs = (r) => {
+    return r.keys().reduce((acc, file) => {
+        const ns = file
+            .replace("./", "")
+            .replace(".json", "");
+        acc[ns] = r(file);
+        return acc;
+    }, {});
+}
+
 const resources = {
-    sk: {
-        translation: skLang
-    },
-    ua: {
-        translation: uaLang
-    },
-    en: {
-        translation: enLang
-    },
+    en: importAllNs(require.context("./en", false, /\.json$/)),
+    sk: importAllNs(require.context("./sk", false, /\.json$/)),
+    ua: importAllNs(require.context("./ua", false, /\.json$/)),
 };
 
-i18n
-    .use(initReactI18next) // passes i18n down to react-i18next
-    .init({
-        resources,
-        lng: "sk", // language to use, more information here: https://www.i18next.com/overview/configuration-options#languages-namespaces-resources
-        // you can use the i18n.changeLanguage function to change the language manually: https://www.i18next.com/overview/api#changelanguage
-        // if you're using a language detector, do not define the lng option
+i18n.use(initReactI18next).init({
+    resources,
+    lng: "ua",
+    fallbackLng: "en",
+    ns: Object.keys(resources.en),
 
-        interpolation: {
-            escapeValue: false // react already safes from xss
-        }
-    });
+    interpolation: {
+        escapeValue: false,
+    },
+});
 
 export default i18n;

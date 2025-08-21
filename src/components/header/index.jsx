@@ -5,10 +5,12 @@ import {useNavigate} from "react-router-dom";
 import {RiMenu2Line} from "react-icons/ri";
 import {IoMdClose} from "react-icons/io";
 import { ReactComponent as Logo } from '../../assets/logo-white.svg';
+import {useTranslation} from "react-i18next";
 
 export default function Header({sidebarToggle, setSidebarToggle}) {
     const navigate = useNavigate();
     const [scrolled, setScrolled] = useState(false);
+    const {t} = useTranslation(["header", "nav"]);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -42,7 +44,7 @@ export default function Header({sidebarToggle, setSidebarToggle}) {
                            onClick={() =>
                                navigate(link.url)
                            }>
-                            {link.label}
+                            {t(link.label)}
                         </p>
                     )
                 })}

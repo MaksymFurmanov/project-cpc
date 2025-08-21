@@ -1,8 +1,10 @@
 import { FaFacebookF, FaTelegramPlane, FaPhoneAlt } from "react-icons/fa";
 import styles from "./footer.module.css";
+import {useTranslation} from "react-i18next";
 
 export default function Footer() {
   const year = new Date().getFullYear();
+  const {t} = useTranslation(["footer"]);
 
   return (
     <footer className={styles.container}>
@@ -14,7 +16,8 @@ export default function Footer() {
           {/* ліва колонка */}
           <div className={styles.block}>
             <h3 className={styles.title}>
-              KONTAKTNÉ SPOLOČENSKO-INFORMAČNÉ CENTRUM
+              {t("leftSide.name")}
+              {/*KONTAKTNÉ SPOLOČENSKO-INFORMAČNÉ CENTRUM*/}
             </h3>
             <address className={styles.address}>
               Hlavná 68, Košice, B 214, 2. posch.
@@ -22,7 +25,7 @@ export default function Footer() {
               040 01, Staré Mesto
             </address>
             <p className={styles.line}>
-              Phone:{" "}
+              {t("phone")}{/*Phone*/}:{" "}
               <a href="tel:+421908365995" className={styles.link}>
                 +421 908 365 995
               </a>
@@ -48,15 +51,15 @@ export default function Footer() {
 
           {/* права колонка */}
           <div className={styles.block}>
-            <h3 className={styles.title}>OTVÁRACIE HODINY</h3>
+            <h3 className={styles.title}>{t("openingHours")}{/*OTVÁRACIE HODINY*/}</h3>
             <ul className={styles.hours}>
-              <li><span>Pondelok</span><span>8:00 – 15:00 h.</span></li>
-              <li><span>Utorok</span><span>8:00 – 15:00 h.</span></li>
-              <li><span>Streda</span><span>8:00 – 16:00 h.</span></li>
-              <li><span>Štvrtok</span><span>8:00 – 15:00 h.</span></li>
-              <li><span>Piatok</span><span>8:00 – 14:00 h.</span></li>
+              <li><span>{t("week.monday")}{/*Pondelok*/}</span><span>8:00 – 15:00 h.</span></li>
+              <li><span>{t("week.tuesday")}{/*Utorok*/}</span><span>8:00 – 15:00 h.</span></li>
+              <li><span>{t("week.wednesday")}{/*Streda*/}</span><span>8:00 – 16:00 h.</span></li>
+              <li><span>{t("week.thursday")}{/*Štvrtok*/}</span><span>8:00 – 15:00 h.</span></li>
+              <li><span>{t("week.friday")}{/*Piatok*/}</span><span>8:00 – 14:00 h.</span></li>
             </ul>
-            <p className={styles.note}>Obedňajšia prestávka: 12:00 – 12:30 h.</p>
+            <p className={styles.note}>{t("lunchBreak")}Obedňajšia prestávka: 12:00 – 12:30 h.</p>
           </div>
         </div>
 
@@ -72,7 +75,7 @@ export default function Footer() {
               040 10, Staré Mesto
             </address>
             <p className={styles.line}>
-              Phone:{" "}
+              {t("phone")}{/*Phone*/}:{" "}
               <a href="tel:+421556419190" className={styles.link}>
                 +421 55 64 19 190
               </a>
