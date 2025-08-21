@@ -41,7 +41,7 @@ export default function HeroSection() {
     return (
         <section className={styles.container}>
             <video
-                /*ref={videoRef}*/
+                ref={videoRef}
                 playsInline
                 autoPlay
                 muted
