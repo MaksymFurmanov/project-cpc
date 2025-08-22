@@ -10,12 +10,12 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0.75em 2em;
+    padding: 1dvh 2em;
 }
 
 .scrolled {
     background-color: var(--main-blue);
-    padding: 0.25em 2em;
+    padding: 0.25dvh 2em;
 }
 
 .burgerIconContainer {
