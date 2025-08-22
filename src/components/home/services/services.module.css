@@ -8,13 +8,10 @@
     --surface: #f5f6f8;
   
     background: var(--surface);        /* <-- було #fff */
-    padding: clamp(48px, 6vw, 96px) 0;
+    padding: clamp(28px, 4.5vw, 58px) 0; 
   }
   
-  .container{
-    width: min(1200px, 92vw);
-    margin: 0 auto;
-  }
+
   
   .title{
     text-align: center;
@@ -23,25 +20,31 @@
     font-weight: 800;
     color:#22272a;
     letter-spacing: .4px;
-    margin: 0 0 clamp(32px, 5vw, 64px);
+    margin: 0 0 clamp(26px, 3vw, 40px); 
   }
   
   
   /* Grid: 2 колонки мобайл / 3 колонки md+ */
   .grid{
     list-style: none;
-    margin: 0;
+    margin: 0 auto;
     padding: 0;
     display: grid;
     grid-template-columns: repeat(2, minmax(0,1fr));
-    gap: clamp(20px, 4vw, 32px);
+    gap: clamp(16px, 4vw, 3em);
+    justify-items: center;
+    max-width: 55em;
+    padding: 0 1.5em;
   }
   @media (min-width: 768px){
     .grid{ grid-template-columns: repeat(3, minmax(0,1fr)); }
   }
   
   /* --- КАРТКА --- */
-  .card{ display:block; }
+  .card{ 
+    display:block; 
+    width: 100%;
+  }
   
   /* статична рамка у блакитних тонах */
   .border{
@@ -49,13 +52,14 @@
     padding: 2px;                    /* товщина рамки */
     border-radius: 16px;
     background: linear-gradient(135deg,var(--grad-1),var(--grad-2),var(--grad-3));
+    margin: 0 auto;
   }
   
   /* вміст картки */
   .inner{
     position: relative;
     isolation: isolate;              /* псевдоелемент під контентом */
-    min-height: 180px;
+    min-height: clamp(7.5em, 22vw, 170px);
     border-radius: 14px;
     background: #ffffff;
     display:flex;
@@ -63,8 +67,8 @@
     align-items:center;
     justify-content:center;
     text-align:center;
-    gap: 10px;
-    padding: 24px 18px;
+    gap: 8px;
+    padding: 18px 14px;
     box-shadow: 0 6px 18px rgba(0,0,0,.06);
     transition: transform .25s ease, box-shadow .25s ease, color .3s ease;
     overflow: hidden;
@@ -84,17 +88,22 @@
   }
   
   .icon{
-    font-size: clamp(40px, 5vw, 64px);
+    font-size: clamp(36px, 4.5vw, 56px);
     line-height: 1;
     color:#111;
     transition: color .3s ease, transform .25s ease;
   }
   
   .label{
-    font-size: clamp(15px, 2vw, 20px);
+    font-size: clamp(14px, 1.6vw, 18px);
     line-height: 1.45;
     color:#2a2f33;
     transition: color .3s ease;
+     /* NEW: допомагаємо довгим назвам гарно вміщатися */
+    max-width: 22ch;            /* м’яке обмеження ширини рядка */
+    text-wrap: balance;         /* сучасне збалансоване перенесення */
+    overflow-wrap: anywhere;    /* фолбек: можна переносити будь-де */
+    hyphens: auto;              /* перенос за правилами мови, якщо доступно */
   }
   
   /* hover/focus */
@@ -125,6 +134,26 @@
     .inner{ transition: none; }
     .inner::before{ transition: none; }
   }
+
+  /* Desktop: звужуємо ширину карток і центруємо в колонці */
+@media (min-width: 992px){
+  .border{
+    max-width: 280px;   /* ← вибери потрібне значення (напр. 260–300px) */
+    width: 100%;
+   /* центрує картку в колонці */
+  }
+}
+
+
+  /* OPTIONAL: ще компактніші картки на дуже широких екранах */
+@media (min-width: 1280px){
+  .inner{
+    min-height: 150px;        /* трошки менше */
+    padding: 16px 12px;       /* ще компактніше */
+  }
+  .icon{ font-size: clamp(34px, 3.6vw, 52px); }
+  .label{ max-width: 20ch; }  /* коротші рядки — акуратніша висота */
+}
   
   
   
