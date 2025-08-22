@@ -8,7 +8,7 @@ import Steps from "../components/home/steps";
 export default function Home() {
 
     return (
-        <main>
+        <main className={"Home"}>
             <HeroSection/>
             <AboutUsBrief/>
             <ServisSection/>

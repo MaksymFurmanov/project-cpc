@@ -1,27 +1,20 @@
 .header {
-    position: fixed;
+    position: sticky;
     top: 0;
-    width: 100dvw;
+    max-width: 100dvw;
     max-height: 12dvh;
     background-color: transparent;
     color: #f4f4f4;
     transition: all 0.8s ease;
     z-index: 100;
-}
-
-.wrapper {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    transition: all 0.8s ease;
     padding: 0.75em 2em;
 }
 
 .scrolled {
     background-color: var(--main-blue);
-}
-
-.scrolled .wrapper {
     padding: 0.25em 2em;
 }
 

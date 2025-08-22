@@ -39,8 +39,8 @@ body {
     font-family: 'Onest', sans-serif;
 }
 
-.h-placeholder {
-    height: 100vh;
+.Home {
+    margin-top: -20dvh;
 }
 
 .content {

@@ -48,8 +48,6 @@ export default function HeroSection() {
             <div className={styles.cover}>
                 <h1>{t("heroSection.welcomeMsg")}</h1>
             </div>
-
-            <div className={styles.heightHolder}/>
         </section>
     );
 }

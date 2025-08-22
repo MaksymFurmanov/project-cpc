@@ -1,5 +1,6 @@
 section {
     position: relative;
+    height: 100dvh;
 }
 
 .bgVideo {
@@ -29,8 +30,4 @@ section {
 .cover h1 {
     font-size: 3em;
     margin: 2em 1em;
-}
-
-.heightHolder {
-    height: 100dvh;
 }
