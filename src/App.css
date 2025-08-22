@@ -69,9 +69,3 @@ body {
         font-size: 18px;
     }
 }
-
-@supports (-webkit-overflow-scrolling: touch) {
-    body {
-        background-attachment: scroll;
-    }
-}
