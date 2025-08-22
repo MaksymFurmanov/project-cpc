@@ -1,7 +1,7 @@
 .header {
-    position: sticky;
+    position: fixed;
     top: 0;
-    max-width: 100dvw;
+    width: 100dvw;
     max-height: 12dvh;
     background-color: transparent;
     color: #f4f4f4;
@@ -9,7 +9,6 @@
     align-items: center;
     justify-content: space-between;
     transition: all 0.8s ease;
-    padding: 0.75em 1.5em;
     z-index: 100;
 }
 
@@ -19,7 +18,8 @@
 }
 
 .burgerIconContainer {
-    display: block;
+    padding: 1em 2em 1em 1em;
+    visibility: visible;
 }
 
 .burgerIconContainer svg {
@@ -33,6 +33,7 @@
 }
 
 .logo svg {
+    padding: 1em 1em 1em 2em;
     width: 8em;
     height: fit-content;
     fill: #f4f4f4;
@@ -63,6 +64,6 @@
     }
 
     .burgerIconContainer {
-        display: none;
+        visibility: hidden;
     }
 }

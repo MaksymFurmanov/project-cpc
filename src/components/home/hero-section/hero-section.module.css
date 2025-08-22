@@ -1,6 +1,5 @@
-.container {
-    min-height: 90dvh;
-    overflow: hidden;
+section {
+    position: relative;
 }
 
 .bgVideo {
@@ -25,4 +24,13 @@
     background-color: rgba(255, 255, 255, 0.17);
     color: #f4f4f4;
     z-index: 1;
+}
+
+.cover h1 {
+    font-size: 3em;
+    margin: 2em 1em;
+}
+
+.heightHolder {
+    height: 100dvh;
 }

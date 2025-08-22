@@ -27,7 +27,7 @@ export default function HeroSection() {
     }, [videoRef]);
 
     return (
-        <section className={styles.container}>
+        <section>
             <video
                 ref={videoRef}
                 playsInline
@@ -48,6 +48,8 @@ export default function HeroSection() {
             <div className={styles.cover}>
                 <h1>{t("heroSection.welcomeMsg")}</h1>
             </div>
+
+            <div className={styles.heightHolder}/>
         </section>
     );
 }
