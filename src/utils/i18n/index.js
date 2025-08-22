@@ -17,15 +17,17 @@ const resources = {
     ua: importAllNs(require.context("./ua", false, /\.json$/)),
 };
 
-i18n.use(initReactI18next).init({
-    resources,
-    lng: "ua",
-    fallbackLng: "en",
-    ns: Object.keys(resources.en),
+i18n.use(initReactI18next)
+    .init({
+            resources,
+            lng: "ua",
+            fallbackLng: "en",
+            ns: Object.keys(resources.en),
 
-    interpolation: {
-        escapeValue: false,
-    },
-});
+            interpolation: {
+                escapeValue: false,
+            },
+        }
+    );
 
 export default i18n;

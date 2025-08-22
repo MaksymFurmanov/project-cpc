@@ -1,16 +1,20 @@
 import styles from "./about-kosice.module.css";
+import {useTranslation} from "react-i18next";
 
 export default function AboutKosice() {
+    const {t} = useTranslation("home");
+
     return (
         <article>
             <div className={styles.bgLayer}>
                 <div className={styles.overlay}/>
                 <div className={styles.content}>
                     <h2>
-                        KOŠICE
+                        {t("aboutKosice.title")}{/*KOŠICE*/}
                     </h2>
                     <p>
-                        Košice sú otvoreným a priateľským mestom, ktoré srdečne víta cudzincov prichádzajúcich za
+                        {t("aboutKosice.text")}
+                        {/*Košice sú otvoreným a priateľským mestom, ktoré srdečne víta cudzincov prichádzajúcich za
                         prácou,
                         štúdiom či podnikaním. Ponúkajú pestré možnosti profesionálneho uplatnenia, kvalitné
                         vzdelávacie
@@ -21,7 +25,7 @@ export default function AboutKosice() {
                         doma.
                         Košičania sú známi svojou pohostinnosťou a ochotou pomôcť cudzincom pri integrácii do
                         miestnej
-                        komunity.
+                        komunity.*/}
                     </p>
                 </div>
             </div>

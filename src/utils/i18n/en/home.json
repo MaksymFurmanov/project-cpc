@@ -1,10 +1,51 @@
 {
+  "aboutKosice": {
+    "title": "KOŠICE",
+    "text": "Košice is an open and friendly city that warmly welcomes foreigners coming for work, study, or business. It offers diverse opportunities for professional development, quality educational institutions, and a favorable business environment. With its rich culture, vibrant social life, and multicultural atmosphere, Košice has become a place where people from different countries feel at home. The people of Košice are known for their hospitality and willingness to help foreigners integrate into the local community."
+  },
   "aboutUsBrief": {
-    "title": "Foreigners' Support Center",
-    "text": "The goal of the Košice City Magistrate is to systematically develop this support. That is why, within its structures, there is a Foreigners' Support Center, which provides its services through the first contact office (FCO) for foreigners.",
+    "title": "Center for Support of Foreigners",
+    "text": "The goal of the Košice City Municipality is to systematically develop this support. That is why the Center for Support of Foreigners operates within its structure, providing its services through the First Contact Office (KPK) for foreigners.",
     "contactsButton": "Contacts"
+  },
+  "services": {
+    "title": "Our Services",
+    "schools": "Finding schools / education",
+    "translation": "Interpreting",
+    "institutions": "First contact with Košice institutions",
+    "police": "Questions about the Foreign Police",
+    "print": "Form filling and printing",
+    "integrationService": "Comprehensive integration counseling"
+  },
+  "contactMaps": {
+    "title": "Contact us",
+    "phone": "Phone",
+    "email": "Email",
+    "openingHours": "Opening hours",
+    "lunchBreak": "Lunch break",
+    "days": {
+      "monday": "Monday",
+      "tuesday": "Tuesday",
+      "wednesday": "Wednesday",
+      "thursday": "Thursday",
+      "friday": "Friday"
+    }
   },
   "heroSection": {
     "welcomeMsg": "Welcome to Košice"
+  },
+  "steps": {
+    "step1": {
+      "title": "Contact us",
+      "text": "Visit one of our support center offices or call us to arrange an appointment."
+    },
+    "step2": {
+      "title": "Explain your situation",
+      "text": "Tell us what kind of help you need or what difficulties you are facing in integrating into the city of Košice."
+    },
+    "step3": {
+      "title": "Follow the advice of our staff",
+      "text": "We will do everything in our power to help you resolve your issues."
+    }
   }
 }

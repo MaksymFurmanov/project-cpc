@@ -17,7 +17,7 @@ export default function NavSidebar({sidebarToggle}) {
                                 navigate(link.url)
                             }}
                         >
-                            {t("aboutUsLink")}
+                            {t(link.label)}
                         </li>
                     )
                 })}

@@ -1,10 +1,51 @@
 {
+  "aboutKosice": {
+    "title": "KOŠICE",
+    "text": "Košice sú otvoreným a priateľským mestom, ktoré srdečne víta cudzincov prichádzajúcich za prácou, štúdiom či podnikaním. Ponúkajú pestré možnosti profesionálneho uplatnenia, kvalitné vzdelávacie inštitúcie a priaznivé podnikateľské prostredie. S bohatou kultúrou, živým spoločenským životom a multikultúrnou atmosférou sa Košice stávajú miestom, kde sa ľudia z rôznych krajín cítia ako doma. Košičania sú známi svojou pohostinnosťou a ochotou pomôcť cudzincom pri integrácii do miestnej komunity."
+  },
   "aboutUsBrief": {
     "title": "Centrum podpory cudzincov",
     "text": "Ciel’om Magistrátu mesta Košice je túto podporu systematicky rozvíjať. Aj preto v jeho štruktúrach pôsobí Centrum podpory cudzincov, ktoré poskytuje svoje služby prostredníctvom kancelárie prvého kontaktu (KPK) pre cudzincov.",
     "contactsButton": "Kontakty"
   },
+  "services": {
+    "title": "Naše služby",
+    "schools": "Hľadanie školy/školstva",
+    "translation": "Tlmočenie",
+    "institutions": "Prvý kontakt s Košickými inštitúciami",
+    "police": "Otázky o cudzineckej polícii",
+    "print": "Vyplnenie tlačív a tlač",
+    "integrationService": "Celkové integračné poradenstvo"
+  },
+  "contactMaps": {
+    "title": "Kontaktujte nás",
+    "phone": "Telefón",
+    "email": "Email",
+    "openingHours": "Otváracie hodiny",
+    "lunchBreak": "Obedňajšia prestávka",
+    "days": {
+      "monday": "Pondelok",
+      "tuesday": "Utorok",
+      "wednesday": "Streda",
+      "thursday": "Štvrtok",
+      "friday": "Piatok"
+    }
+  },
   "heroSection": {
     "welcomeMsg": "Vitajte v Košiciach"
+  },
+  "steps": {
+    "step1": {
+      "title": "Kontaktujte nás",
+      "text": "Navštívte jednu z našich kancelárií centra alebo nám zavolajte, aby ste si dohodli stretnutie."
+    },
+    "step2": {
+      "title": "Vysvetlite situáciu",
+      "text": "Povedzte nám, akú pomoc by ste potrebovali alebo s akými ťažkosťami sa stretávate pri integrácii v meste Košice."
+    },
+    "step3": {
+      "title": "Postupujte podľa rád našich pracovníkov",
+      "text": "Urobíme všetko, čo je v našich silách, aby sme vám pomohli vyriešiť vaše otázky."
+    }
   }
 }

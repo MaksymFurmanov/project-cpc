@@ -10,7 +10,7 @@ import {useTranslation} from "react-i18next";
 export default function Header({sidebarToggle, setSidebarToggle}) {
     const navigate = useNavigate();
     const [scrolled, setScrolled] = useState(false);
-    const {t} = useTranslation(["header", "nav"]);
+    const {t} = useTranslation(["nav"]);
 
     useEffect(() => {
         const handleScroll = () => {
