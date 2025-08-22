@@ -2,7 +2,7 @@
     position: sticky;
     top: 0;
     max-width: 100dvw;
-    max-height: 12dvh;
+    height: 12dvh;
     background-color: transparent;
     color: #f4f4f4;
     transition: all 0.8s ease;
