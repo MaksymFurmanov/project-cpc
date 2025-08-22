@@ -5,19 +5,27 @@
     max-height: 12dvh;
     background-color: transparent;
     color: #f4f4f4;
+    transition: all 0.8s ease;
+    z-index: 100;
+}
+
+.wrapper {
     display: flex;
     align-items: center;
     justify-content: space-between;
     transition: all 0.8s ease;
-    z-index: 100;
+    padding: 0.75em 2em;
 }
 
 .scrolled {
     background-color: var(--main-blue);
 }
 
+.scrolled .wrapper {
+    padding: 0.25em 2em;
+}
+
 .burgerIconContainer {
-    padding: 1em 2em 1em 1em;
     visibility: visible;
 }
 
@@ -32,7 +40,6 @@
 }
 
 .logo svg {
-    padding: 1em 1em 1em 2em;
     width: 8em;
     height: fit-content;
     fill: #f4f4f4;
