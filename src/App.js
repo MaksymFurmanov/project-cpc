@@ -15,7 +15,7 @@ function App() {
 
     return (
         <BrowserRouter>
-            <main className={"App"}>
+            <main>
                 {sidebarToggle ? <NavSidebar sidebarToggle={sidebarToggle}/> : null}
                 <div className={`content ${sidebarToggle && 'moveContent'}`}
                     onClick={() => {

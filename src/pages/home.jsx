@@ -6,7 +6,6 @@ import AboutUsBrief from "../components/home/about-us-brief";
 import Steps from "../components/home/steps";
 
 export default function Home() {
-
     return (
         <main className={"Home"}>
             <HeroSection/>

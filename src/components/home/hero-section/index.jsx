@@ -27,7 +27,7 @@ export default function HeroSection() {
     }, [videoRef]);
 
     return (
-        <section>
+        <section className={styles.container}>
             <video
                 ref={videoRef}
                 playsInline
