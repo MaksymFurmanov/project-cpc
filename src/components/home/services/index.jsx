@@ -24,7 +24,7 @@ export default function Services() {
   return (
     <section className={styles.section}>
       <div className={styles.container}>
-        <h2 className={styles.title}>Naše služby</h2>
+        <h2 className={styles.title}>{t("services.title")}</h2>
 
         <ul className={styles.grid} aria-label="Zoznam služieb">
           {items.map((it, i) => (
