@@ -10,8 +10,9 @@ export default function LanguageSwitcher() {
     const [langIndex, setLangIndex] = useState(initialIndex);
 
     const changeLanguageHandler = (lang, index) => {
-        setLangIndex(index);
-        i18n.changeLanguage(lang);
+        i18n.changeLanguage(lang).then(() => {
+            setLangIndex(index)
+        });
     }
 
     return (
