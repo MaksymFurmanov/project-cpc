@@ -18,20 +18,6 @@
     padding: 0.25dvh 2em;
 }
 
-.burgerIconContainer {
-    visibility: visible;
-}
-
-.burgerIconContainer svg {
-    width: 1.5em;
-    height: 1.5em;
-    cursor: pointer;
-}
-
-.burgerIconContainer svg:hover {
-    color: #c5c5c5;
-}
-
 .logo svg {
     width: 8em;
     height: fit-content;
@@ -55,6 +41,97 @@
 .links p:hover {
     color: #c5c5c5;
     border-bottom: 1px solid #c5c5c5;
+}
+
+.buttonsRight {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+
+.buttonsRight svg {
+    width: 1.5em;
+    height: 1.5em;
+    cursor: pointer;
+}
+
+.burgerIconContainer {
+    visibility: visible;
+}
+
+.burgerIconContainer svg:hover {
+    color: #c5c5c5;
+}
+
+.languageSwitcher {
+    position: relative;
+}
+
+.languageSwitcher svg {
+    position: relative;
+    z-index: 4;
+    transition: fill 0.5s ease-in-out;
+}
+
+.languageSwitcher:hover svg {
+    fill: #000000;
+    cursor: auto;
+}
+
+.languagesContainer {
+    position: absolute;
+    top: -0.5em;
+    right: -0.75em;
+    padding: 0.25em;
+    background: #f4f4f4;
+    border-radius: 10px;
+    z-index: 1;
+    visibility: hidden;
+    opacity: 0;
+    max-height: 0;
+    max-width: 0;
+    overflow: hidden;
+    transition: max-width 0.3s ease,
+    max-height 0.3s ease,
+    visibility 0.6s ease-in-out,
+    opacity 0.6s ease-in-out;
+}
+
+.languageSwitcher:hover .languagesContainer {
+    visibility: visible;
+    opacity: 1;
+    max-height: 10em;
+    max-width: 6em;
+}
+
+.selectedContainer {
+    height: 2em;
+    background: #cacaca;
+    border-radius: 25px;
+    margin: 0 0.25em;
+    transition: transform 0.3s ease-in-out;
+    transform: translateY(0);
+}
+
+.languageVariant {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    cursor: pointer;
+    color: #000000;
+    padding: 0.5em;
+    margin: 0.25em;
+    position: relative;
+    z-index: 3;
+}
+
+.languageVariant p {
+    margin: 0;
+}
+
+.languageVariant img {
+    width: 1.5em;
+    height: 1em;
 }
 
 @media (min-width: 1024px) {

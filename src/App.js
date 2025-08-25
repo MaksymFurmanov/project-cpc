@@ -18,9 +18,9 @@ function App() {
             <main>
                 <NavSidebar sidebarToggle={sidebarToggle}/>
                 <div className={`content ${sidebarToggle && 'moveContent'}`}
-                    onClick={() => {
-                    closeIfOpened();
-                }}>
+                     onClick={() => {
+                         closeIfOpened();
+                     }}>
                     <Header sidebarToggle={sidebarToggle}
                             setSidebarToggle={setSidebarToggle}
                     />

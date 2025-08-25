@@ -94,7 +94,7 @@ export default function ContactMaps() {
     ];
 
     return (
-        <div className={styles.section}>
+        <div className={styles.section} id={"contacts"}>
             <div className={styles.container}>
                 {/* Офіс 1 — текст зліва, карта справа */}
                 <ContactBlock
