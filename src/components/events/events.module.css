@@ -27,6 +27,12 @@
     font-weight: 600;
 }
 
+.calendar {
+    margin: 4em auto;
+    width: 70%;
+    height: 80dvh;
+}
+
 @media (min-width: 640px) {
     .gridContainer {
         grid-template-columns: repeat(2, 1fr);

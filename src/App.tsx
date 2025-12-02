@@ -32,7 +32,6 @@ function App() {
 
                     <Routes>
                         <Route index element={<Home/>}/>
-                        <Route path={"/podujatia"} element={<Events/>}/>
                     </Routes>
 
                     <Footer/>
