@@ -31,7 +31,7 @@ export default function Footer() {
 
                 {/* копірайт */}
                 <div className={styles.copyRow}>
-                    <span>Text © {year} Košice</span>
+                    <span> © {year} Magistrát mesta Košice. Všetky práva vyhradené</span>
                 </div>
 
             </div>
