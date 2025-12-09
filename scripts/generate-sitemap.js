@@ -16,6 +16,7 @@ async function generateSitemap() {
 
     const data = await streamToPromise(sitemap);
     createWriteStream('./public/sitemap.xml').write(data.toString());
+    createWriteStream('./public/favicon.ico').write(data.toString());
 }
 
 generateSitemap();
