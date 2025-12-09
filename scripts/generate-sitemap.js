@@ -1,15 +1,15 @@
-const { SitemapStream, streamToPromise } = require('sitemap');
-const { createWriteStream } = require('fs');
+const {SitemapStream, streamToPromise} = require('sitemap');
+const {createWriteStream} = require('fs');
 
 async function generateSitemap() {
-    const sitemap = new SitemapStream({ hostname: "https://kosiceforyou.sk/" });
+    const sitemap = new SitemapStream({hostname: "https://kosiceforyou.sk/"});
 
     const pages = [
         '/',
     ];
 
     pages.forEach((route) => {
-        sitemap.write({ url: route, changefreq: 'monthly' });
+        sitemap.write({url: route, changefreq: 'monthly'});
     });
 
     sitemap.end();
