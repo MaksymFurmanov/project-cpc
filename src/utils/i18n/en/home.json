@@ -35,6 +35,7 @@
     "welcomeMsg": "Welcome to Košice"
   },
   "steps": {
+    "header": "Get in Touch",
     "step1": {
       "title": "Contact us",
       "text": "Visit one of our support center offices or call us to arrange an appointment."

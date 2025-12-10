@@ -22,9 +22,8 @@ export default function ContactMaps() {
                     title={t("contactMaps.title")}
                     addressLines={[
                         "Hlavná 68, Košice, B 214, 2. posch.",
-                        "040 01, Staré Mesto",
                     ]}
-                    phone="+421 908 365 995"
+                    phone="+421 908 365 995 (Telegram, Viber)"
                     email="centrumH68@kosice.sk"
                     hours={hoursCommon}
                     lunchNote="12:00 – 12:30 h."
@@ -35,8 +34,7 @@ export default function ContactMaps() {
                 <ContactBlock
                     title={t("contactMaps.title")}
                     addressLines={[
-                        "Tr. SNP 48/A, Košice",
-                        "040 10, Staré Mesto",
+                        "Tr. SNP 48/A, 04011, Košice-Západ",
                     ]}
                     phone="+421 55 64 19 190"
                     hours={hoursCommon}

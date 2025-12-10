@@ -9,7 +9,6 @@ export default function FirstOfficeBlock() {
         <div className={styles.block}>
             <h3 className={styles.title}>
                 {t("leftSide.name")}
-                {/*KONTAKTNÉ SPOLOČENSKO-INFORMAČNÉ CENTRUM*/}
             </h3>
             <address className={styles.address}>
                 Hlavná 68, Košice, B 214, 2. posch.
@@ -17,7 +16,7 @@ export default function FirstOfficeBlock() {
                 040 01, Staré Mesto
             </address>
             <p className={styles.line}>
-                {t("phone")}{/*Phone*/}:{" "}
+                {t("phone")}:{" "}
                 <a href="tel:+421908365995" className={styles.link}>
                     +421 908 365 995
                 </a>

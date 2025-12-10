@@ -1,10 +1,21 @@
+.wrapper {
+    background-color: #e5e9ec;
+    padding-bottom: 1.5em;
+}
+
+.wrapper h1 {
+    color: #22272a;
+    letter-spacing: .4px;
+    margin: 0;
+    text-align: center;
+    padding: 2em 1em 0 1em;
+}
+
 .container {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    background-color: #e5e9ec;
-    padding: 2.5em 0;
 }
 
 .step {
@@ -13,7 +24,7 @@
 }
 
 .step2, .step3 {
-    padding-top: 2em;
+    padding-top: 1.5em;
 }
 
 .step h2 {

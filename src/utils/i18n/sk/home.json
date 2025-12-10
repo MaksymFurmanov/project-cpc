@@ -35,6 +35,7 @@
     "welcomeMsg": "Vitajte v Košiciach"
   },
   "steps": {
+    "header": "Získať konzultáciu",
     "step1": {
       "title": "Kontaktujte nás",
       "text": "Navštívte jednu z našich kancelárií centra alebo nám zavolajte, aby ste si dohodli stretnutie."
