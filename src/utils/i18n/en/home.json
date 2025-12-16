@@ -5,16 +5,16 @@
   },
   "aboutUsBrief": {
     "title": "Foreigners' Support Center",
-    "text": "The goal of the Košice City Municipality is to systematically develop support for the newcomers. That is why the Foreigners' Support Center operates within its structure, providing its services through the First Contact Office (KPK) for foreigners.",
+    "text": "The goal of the Municipality of Košice is to systematically develop support for the newcomers. That is why the Foreigners' Support Center operates within its structure, providing its services through the First Contact Office for foreigners.",
     "contactsButton": "Contacts"
   },
   "services": {
     "title": "Our Services",
-    "schools": "Finding schools / education",
-    "translation": "Translation",
+    "schools": "Finding schools/nursery schools",
+    "translation": "Translation and assistance",
     "institutions": "First contact with Košice institutions",
-    "police": "Questions about the Foreign Police",
-    "print": "Form filling and printing",
+    "police": "Foreign Police: legalization",
+    "print": "Filling out applications/forms",
     "integrationService": "Comprehensive integration counseling"
   },
   "contactMaps": {
