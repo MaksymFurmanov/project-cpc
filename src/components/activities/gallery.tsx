@@ -1,6 +1,7 @@
 import styles from "./activities.module.css";
 import {IoIosArrowBack, IoIosArrowForward} from "react-icons/io";
 import useEmblaCarousel from "embla-carousel-react";
+import clsx from "clsx";
 
 export default function Gallery({images}: {images: string[]}) {
     const [emblaRef, emblaApi] = useEmblaCarousel({
@@ -10,7 +11,7 @@ export default function Gallery({images}: {images: string[]}) {
     });
 
     return (
-        <div className={styles.gallery}>
+        <div className={clsx(styles.gallery, "not-selectable")}>
             {emblaApi?.canScrollNext && (
                 <IoIosArrowBack onClick={() => emblaApi?.scrollPrev()}/>
             )}
