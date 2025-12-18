@@ -4,11 +4,12 @@ import Home from "./pages/home";
 import NavSidebar from "./components/nav-sidebar";
 import {useState} from "react";
 import Header from "./components/header";
-import Events from "./pages/events";
+import Activities from "./pages/activities";
 import Footer from "./components/footer";
+import Activity from './pages/activity';
 
 function App() {
-    const [sidebarToggle, setSidebarToggle] = useState(false);
+    const [sidebarToggle, setSidebarToggle] = useState<boolean>(false);
 
     const closeIfOpened = () => {
         if (sidebarToggle) setSidebarToggle(false);
@@ -21,7 +22,7 @@ function App() {
     return (
         <BrowserRouter>
             <main>
-                <NavSidebar sidebarToggle={sidebarToggle}/>
+                <NavSidebar sidebarToggle={sidebarToggle} closeIfOpened={closeIfOpened}/>
                 <div className={`content ${sidebarToggle && 'moveContent'}`}
                      onClick={() => {
                          closeIfOpened();
@@ -32,6 +33,10 @@ function App() {
 
                     <Routes>
                         <Route index element={<Home/>}/>
+
+                        <Route path={"/activities"} element={<Activities/>}/>
+
+                        <Route path={"/activity/:id"} element={<Activity/>}/>
                     </Routes>
 
                     <Footer/>

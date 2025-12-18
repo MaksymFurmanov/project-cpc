@@ -15,3 +15,11 @@ code {
 body.embedded #embedBottomBarContainer {
   display: none;
 }
+
+.not-selectable, button {
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  -webkit-tap-highlight-color: transparent;
+}

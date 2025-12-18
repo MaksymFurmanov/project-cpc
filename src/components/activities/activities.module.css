@@ -1,0 +1,111 @@
+.listContainer {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5em;
+    text-align: center;
+    transition: all 0.3s ease;
+    margin-bottom: 3em;
+}
+
+.divider {
+    height: 0;
+    border-top: #d1d5db 1px solid;
+    width: 35%;
+    padding-bottom: 2em;
+    margin: 0 auto;
+}
+
+.gallery {
+    display: flex;
+    align-items: center;
+    max-width: 60em;
+    margin: 0 auto;
+}
+
+.gallery svg {
+    width: 2rem;
+    height: 2rem;
+    flex-shrink: 0;
+    cursor: pointer;
+    margin: 0.5em;
+    border-radius: 50px;
+    padding: 0.25em;
+    transition: all 0.1s ease-in-out;
+}
+
+.gallery svg:hover {
+    background-color: #d1d5db;
+}
+
+.carousel {
+    overflow: hidden;
+}
+
+.wrapper {
+    display: flex;
+}
+
+.image {
+    flex: 0 0 100%;
+    min-width: 0;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    aspect-ratio: 2 / 1;
+}
+
+.eventsCard h2 {
+    font-size: 1.5rem;
+    margin: 0.75em 0 0 0;
+}
+
+.hoverEffect:hover {
+    color: var(--accent);
+    cursor: pointer;
+}
+
+.textContent {
+    font-size: 0.9rem;
+    max-width: 70dvw;
+    margin: 0 auto;
+}
+
+.date {
+    margin: 0.75em 0;
+    font-weight: 600;
+}
+
+.text {
+    color: #4b5563;
+    text-align: justify;
+    line-height: 1.7;
+}
+
+.readMoreButton {
+    text-transform: uppercase;
+    padding: 1em 2em;
+    border-radius: 0;
+    border: 2px #bbbbbb solid;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+    margin: 1.5em;
+    cursor: pointer;
+}
+
+.readMoreButton:hover {
+    border-color: var(--accent);
+}
+
+@media (min-width: 640px) {
+    .eventsCard h2 {
+        font-size: 2.5rem;
+    }
+
+    .textContent {
+        font-size: 1rem;
+    }
+
+    .image {
+        aspect-ratio: 3/1;
+    }
+}

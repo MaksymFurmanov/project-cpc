@@ -14,7 +14,8 @@ export default function NavBar() {
                     <p key={index}
                        onClick={() =>
                            appNavigate(link.url)
-                       }>
+                       }
+                    className={"not-selectable"}>
                         {t(link.label)}
                     </p>
                 )

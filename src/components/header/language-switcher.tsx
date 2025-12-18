@@ -3,6 +3,7 @@ import {MdOutlineLanguage} from "react-icons/md";
 import {useTranslation} from "react-i18next";
 import {useState} from "react";
 import languages from "./languages";
+import clsx from "clsx";
 
 export default function LanguageSwitcher() {
     const {i18n} = useTranslation();
@@ -16,7 +17,7 @@ export default function LanguageSwitcher() {
     }
 
     return (
-        <div className={styles.languageSwitcher}>
+        <div className={clsx(styles.languageSwitcher, "not-selectable")} >
             <MdOutlineLanguage/>
 
             <div className={styles.languagesContainer}>

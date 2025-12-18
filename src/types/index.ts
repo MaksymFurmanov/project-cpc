@@ -1,7 +1,11 @@
-export type PlannedEvent = {
+export type Activity = {
     id: string;
-    title: string,
-    description: string,
+    titleEN: string,
+    titleSK: string,
+    titleUA: string,
+    descriptionSK: string,
+    descriptionUA: string,
+    descriptionEN: string,
     date: string,
-    image: string,
+    images: string[],
 }

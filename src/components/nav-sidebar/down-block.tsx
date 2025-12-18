@@ -1,4 +1,4 @@
-import styles from "./nav-sidebar.module.css";
+import styles from "../nav-sidebar/nav-sidebar.module.css";
 import {FaFacebookF, FaViber, FaTelegramPlane} from "react-icons/fa";
 
 export default function DownBlock() {
