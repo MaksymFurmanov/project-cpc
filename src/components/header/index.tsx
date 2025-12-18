@@ -6,6 +6,7 @@ import useScrolledFromTop from "../../hooks/useScrolledFromTop";
 import Socials from "./socials";
 import {ReactComponent as KosiceLogo} from "../../assets/logo-white.svg";
 import {useLocation, useNavigate} from "react-router-dom";
+import clsx from "clsx";
 
 export default function Header({
                                    sidebarToggle, toggleSidebar
@@ -30,7 +31,7 @@ export default function Header({
         <header style={{ backgroundColor: isHomepage ? "transparent" : undefined }}
                 className={`${styles.header} ${scrolled ? styles.scrolled : ""}`}
         >
-            <div className={styles.logo} onClick={handleToHomepage}>
+            <div className={clsx(styles.logo, "not-selectable")} onClick={handleToHomepage}>
                 <img src={"/logo.png"} alt={""} className={styles.cpcLogo}/>
                 <KosiceLogo className={styles.kosiceLogo}/>
             </div>
