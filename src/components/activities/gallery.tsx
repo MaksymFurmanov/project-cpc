@@ -10,9 +10,11 @@ export default function Gallery({images}: {images: string[]}) {
         containScroll: 'trimSnaps',
     });
 
+    const len = images.length;
+
     return (
         <div className={clsx(styles.gallery, "not-selectable")}>
-            {emblaApi?.canScrollNext && (
+            {len > 1 && emblaApi?.canScrollNext && (
                 <IoIosArrowBack onClick={() => emblaApi?.scrollPrev()}/>
             )}
 
@@ -30,7 +32,7 @@ export default function Gallery({images}: {images: string[]}) {
                 </div>
             </div>
 
-            {emblaApi?.canScrollNext && (
+            {len > 1 && emblaApi?.canScrollNext && (
                 <IoIosArrowForward onClick={() => emblaApi?.scrollNext()}/>
             )}
         </div>

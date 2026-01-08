@@ -21,18 +21,20 @@ export default function ActivityCard({activity, lang}: {
         [activity, lang]
     );
 
-    if(!text || !title || !date) return <></>;
+    if (!text || !title || !date) return <></>;
 
     const separateText = false;
 
     const titleBtnHandler = () => {
-        if(!separateText) return;
+        if (!separateText) return;
         navigate(`/event/${activity.id}`)
     }
 
     const textSliced = separateText
         ? text.slice(0, MAX_DESCRIPTION_LENGTH).replace(/\s+\S*$/, '') + "…"
         : text;
+
+    console.log(date)
 
     return (
         <div>
@@ -43,9 +45,11 @@ export default function ActivityCard({activity, lang}: {
                     onClick={titleBtnHandler}>
                     {title}
                 </h2>
-                <p className={styles.date}>
-                    {date}
-                </p>
+                {date !== "Invalid Date" && (
+                    <p className={styles.date}>
+                        {date}
+                    </p>
+                )}
                 <p className={styles.text}>
                     {textSliced}
                 </p>
