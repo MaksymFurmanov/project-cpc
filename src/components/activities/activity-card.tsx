@@ -6,6 +6,7 @@ import {useMemo} from "react";
 import {useNavigate} from "react-router-dom";
 import localizeActivity from "../../lib/localizeActivity";
 import Gallery from "./gallery";
+import ReactMarkdown from "react-markdown";
 
 const MAX_DESCRIPTION_LENGTH = 450;
 const SEPARATE_PAGE_THRESHOLD = 500;
@@ -50,9 +51,11 @@ export default function ActivityCard({activity, lang, isLast}: {
                             {date}
                         </p>
                     )}
-                    <p className={styles.text}>
-                        {textSliced}
-                    </p>
+
+                    <div className={styles.text}>
+                        <ReactMarkdown>{textSliced}</ReactMarkdown>
+                    </div>
+
                     {separateText && <ReadMoreBtn id={activity.id}/>}
                 </div>
             </div>
