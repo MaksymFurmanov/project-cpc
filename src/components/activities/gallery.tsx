@@ -10,15 +10,15 @@ export default function Gallery({images}: {images: string[]}) {
         containScroll: 'trimSnaps',
     });
 
-    const len = images.length;
+    const isOneImg = images.length === 1;
 
     return (
         <div className={clsx(styles.gallery, "not-selectable")}>
-            {len > 1 && emblaApi?.canScrollNext && (
+            {!isOneImg && emblaApi?.canScrollNext && (
                 <IoIosArrowBack onClick={() => emblaApi?.scrollPrev()}/>
             )}
 
-            <div className={styles.carousel} ref={emblaRef}>
+            <div className={styles.carousel} style={{margin: isOneImg ? "0 3.25em" : "0 auto"}} ref={emblaRef}>
                 <div className={styles.wrapper}>
                     {images.map((img, key) => {
                         return (
@@ -32,7 +32,7 @@ export default function Gallery({images}: {images: string[]}) {
                 </div>
             </div>
 
-            {len > 1 && emblaApi?.canScrollNext && (
+            {!isOneImg && emblaApi?.canScrollNext && (
                 <IoIosArrowForward onClick={() => emblaApi?.scrollNext()}/>
             )}
         </div>
