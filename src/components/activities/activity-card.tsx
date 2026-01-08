@@ -10,9 +10,10 @@ import Gallery from "./gallery";
 const MAX_DESCRIPTION_LENGTH = 450;
 const SEPARATE_PAGE_THRESHOLD = 500;
 
-export default function ActivityCard({activity, lang}: {
+export default function ActivityCard({activity, lang, isLast}: {
     activity: Activity,
-    lang: string
+    lang: string,
+    isLast: boolean
 }) {
     const navigate = useNavigate();
 
@@ -21,7 +22,7 @@ export default function ActivityCard({activity, lang}: {
         [activity, lang]
     );
 
-    if (!text || !title || !date) return <></>;
+    if (!text || !title) return <></>;
 
     const separateText = false;
 
@@ -34,28 +35,32 @@ export default function ActivityCard({activity, lang}: {
         ? text.slice(0, MAX_DESCRIPTION_LENGTH).replace(/\s+\S*$/, '') + "…"
         : text;
 
-    console.log(date)
-
     return (
-        <div>
-            <Gallery images={activity.images}/>
+        <>
+            <div>
+                <Gallery images={activity.images}/>
 
-            <div className={styles.textContent}>
-                <h2 className={clsx(separateText && styles.hoverEffect)}
-                    onClick={titleBtnHandler}>
-                    {title}
-                </h2>
-                {date !== "Invalid Date" && (
-                    <p className={styles.date}>
-                        {date}
+                <div className={styles.textContent}>
+                    <h2 className={clsx(separateText && styles.hoverEffect)}
+                        onClick={titleBtnHandler}>
+                        {title}
+                    </h2>
+                    {date !== "Invalid Date" && (
+                        <p className={styles.date}>
+                            {date}
+                        </p>
+                    )}
+                    <p className={styles.text}>
+                        {textSliced}
                     </p>
-                )}
-                <p className={styles.text}>
-                    {textSliced}
-                </p>
-                {separateText && <ReadMoreBtn id={activity.id}/>}
+                    {separateText && <ReadMoreBtn id={activity.id}/>}
+                </div>
             </div>
-        </div>
+
+            {isLast && (
+                <div className={styles.divider}/>
+            )}
+        </>
     );
 }
 

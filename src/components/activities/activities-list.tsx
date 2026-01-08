@@ -32,11 +32,8 @@ export default function ActivitiesList() {
                         <ActivityCard key={activity.id}
                                       activity={activity}
                                       lang={lang}
+                                      isLast={index !== activities.length - 1}
                         />
-                        
-                        {index !== activities.length - 1 && (
-                            <div className={styles.divider}/>
-                        )}
                     </>
                 )
             })}
