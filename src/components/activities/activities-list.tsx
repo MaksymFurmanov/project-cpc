@@ -41,16 +41,15 @@ export default function ActivitiesList() {
         fetchNextPage();
     }
 
-    const activities = data?.pages[currentPage - 1]?.activities ?? [];
-
     const sortedActivities = useMemo(() => {
+        const activities = data?.pages[currentPage - 1]?.activities ?? [];
         return [...activities].sort((a, b) => {
             const dateA = new Date(a.date).getTime();
             const dateB = new Date(b.date).getTime();
 
             return dateB - dateA;
         });
-    }, [activities]);
+    }, [currentPage, data?.pages]);
 
     const totalPages = hasNextPage
         ? (data?.pages.length ?? 1) + 1
