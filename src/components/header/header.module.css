@@ -3,6 +3,7 @@
     top: 0;
     max-width: 100dvw;
     height: 12dvh;
+    max-height: 6em;
     background-color: var(--main-blue);
     color: #f4f4f4;
     transition: all 0.8s ease;

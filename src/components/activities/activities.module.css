@@ -95,11 +95,11 @@
 }
 
 .pagination {
-    margin: 0.75em 0;
-    font-size: 1.5rem;
+    margin-bottom: 1em;
 }
 
 .pagination button {
+    font-size: 1.25rem;
     background: none;
     border: none;
     cursor: pointer;

@@ -30,8 +30,8 @@ i18n
     .use(initReactI18next)
     .init({
         resources,
-        fallbackLng: "en",
-        ns: Object.keys(resources.en),
+        fallbackLng: "sk",
+        ns: Object.keys(resources.sk),
         defaultNS: "common",
         interpolation: {
             escapeValue: false,
