@@ -5,7 +5,7 @@ const navLinks = [
     },
     {
         label: 'activities',
-        url: '/activities',
+        url: '/activities/1',
     },
 ];
 

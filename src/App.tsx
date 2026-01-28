@@ -34,7 +34,7 @@ function App() {
                     <Routes>
                         <Route index element={<Home/>}/>
 
-                        <Route path={"/activities"} element={<Activities/>}/>
+                        <Route path={"/activities/:page"} element={<Activities/>}/>
 
                         <Route path={"/activity/:id"} element={<Activity/>}/>
                     </Routes>

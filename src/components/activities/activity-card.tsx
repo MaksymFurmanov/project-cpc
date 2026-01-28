@@ -9,7 +9,6 @@ import Gallery from "./gallery";
 import ReactMarkdown from "react-markdown";
 
 const MAX_DESCRIPTION_LENGTH = 450;
-const SEPARATE_PAGE_THRESHOLD = 500;
 
 export default function ActivityCard({activity, lang, isLast}: {
     activity: Activity,
@@ -29,7 +28,7 @@ export default function ActivityCard({activity, lang, isLast}: {
 
     const titleBtnHandler = () => {
         if (!separateText) return;
-        navigate(`/event/${activity.id}`)
+        navigate(`/event/${activity.id}`);
     }
 
     const textSliced = separateText
@@ -46,7 +45,8 @@ export default function ActivityCard({activity, lang, isLast}: {
                         onClick={titleBtnHandler}>
                         {title}
                     </h2>
-                    {date !== "Invalid Date" && (
+
+                    {activity.showDate && date !== "Invalid Date" && (
                         <p className={styles.date}>
                             {date}
                         </p>

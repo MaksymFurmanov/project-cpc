@@ -7,5 +7,11 @@ export type Activity = {
     descriptionUA: string,
     descriptionEN: string,
     date: string,
+    showDate: boolean,
     images: string[],
 }
+
+export type ActivitiesPage = {
+    activities: Activity[];
+    nextOffset?: string;
+};

@@ -6,6 +6,7 @@ const localizeActivity = (event: Activity, lang: string): {
     date: string
 } => {
     let title: string, text: string;
+
     switch (lang) {
         case "en":
             title = event.titleEN;

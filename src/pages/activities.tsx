@@ -13,12 +13,12 @@ export default function Activities() {
             <h1 className={styles.pageTitle}>
                 {t("pageTitle")}
             </h1>
+
             <ErrorBoundary fallback={<></>}>
                 <Suspense fallback={<ActivitiesListLoading/>}>
                     <ActivitiesList />
                 </Suspense>
             </ErrorBoundary>
-
         </div>
     );
 }
