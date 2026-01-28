@@ -70,6 +70,11 @@ export default function ActivitiesList() {
                     isLast={index !== sortedActivities.length - 1}
                 />
             ))}
+
+            <Pagination curr={currentPage}
+                        selectFn={setPage}
+                        total={totalPages}
+            />
         </div>
     );
 }
