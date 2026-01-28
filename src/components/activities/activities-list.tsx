@@ -52,11 +52,15 @@ export default function ActivitiesList() {
         });
     }, [activities]);
 
+    const totalPages = hasNextPage
+        ? (data?.pages.length ?? 1) + 1
+        : data?.pages.length ?? 1;
+
     return (
         <div className={styles.listContainer}>
             <Pagination curr={currentPage}
                         selectFn={setPage}
-                        max={data?.pages.length ?? 0}
+                        total={totalPages}
             />
 
             {sortedActivities.map((activity, index) => (
