@@ -5,6 +5,12 @@
     margin-bottom: 3em;
 }
 
+.paginationSkeleton {
+    min-height: 2em;
+    max-width: 9em;
+    margin: 0 auto;
+}
+
 .card {
     display: flex;
     flex-direction: column;
@@ -24,7 +30,7 @@
 }
 
 .gallerySkeleton {
-    min-width: 70dvw;
+    min-width: 60dvw;
     aspect-ratio: 2 / 1;
     border-radius: 6px;
     margin: 0 auto;

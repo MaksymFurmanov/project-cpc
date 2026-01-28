@@ -3,6 +3,9 @@ import styles from "./activities-list-loading.module.css";
 export default function ActivitiesListLoading() {
     return (
         <div className={styles.container}>
+            <div>
+                <div className={`${styles.paginationSkeleton} ${styles.skeleton}`}/>
+            </div>
             <div className={styles.card}>
                 <div className={`${styles.gallerySkeleton} ${styles.skeleton}`}/>
 
@@ -16,7 +19,6 @@ export default function ActivitiesListLoading() {
                         <span className={styles.skeleton}/>
                         <span className={styles.skeleton}/>
                     </div>
-
                 </div>
             </div>
         </div>

@@ -14,7 +14,7 @@ export default function Activities() {
                 {t("pageTitle")}
             </h1>
 
-            <ErrorBoundary fallback={<></>}>
+            <ErrorBoundary fallback={<div></div>}>
                 <Suspense fallback={<ActivitiesListLoading/>}>
                     <ActivitiesList />
                 </Suspense>

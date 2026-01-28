@@ -2,11 +2,11 @@ import styles from "./activities.module.css";
 import ActivityCard from "./activity-card";
 import {useTranslation} from "react-i18next";
 import {useNavigate, useParams} from "react-router-dom";
-import {InfiniteData, useInfiniteQuery} from "@tanstack/react-query";
+import {InfiniteData, useSuspenseInfiniteQuery} from "@tanstack/react-query";
 import {getActivitiesPage} from "../../api/activitiesData";
 import {ActivitiesPage} from "../../types";
 import Pagination from "./pagination";
-import {useMemo} from "react";
+import {useEffect, useMemo} from "react";
 
 export default function ActivitiesList() {
     const {i18n} = useTranslation();
@@ -21,7 +21,7 @@ export default function ActivitiesList() {
         navigate(`/activities/${page}`);
     };
 
-    const {data, fetchNextPage, hasNextPage} = useInfiniteQuery<
+    const {data, fetchNextPage, hasNextPage} = useSuspenseInfiniteQuery<
         ActivitiesPage,
         Error,
         InfiniteData<ActivitiesPage>,
@@ -37,9 +37,11 @@ export default function ActivitiesList() {
 
     const pagesLoaded = data?.pages.length ?? 0;
 
-    if (currentPage > pagesLoaded && hasNextPage) {
-        fetchNextPage();
-    }
+    useEffect(() => {
+        if (currentPage > pagesLoaded && hasNextPage) {
+            fetchNextPage();
+        }
+    }, [currentPage, pagesLoaded, hasNextPage, fetchNextPage]);
 
     const sortedActivities = useMemo(() => {
         const activities = data?.pages[currentPage - 1]?.activities ?? [];
