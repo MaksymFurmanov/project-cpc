@@ -94,12 +94,16 @@
     border-color: var(--accent);
 }
 
+.pagination {
+    margin: 0.75em 0;
+    font-size: 1.5rem;
+}
+
 .pagination button {
     background: none;
     border: none;
-    font-size: 1.1rem;
     cursor: pointer;
-    padding: 0.2rem 0.5rem;
+    padding: 0.3rem 0.7rem;
     margin: auto 0.25rem;
 }
 
