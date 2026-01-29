@@ -6,7 +6,6 @@ export default function Pagination({curr, selectFn, total}: {
     selectFn: (index: number) => void,
     total: number,
 }) {
-
     return (
         <div className={styles.pagination}>
             {Array
