@@ -1,5 +1,5 @@
 export type Activity = {
-    id: string;
+    id: string,
     titleEN: string,
     titleSK: string,
     titleUA: string,
@@ -12,6 +12,6 @@ export type Activity = {
 }
 
 export type ActivitiesPage = {
-    activities: Activity[];
-    nextOffset?: string;
-};
+    activities: Activity[],
+    nextOffset?: string
+}

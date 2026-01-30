@@ -2,8 +2,8 @@ import styles from "./pages.module.css";
 import {useTranslation} from "react-i18next";
 import ActivitiesList from "../components/activities/activities-list";
 import ActivitiesListLoading from "../components/skeletons/activities-list-loading";
-import { ErrorBoundary } from "react-error-boundary";
-import { Suspense } from "react";
+import {ErrorBoundary} from "react-error-boundary";
+import {Suspense} from "react";
 
 export default function Activities() {
     const {t} = useTranslation(["activities"]);
@@ -16,7 +16,7 @@ export default function Activities() {
 
             <ErrorBoundary fallback={<div></div>}>
                 <Suspense fallback={<ActivitiesListLoading/>}>
-                    <ActivitiesList />
+                    <ActivitiesList/>
                 </Suspense>
             </ErrorBoundary>
         </div>
