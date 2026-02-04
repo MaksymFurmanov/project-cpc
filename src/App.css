@@ -19,6 +19,13 @@
     font-style: normal;
 }
 
+@property --main-black {
+    syntax: "<color>";
+    inherits: false;
+    initial-value: #444;
+}
+
+
 @property --main-blue {
     syntax: "<color>";
     inherits: false;

@@ -6,11 +6,11 @@ import Article from "../components/activities/article";
 
 export default function ActivityPage() {
     const params = useParams();
-    const eventId = params.id!;
+    const activityId = params.id!;
 
     const {data: event, isLoading, isError} = useQuery<Activity | null>({
-        queryKey: ["event", eventId],
-        queryFn: () => getActivityById(eventId!),
+        queryKey: ["event", activityId],
+        queryFn: () => getActivityById(activityId!),
         staleTime: 1000 * 60 * 5,
     });
 

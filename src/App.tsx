@@ -7,6 +7,7 @@ import Header from "./components/header";
 import Activities from "./pages/activities";
 import Footer from "./components/footer";
 import Activity from './pages/activity';
+import ImmigrantsMap from "./components/immigrants-map";
 
 function App() {
     const [sidebarToggle, setSidebarToggle] = useState<boolean>(false);
@@ -37,6 +38,8 @@ function App() {
                         <Route path={"/activities/:page"} element={<Activities/>}/>
 
                         <Route path={"/activity/:id"} element={<Activity/>}/>
+
+                        <Route path={"/immigrants-map"} element={<ImmigrantsMap/>}/>
                     </Routes>
 
                     <Footer/>

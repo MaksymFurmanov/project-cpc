@@ -1,7 +1,7 @@
 .container {
-    color: #444;
+    color: var(--main-black);
     margin: 2em 0;
-    padding: 0 1em;
+    padding: 0 1.5em;
 }
 
 .mainLogo {
@@ -14,6 +14,7 @@
     font-size: 1.25rem;
     width: fit-content;
     margin: 2em auto;
+    text-align: center;
 }
 
 .container p {
@@ -26,7 +27,7 @@
     display: block;
     width: fit-content;
     padding: 1em 2em;
-    border: #444 2px solid;
+    border: var(--main-black) 2px solid;
     background-color: #f4f4f4;
     font-size: 0.9rem;
     font-weight: 600;

@@ -1,158 +1,174 @@
-.section{
+.section {
     /* кольори для блакитної заливки картки */
-    --grad-1: #7dd3fc;  /* sky-300 */
-    --grad-2: #60a5fa;  /* blue-400 */
-    --grad-3: #3b82f6;  /* blue-500 */
-  
+    --grad-1: #7dd3fc; /* sky-300 */
+    --grad-2: #60a5fa; /* blue-400 */
+    --grad-3: #3b82f6; /* blue-500 */
+
     /* новий м'який сірий фон секції, як на скріншоті */
     --surface: #f5f6f8;
-  
-    background: var(--surface);        /* <-- було #fff */
-    padding: clamp(28px, 4.5vw, 58px) 0; 
-  }
-  
 
-  
-  .title{
+    background: var(--surface); /* <-- було #fff */
+    padding: clamp(28px, 4.5vw, 58px) 1.5em;
+}
+
+
+.title {
     text-align: center;
     font-size: clamp(28px, 3.5vw, 40px); /* було 4.5vw / 56px */
-    line-height: 1.15;                   /* як у Kontaktujte nás */
+    line-height: 1.15; /* як у Kontaktujte nás */
     font-weight: 800;
-    color:#22272a;
+    color: #22272a;
     letter-spacing: .4px;
-    margin: 0 0 clamp(26px, 3vw, 40px); 
-  }
-  
-  
-  /* Grid: 2 колонки мобайл / 3 колонки md+ */
-  .grid{
+    margin: 0 0 clamp(26px, 3vw, 40px);
+}
+
+
+/* Grid: 2 колонки мобайл / 3 колонки md+ */
+.grid {
     list-style: none;
     margin: 0 auto;
     padding: 0;
     display: grid;
-    grid-template-columns: repeat(2, minmax(0,1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: clamp(16px, 4vw, 3em);
     justify-items: center;
     max-width: 55em;
-    padding: 0 1.5em;
-  }
-  @media (min-width: 768px){
-    .grid{ grid-template-columns: repeat(3, minmax(0,1fr)); }
-  }
-  
-  /* --- КАРТКА --- */
-  .card{ 
-    display:block; 
+}
+
+@media (min-width: 768px) {
+    .grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+/* --- КАРТКА --- */
+.card {
+    display: block;
     width: 100%;
-  }
-  
-  /* статична рамка у блакитних тонах */
-  .border{
+}
+
+/* статична рамка у блакитних тонах */
+.border {
     position: relative;
-    padding: 2px;                    /* товщина рамки */
+    padding: 2px; /* товщина рамки */
     border-radius: 16px;
-    background: linear-gradient(135deg,var(--grad-1),var(--grad-2),var(--grad-3));
+    background: linear-gradient(135deg, var(--grad-1), var(--grad-2), var(--grad-3));
     margin: 0 auto;
-  }
-  
-  /* вміст картки */
-  .inner{
+}
+
+/* вміст картки */
+.inner {
     position: relative;
-    isolation: isolate;              /* псевдоелемент під контентом */
+    isolation: isolate; /* псевдоелемент під контентом */
     min-height: clamp(7.5em, 22vw, 170px);
     border-radius: 14px;
     background: #ffffff;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
     gap: 8px;
     padding: 18px 14px;
-    box-shadow: 0 6px 18px rgba(0,0,0,.06);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, .06);
     transition: transform .25s ease, box-shadow .25s ease, color .3s ease;
     overflow: hidden;
-  }
-  
-  /* повна заливка на hover — блакитний градієнт */
-  .inner::before{
-    content:"";
-    position:absolute;
-    inset:0;
+}
+
+/* повна заливка на hover — блакитний градієнт */
+.inner::before {
+    content: "";
+    position: absolute;
+    inset: 0;
     border-radius: inherit;
-    background: linear-gradient(135deg,var(--grad-1) 0%,var(--grad-2) 50%,var(--grad-3) 100%);
+    background: linear-gradient(135deg, var(--grad-1) 0%, var(--grad-2) 50%, var(--grad-3) 100%);
     transform: scale(0);
     transform-origin: 50% 50%;
     transition: transform .45s ease;
-    z-index: -1;                     /* під текстом/іконкою */
-  }
-  
-  .icon{
+    z-index: -1; /* під текстом/іконкою */
+}
+
+.icon {
     font-size: clamp(36px, 4.5vw, 56px);
     line-height: 1;
-    color:#111;
+    color: #111;
     transition: color .3s ease, transform .25s ease;
-  }
-  
-  .label{
+}
+
+.label {
     font-size: clamp(14px, 1.6vw, 18px);
     line-height: 1.45;
-    color:#2a2f33;
+    color: #2a2f33;
     transition: color .3s ease;
-     /* NEW: допомагаємо довгим назвам гарно вміщатися */
-    max-width: 22ch;            /* м’яке обмеження ширини рядка */
-    text-wrap: balance;         /* сучасне збалансоване перенесення */
-    overflow-wrap: anywhere;    /* фолбек: можна переносити будь-де */
-    hyphens: auto;              /* перенос за правилами мови, якщо доступно */
-  }
-  
-  /* hover/focus */
-  .border:hover .inner,
-  .border:focus-within .inner{
-    transform: translateY(-6px);
-    box-shadow: 0 14px 32px rgba(0,0,0,.12);
-  }
-  .border:hover .inner::before,
-  .border:focus-within .inner::before{
-    transform: scale(1);             /* заповнює всю картку */
-  }
-  .border:hover .icon,
-  .border:hover .label,
-  .border:focus-within .icon,
-  .border:focus-within .label{
-    color: #ffffff;                  /* контраст на блакитній заливці */
-  }
-  
-  /* доступність */
-  .border:focus-within .inner{
-    outline: 3px solid rgba(59,130,246,.35); /* blue-500 */
-    outline-offset: 2px;
-  }
-  
-  /* reduce motion */
-  @media (prefers-reduced-motion: reduce){
-    .inner{ transition: none; }
-    .inner::before{ transition: none; }
-  }
+    /* NEW: допомагаємо довгим назвам гарно вміщатися */
+    max-width: 22ch; /* м’яке обмеження ширини рядка */
+    text-wrap: balance; /* сучасне збалансоване перенесення */
+    overflow-wrap: anywhere; /* фолбек: можна переносити будь-де */
+    hyphens: auto; /* перенос за правилами мови, якщо доступно */
+}
 
-  /* Desktop: звужуємо ширину карток і центруємо в колонці */
-@media (min-width: 992px){
-  .border{
-    max-width: 280px;   /* ← вибери потрібне значення (напр. 260–300px) */
-    width: 100%;
-   /* центрує картку в колонці */
-  }
+/* hover/focus */
+.border:hover .inner,
+.border:focus-within .inner {
+    transform: translateY(-6px);
+    box-shadow: 0 14px 32px rgba(0, 0, 0, .12);
+}
+
+.border:hover .inner::before,
+.border:focus-within .inner::before {
+    transform: scale(1); /* заповнює всю картку */
+}
+
+.border:hover .icon,
+.border:hover .label,
+.border:focus-within .icon,
+.border:focus-within .label {
+    color: #ffffff; /* контраст на блакитній заливці */
+}
+
+/* доступність */
+.border:focus-within .inner {
+    outline: 3px solid rgba(59, 130, 246, .35); /* blue-500 */
+    outline-offset: 2px;
+}
+
+/* reduce motion */
+@media (prefers-reduced-motion: reduce) {
+    .inner {
+        transition: none;
+    }
+
+    .inner::before {
+        transition: none;
+    }
+}
+
+/* Desktop: звужуємо ширину карток і центруємо в колонці */
+@media (min-width: 992px) {
+    .border {
+        max-width: 280px; /* ← вибери потрібне значення (напр. 260–300px) */
+        width: 100%;
+        /* центрує картку в колонці */
+    }
 }
 
 
-  /* OPTIONAL: ще компактніші картки на дуже широких екранах */
-@media (min-width: 1280px){
-  .inner{
-    min-height: 150px;        /* трошки менше */
-    padding: 16px 12px;       /* ще компактніше */
-  }
-  .icon{ font-size: clamp(34px, 3.6vw, 52px); }
-  .label{ max-width: 20ch; }  /* коротші рядки — акуратніша висота */
+/* OPTIONAL: ще компактніші картки на дуже широких екранах */
+@media (min-width: 1280px) {
+    .inner {
+        min-height: 150px; /* трошки менше */
+        padding: 16px 12px; /* ще компактніше */
+    }
+
+    .icon {
+        font-size: clamp(34px, 3.6vw, 52px);
+    }
+
+    .label {
+        max-width: 20ch;
+    }
+
+    /* коротші рядки — акуратніша висота */
 }
   
   

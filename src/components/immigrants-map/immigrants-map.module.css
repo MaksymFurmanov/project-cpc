@@ -1,0 +1,38 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.container h1 {
+    margin: 1.5em auto 0.5em auto;
+    padding: 0 0.5em;
+    text-align: center;
+    color: var(--main-blue--dark);
+}
+
+.pdfContainer {
+    width: min(70em, 80dvw);
+    height: 82dvh;
+    margin: 1.5em auto;
+}
+
+.callUs {
+    margin: 1.5em auto 0 auto;
+    text-align: center;
+}
+
+.arrow {
+    margin: 1.5em auto;
+}
+
+.arrow svg {
+    width: 3em;
+    height: 3em;
+    cursor: pointer;
+}
+
+.scrollPoint {
+    position: relative;
+    bottom: 3em;
+}

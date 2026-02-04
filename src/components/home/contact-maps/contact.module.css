@@ -1,8 +1,7 @@
 /* Білий фон лише для цієї секції */
 .section{
   position: relative;
-  width: 100%;
-  padding: 48px 0;
+  padding: 48px 1.5em;
   background: #ffffff;
 
   /* NEW: керуємо розміром квадрата однією змінною */
@@ -11,8 +10,8 @@
 
 /* Центрований контейнер */
 .container{
-  width: min(1200px, 92vw);
   margin: 0 auto;
+  max-width: 75em;
 }
 
 /* Блок "текст + карта" */
@@ -98,7 +97,6 @@
 .hours li{
   display: flex;
   justify-content: space-between;
-  gap: 12px;
   font-size: 17px;
   line-height: 1.9;
   color: #22272a;
