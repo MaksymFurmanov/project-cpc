@@ -7,6 +7,7 @@ import {getActivitiesPage} from "../../api/activitiesData";
 import {ActivitiesPage} from "../../types";
 import Pagination from "./pagination";
 import {useEffect, useMemo} from "react";
+import ActivitiesListLoading from "../skeletons/activities-list-loading";
 
 export default function ActivitiesList() {
     const {i18n} = useTranslation();
@@ -21,7 +22,7 @@ export default function ActivitiesList() {
         navigate(`/activities/${page}`);
     };
 
-    const {data, fetchNextPage, hasNextPage} = useSuspenseInfiniteQuery<
+    const {data, fetchNextPage, hasNextPage, isFetching} = useSuspenseInfiniteQuery<
         ActivitiesPage,
         Error,
         InfiniteData<ActivitiesPage>,
@@ -57,7 +58,9 @@ export default function ActivitiesList() {
         ? (data?.pages.length ?? 1) + 1
         : data?.pages.length ?? 1;
 
-    return (
+    return isFetching ? (
+        <ActivitiesListLoading/>
+    ) : (
         <div className={styles.listContainer}>
             <Pagination curr={currentPage}
                         selectFn={setPage}
