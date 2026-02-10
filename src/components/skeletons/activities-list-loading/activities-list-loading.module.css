@@ -3,6 +3,7 @@
     grid-template-columns: 1fr;
     gap: 2em;
     margin-bottom: 3em;
+    padding: 0 1.5em;
 }
 
 .paginationSkeleton {
@@ -30,29 +31,29 @@
 }
 
 .gallerySkeleton {
-    min-width: 60dvw;
+    width: 100%;
     aspect-ratio: 2 / 1;
     border-radius: 6px;
     margin: 0 auto;
 }
 
 .textContent {
-    min-width: 52dvw;
+    min-width: 75dvw;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1em;
+    gap: 1.25em;
 }
 
 .titleSkeleton {
     height: 2rem;
-    width: 100%;
+    width: 70%;
 }
 
 .dateSkeleton {
     height: 1.5rem;
-    width: 30%;
+    width: 25%;
 }
 
 .textSkeleton {
@@ -64,7 +65,7 @@
 .textSkeleton .skeleton {
     display: block;
     height: 1.25em;
-    width: 60dvw;
+    width: 70dvw;
 }
 
 @keyframes shimmer {
@@ -83,5 +84,6 @@
 
     .gallerySkeleton {
         aspect-ratio: 3/1;
+        max-width: 70%;
     }
 }

@@ -1,8 +1,9 @@
-import styles from "./immigrants-map.module.css";
-import PdfContainer from "./pdf-container";
+import styles from "../components/immigrants-map/immigrants-map.module.css";
+import PdfContainer from "../components/immigrants-map/pdf-container";
 import {useTranslation} from "react-i18next";
 import {IoArrowDownCircle} from "react-icons/io5";
 import {useRef} from "react";
+import clsx from "clsx";
 
 export default function ImmigrantsMap() {
     const {t} = useTranslation(["immigrants-map"]);
@@ -28,7 +29,7 @@ export default function ImmigrantsMap() {
                 {t("callUs")}
             </h2>
 
-            <div className={styles.arrow}>
+            <div className={clsx(styles.arrow, "not-selectable")}>
                 <IoArrowDownCircle onClick={scrollDownHandler}/>
             </div>
 

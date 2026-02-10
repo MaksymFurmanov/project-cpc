@@ -5,8 +5,8 @@ import {useTranslation} from "react-i18next";
 import {useMemo} from "react";
 import {useNavigate} from "react-router-dom";
 import localizeActivity from "../../lib/localizeActivity";
-import Gallery from "./gallery";
 import ReactMarkdown from "react-markdown";
+import Gallery from "./gallery";
 
 const MAX_DESCRIPTION_LENGTH = 450;
 
@@ -38,7 +38,9 @@ export default function ActivityCard({activity, lang, isLast}: {
     return (
         <>
             <div>
-                <Gallery images={activity.images}/>
+                <div className={styles.galleryWrapper}>
+                    <Gallery images={activity.images}/>
+                </div>
 
                 <div className={styles.textContent}>
                     <h2 className={clsx(separateText && styles.hoverEffect)}

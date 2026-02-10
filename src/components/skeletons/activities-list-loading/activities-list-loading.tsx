@@ -1,4 +1,5 @@
 import styles from "./activities-list-loading.module.css";
+import GalleryLoading from "./gallery-loading";
 
 export default function ActivitiesListLoading() {
     return (
@@ -7,7 +8,7 @@ export default function ActivitiesListLoading() {
                 <div className={`${styles.paginationSkeleton} ${styles.skeleton}`}/>
             </div>
             <div className={styles.card}>
-                <div className={`${styles.gallerySkeleton} ${styles.skeleton}`}/>
+                <GalleryLoading/>
 
                 <div className={styles.textContent}>
                     <div className={`${styles.titleSkeleton} ${styles.skeleton}`}/>

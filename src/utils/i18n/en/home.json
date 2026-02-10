@@ -31,6 +31,10 @@
       "friday": "Friday"
     }
   },
+  "immigrantsMapPreview": {
+    "title": "",
+    "description": ""
+  },
   "heroSection": {
     "welcomeMsg": "Welcome to Košice"
   },

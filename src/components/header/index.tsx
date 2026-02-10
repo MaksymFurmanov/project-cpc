@@ -2,11 +2,11 @@ import styles from './header.module.css';
 import NavBar from "./nav-bar";
 import SidebarButton from "./sidebar-button";
 import LanguageSwitcher from "./language-switcher";
-import useScrolledFromTop from "../../hooks/useScrolledFromTop";
 import Socials from "./socials";
 import {ReactComponent as KosiceLogo} from "../../assets/logo-white.svg";
 import {useLocation, useNavigate} from "react-router-dom";
 import clsx from "clsx";
+import useScrolledFromTop from "../../hooks/use-scrolled-from-top";
 
 export default function Header({
                                    sidebarToggle, toggleSidebar
@@ -14,7 +14,7 @@ export default function Header({
     sidebarToggle: boolean;
     toggleSidebar: (toggle: boolean) => void
 }) {
-    const {scrolled} = useScrolledFromTop(50);
+    const {scrolled} = useScrolledFromTop(60);
     const location = useLocation();
     const isHomepage = location.pathname === "/";
     const navigate = useNavigate();

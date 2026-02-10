@@ -15,11 +15,14 @@
     margin: 0 auto;
 }
 
+.galleryWrapper {
+    padding: 0 1.5em;
+}
+
 .gallery {
     display: flex;
     align-items: center;
-    max-width: 60em;
-    margin: 0 auto;
+    gap: 0.5em;
 }
 
 .gallery svg {
@@ -27,7 +30,6 @@
     height: 1.25rem;
     flex-shrink: 0;
     cursor: pointer;
-    margin: 0.5em;
     border-radius: 50px;
     padding: 0.25em;
     transition: all 0.1s ease-in-out;
@@ -39,6 +41,7 @@
 
 .carousel {
     overflow: hidden;
+    border-radius: 6px;
 }
 
 .wrapper {
@@ -52,6 +55,7 @@
     object-fit: cover;
     object-position: center;
     aspect-ratio: 2 / 1;
+    border-radius: 6px;
 }
 
 .hoverEffect:hover {
@@ -118,6 +122,10 @@
     color: var(--main-blue);
 }
 
+.hidden {
+    display: none;
+}
+
 @media (min-width: 640px) {
     .textContent {
         max-width: 70dvw;
@@ -130,7 +138,16 @@
         height: 2rem;
     }
 
+    .galleryWrapper {
+        margin: 0 auto;
+        max-width: 70%;
+    }
+
     .image {
         aspect-ratio: 3/1;
+    }
+
+    .gallery svg {
+        margin: 0.5em;
     }
 }

@@ -50,6 +50,12 @@
     initial-value: #e5e9ec;
 }
 
+@property --white {
+    syntax: "<color>";
+    inherits: false;
+    initial-value: #f4f4f4;
+}
+
 root {
     font-size: 14px;
 }

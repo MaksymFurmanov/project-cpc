@@ -13,7 +13,7 @@ export default function Article({event}: { event: Activity }) {
 
     return (
         <article>
-            <Gallery images={event.images}/>
+            <Gallery images={event.images} />
             <h2>
                 {title}
             </h2>
