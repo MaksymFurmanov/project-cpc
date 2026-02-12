@@ -8,8 +8,6 @@ import {useMemo} from "react";
 import ActivitiesListLoading from "../skeletons/activities-list-loading/activities-list-loading";
 import {useActivitiesPage} from "../../hooks/use-activities-pages";
 
-const APP_VERSION = process.env.APP_MODE;
-
 export default function ActivitiesList() {
     const {page} = useParams<{ page?: string }>();
     const currentPage = Number(page ?? 1);
@@ -44,21 +42,8 @@ const SortedActivities = ({pages, currentPage}: {
     const {i18n} = useTranslation();
     const lang = i18n.language;
 
-    const sortedActivities = useMemo(() => {
-        let activities = pages[currentPage - 1]?.activities ?? [];
-
-        if (APP_VERSION === "dev") {
-            activities = [...activities].filter((item) =>
-                item.titleSK.slice(0, 9) !== "-preview-")
-        }
-
-        return [...activities].sort((a, b) => {
-            const dateA = new Date(a.date).getTime();
-            const dateB = new Date(b.date).getTime();
-
-            return dateB - dateA;
-        });
-    }, [currentPage, pages]);
+    const sortedActivities = useMemo(() =>
+        pages[currentPage - 1]?.activities ?? [], [currentPage, pages]);
 
     return (
         <>

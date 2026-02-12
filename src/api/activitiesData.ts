@@ -37,6 +37,13 @@ export async function getActivitiesPage(
             params: {
                 pageSize: PAGE_SIZE,
                 offset,
+                sort: [
+                    {
+                        field: "Date",
+                        direction: "desc",
+                    },
+                ],
+
             },
         }
     );
