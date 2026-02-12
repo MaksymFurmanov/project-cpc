@@ -1,7 +1,6 @@
 import styles from "./footer.module.css";
 import {FaFacebookF, FaViber, FaTelegramPlane} from "react-icons/fa";
 import {useTranslation} from "react-i18next";
-import clsx from "clsx";
 
 export default function FirstOfficeBlock() {
     const {t} = useTranslation(["footer"]);
@@ -29,21 +28,13 @@ export default function FirstOfficeBlock() {
                 </a>
             </p>
             <div className={styles.icons}>
-              <a className={clsx(styles.iconBtn, "not-selectable")}
-                 href="https://www.facebook.com/CentrumPodporyCudzincovKosice"
-                 aria-label="Facebook"
-              >
+              <a className={styles.iconBtn} href="https://www.facebook.com/CentrumPodporyCudzincovKosice" aria-label="Facebook">
                 <FaFacebookF />
               </a>
-              <a className={clsx(styles.iconBtn, "not-selectable")}
-                 href="https://t.me/+421908365995"
-                 aria-label="Telegram"
-              >
+              <a className={styles.iconBtn} href="https://t.me/+421908365995" aria-label="Telegram">
                 <FaTelegramPlane />
               </a>
-              <a className={clsx(styles.iconBtn, "not-selectable")}
-                 href={"tel:+421908365995"}
-                 aria-label="Viber">
+              <a className={styles.iconBtn} href="tel:+421908365995" aria-label="Viber">
                 <FaViber />
               </a>
             </div>
