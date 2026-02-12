@@ -10,12 +10,30 @@
   },
   "services": {
     "title": "Our Services",
-    "schools": "Finding schools/nursery schools",
-    "translation": "Translation and assistance",
-    "institutions": "First contact with Košice institutions",
-    "police": "Foreign Police: legalization",
-    "print": "Filling out applications/forms",
-    "integrationService": "Comprehensive integration counseling"
+    "schools": {
+      "title": "Finding schools/nursery schools",
+      "description": "We provide selection of an educational institution for a child, offer consultation support during the admission process, and, if necessary, ensure personal assistance. Our goal is to find a comfortable, safe, and high-quality educational environment for the child."
+    },
+    "translation": {
+      "title": "Translation, interpretation and assistance",
+      "description": "We provide support to foreigners in everyday life, education, and employment, helping them overcome the language barrier. Our assistance and interpreting services facilitate communication with authorities, employers, and educational institutions"
+    },
+    "institutions": {
+      "title": "First contact with Košice institutions",
+      "description": "We help establish initial contact with state and municipal institutions in Košice. This simplifies administrative processes and makes adaptation to a new environment faster and clearer."
+    },
+    "police": {
+      "title": "Foreign Police/legalization",
+      "description": "We provide consultation and assistance when dealing with the Foreign Police, helping with legalization and integration processes in accordance with current legislation."
+    },
+    "print": {
+      "title": "Filling out applications/forms",
+      "description": "We assist with the accurate and clear completion of applications, questionnaires, and official forms to avoid mistakes and delays in document processing."
+    },
+    "integrationService": {
+      "title": "Comprehensive integration counseling",
+      "description": "We provide comprehensive consultations aimed at successful integration into the local community, including matters related to daily life, work, education, and culture."
+    }
   },
   "contactMaps": {
     "title": "Contact us",

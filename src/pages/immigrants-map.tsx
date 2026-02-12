@@ -1,5 +1,5 @@
 import styles from "../components/immigrants-map/immigrants-map.module.css";
-import PdfContainer from "../components/immigrants-map/pdf-container";
+import BookContainer from "../components/immigrants-map/book-container";
 import {useTranslation} from "react-i18next";
 import {IoArrowDownCircle} from "react-icons/io5";
 import {useRef} from "react";
@@ -23,7 +23,7 @@ export default function ImmigrantsMap() {
                 {t("title")}
             </h1>
 
-            <PdfContainer/>
+            <BookContainer/>
 
             <h2 className={styles.callUs}>
                 {t("callUs")}
