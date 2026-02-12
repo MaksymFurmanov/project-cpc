@@ -31,7 +31,7 @@ export default function FirstOfficeBlock() {
               <a className={styles.iconBtn} href="https://www.facebook.com/CentrumPodporyCudzincovKosice" aria-label="Facebook">
                 <FaFacebookF />
               </a>
-              <a className={styles.iconBtn} href="https://t.me/+421908365995" aria-label="Telegram">
+              <a className={styles.iconBtn} href="https://t.me/+LjEG_D7cxxA0OTg8" aria-label="Telegram">
                 <FaTelegramPlane />
               </a>
               <a className={styles.iconBtn} href="tel:+421908365995" aria-label="Viber">

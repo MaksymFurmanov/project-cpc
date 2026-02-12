@@ -7,7 +7,7 @@ export default function Socials() {
             <a className={styles.socialsBtn} href="https://www.facebook.com/CentrumPodporyCudzincovKosice" aria-label="Facebook">
                 <FaFacebookF />
               </a>
-              <a className={styles.socialsBtn} href="https://t.me/+421908365995" aria-label="Telegram">
+              <a className={styles.socialsBtn} href="https://t.me/+LjEG_D7cxxA0OTg8" aria-label="Telegram">
                 <FaTelegramPlane />
               </a>
               <a className={styles.socialsBtn} href="tel:+421908365995" aria-label="Viber">
