@@ -3,10 +3,9 @@ import {ActivitiesPage, Activity} from "../types";
 
 const AIRTABLE_BASE_ID = "appynslm7UcLg6XZ4";
 const AIRTABLE_TABLE_NAME = "Events";
-const APP_MODE = process.env.REACT_APP_APP_MODE;
+//const APP_MODE = process.env.REACT_APP_APP_MODE;
 const AIRTABLE_TOKEN = process.env.REACT_APP_AIRTABLE_TOKEN;
 const PAGE_SIZE = 4;
-
 
 function mapActivity(record: any): Activity {
     return {
@@ -45,7 +44,7 @@ export async function getActivitiesPage(
                         direction: "desc",
                     },
                 ],
-                view: APP_MODE === "dev" ? undefined : "Published",
+                //view: APP_MODE === "dev" ? undefined : "Published",
             },
         }
     );
