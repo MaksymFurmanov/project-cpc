@@ -7,6 +7,7 @@ const APP_MODE = process.env.REACT_APP_APP_MODE;
 const AIRTABLE_TOKEN = process.env.REACT_APP_AIRTABLE_TOKEN;
 const PAGE_SIZE = 4;
 
+
 function mapActivity(record: any): Activity {
     return {
         id: record.id,
