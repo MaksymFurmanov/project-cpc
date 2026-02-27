@@ -27,8 +27,8 @@ export default function Services() {
 
                 <ul className={styles.grid} aria-label="Zoznam služieb">
                     {servicesList.map((it, i) => (
-                        <li key={i} className={styles.card} onClick={() => openModal(it.label)}>
-                            <div className={clsx(styles.border, "not-selectable")}>
+                        <li key={i} className={clsx(styles.card, "not-selectable")} onClick={() => openModal(it.label)}>
+                            <div className={styles.border}>
                                 <div className={styles.inner}>
                                     <span className={styles.icon}
                                           aria-hidden="true">
