@@ -12,7 +12,7 @@ const languages = [
     {
         label: "UA",
         flagImg: "/img/langFlags/ua.webp",
-        systemName: "ua"
+        systemName: "uk"
     }
 ];
 

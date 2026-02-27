@@ -3,6 +3,7 @@ import {useTranslation} from "react-i18next";
 import {useState} from "react";
 import Modal from "../../modal/modal";
 import servicesList from "./services-list";
+import clsx from "clsx";
 
 export default function Services() {
     const {t} = useTranslation("home");
@@ -27,7 +28,7 @@ export default function Services() {
                 <ul className={styles.grid} aria-label="Zoznam služieb">
                     {servicesList.map((it, i) => (
                         <li key={i} className={styles.card} onClick={() => openModal(it.label)}>
-                            <div className={styles.border}>
+                            <div className={clsx(styles.border, "not-selectable")}>
                                 <div className={styles.inner}>
                                     <span className={styles.icon}
                                           aria-hidden="true">

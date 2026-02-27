@@ -12,7 +12,7 @@ const localizeActivity = (event: Activity, lang: string): {
             title = event.titleEN;
             text = event.descriptionEN;
             break;
-        case "ua":
+        case "uk":
             title = event.titleUA;
             text = event.descriptionUA;
             break;

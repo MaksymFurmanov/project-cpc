@@ -1,11 +1,11 @@
-import './App.css';
+import "./App.css";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Home from "./pages/home";
 import NavSidebar from "./components/nav-sidebar";
 import Header from "./components/header";
 import Activities from "./pages/activities";
 import Footer from "./components/footer";
-import Activity from './pages/activity';
+import Activity from "./pages/activity";
 import ImmigrantsMap from "./pages/immigrants-map";
 import useSidebar from "./hooks/use-sidebar";
 import React from "react";
