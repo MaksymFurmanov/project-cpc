@@ -11,7 +11,7 @@ import useScrolledFromTop from "../../hooks/use-scrolled-from-top";
 export default function Header({
                                    sidebarToggle, toggleSidebar
                                }: {
-    sidebarToggle: boolean;
+    sidebarToggle: boolean,
     toggleSidebar: (toggle: boolean) => void
 }) {
     const {scrolled} = useScrolledFromTop(60);
@@ -28,7 +28,7 @@ export default function Header({
     }
 
     return (
-        <header style={{ backgroundColor: isHomepage ? "transparent" : undefined }}
+        <header style={{backgroundColor: isHomepage ? "transparent" : undefined}}
                 className={`${styles.header} ${scrolled ? styles.scrolled : ""}`}
         >
             <div className={clsx(styles.logo, "not-selectable")} onClick={handleToHomepage}>

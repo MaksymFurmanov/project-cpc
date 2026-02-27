@@ -5,14 +5,17 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import "./utils/i18n";
 import {QueryClient, QueryClientProvider} from "@tanstack/react-query";
+import LanguageProvider from "./providers/languageProvider";
 
 const root = ReactDOM.createRoot(document.getElementById('root')!);
 const queryClient = new QueryClient();
 root.render(
     <React.StrictMode>
-        <QueryClientProvider client={queryClient}>
-            <App/>
-        </QueryClientProvider>
+        <LanguageProvider>
+            <QueryClientProvider client={queryClient}>
+                <App/>
+            </QueryClientProvider>
+        </LanguageProvider>
     </React.StrictMode>
 );
 

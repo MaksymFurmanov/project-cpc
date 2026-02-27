@@ -76,6 +76,15 @@ body {
     transform: translateX(-20em);
 }
 
+.pageWrapper {
+    transition: opacity 0.3s ease;
+    opacity: 1;
+}
+
+.fadeOut {
+    opacity: 0;
+}
+
 /* Mobile styles */
 @media (max-width: 768px) {
 

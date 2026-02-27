@@ -17,8 +17,6 @@ export default function Services() {
         setActiveLabel(null);
     };
 
-    console.log(activeLabel)
-
     return (
         <section className={styles.section}>
             <div className={styles.container}>

@@ -31,6 +31,11 @@ i18n
     .init({
         resources,
         fallbackLng: "sk",
+        load: "languageOnly",
+        detection: {
+            order: ["navigator"],
+            caches: []
+        },
         ns: Object.keys(resources.sk),
         defaultNS: "common",
         interpolation: {

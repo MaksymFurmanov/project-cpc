@@ -1,35 +1,33 @@
 import styles from "./header.module.css";
-import {MdOutlineLanguage} from "react-icons/md";
-import {useTranslation} from "react-i18next";
-import {useState} from "react";
 import languages from "./languages";
 import clsx from "clsx";
+import {useLanguage} from "../../providers/languageProvider";
 
 export default function LanguageSwitcher() {
-    const {i18n} = useTranslation();
-    const initialIndex = languages.findIndex(lang => lang.systemName === i18n.language);
-    const [langIndex, setLangIndex] = useState(initialIndex);
+    const {lang, changeLangWithAnimation} = useLanguage();
+    const sortedLanguages = [
+        ...languages.filter(l => l.systemName === lang),
+        ...languages.filter(l => l.systemName !== lang)
+    ];
 
-    const changeLanguageHandler = (lang: string, index: number) => {
-        i18n.changeLanguage(lang).then(() => {
-            setLangIndex(index)
-        });
-    }
+    const selectedIndex = sortedLanguages.findIndex(
+        l => l.systemName === lang
+    );
 
     return (
-        <div className={clsx(styles.languageSwitcher, "not-selectable")} >
-            <MdOutlineLanguage/>
-
+        <div className={clsx(styles.languageSwitcher, "not-selectable")}>
             <div className={styles.languagesContainer}>
                 <div className={styles.selectedContainer}
-                     style={{transform: `translateY(${(langIndex + 1) * 2.45}em)`}}
+                     style={{
+                         transform: `translateY(${selectedIndex * 2.5}em)`
+                     }}
                 />
-                {languages.map((language, index) => {
+                {sortedLanguages.map((language, index) => {
                     return (
                         <div key={index}
                              className={styles.languageVariant}
                              onClick={() =>
-                                 changeLanguageHandler(language.systemName, index)}
+                                 changeLangWithAnimation(language.systemName)}
                         >
                             <p>{language.label}</p>
                             <img src={language.flagImg} alt={""}/>
