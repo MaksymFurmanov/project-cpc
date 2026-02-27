@@ -26,8 +26,9 @@ export default function LanguageSwitcher() {
                     return (
                         <div key={index}
                              className={styles.languageVariant}
-                             onClick={() =>
-                                 changeLangWithAnimation(language.systemName)}
+                             onClick={() => {
+                                 if(language.systemName !== lang) changeLangWithAnimation(language.systemName);
+                             }}
                         >
                             <p>{language.label}</p>
                             <img src={language.flagImg} alt={""}/>
