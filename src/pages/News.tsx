@@ -20,7 +20,7 @@ export default function NewsPage() {
     return (
         <main>
             {isLoading && (
-                <div style={{margin: "5em 0"}}>
+                <div style={{margin: "5em 0 3em 0"}}>
                     <ArticleLoading/>
                 </div>
             )}

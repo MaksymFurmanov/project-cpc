@@ -4,7 +4,7 @@ import GalleryLoading from "./GalleryLoading";
 export default function ArticleLoading() {
     return (
         <div className={styles.card}>
-            <GalleryLoading/>
+            <GalleryLoading />
 
             <div className={styles.textContent}>
                 <div className={`${styles.titleSkeleton} ${styles.skeleton}`}/>

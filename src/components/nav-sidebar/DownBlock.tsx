@@ -1,10 +1,11 @@
 import styles from "../nav-sidebar/nav-sidebar.module.css";
 import {FaFacebookF, FaViber, FaTelegramPlane} from "react-icons/fa";
+import clsx from "clsx";
 
 export default function DownBlock() {
     return (
         <div>
-            <div className={styles.socials}>
+            <div className={clsx(styles.socials, "not-selectable")}>
                 <a className={styles.socialsBtn} href="https://www.facebook.com/CentrumPodporyCudzincovKosice" aria-label="Facebook">
                 <FaFacebookF />
                 </a>
