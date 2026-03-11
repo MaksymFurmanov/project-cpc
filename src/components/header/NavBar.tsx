@@ -1,7 +1,7 @@
 import styles from "./header.module.css";
 import navLinks from "../../lib/nav-links";
 import {useTranslation} from "react-i18next";
-import {useAppNavigation} from "../../hooks/use-app-navigation";
+import {useAppNavigation} from "../../hooks/useAppNavigation";
 
 export default function NavBar() {
     const appNavigate = useAppNavigation();

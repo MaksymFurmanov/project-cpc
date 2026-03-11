@@ -2,7 +2,7 @@ import styles from "./services.module.css";
 import {useTranslation} from "react-i18next";
 import {useState} from "react";
 import Modal from "../../modal/modal";
-import servicesList from "./services-list";
+import servicesList from "./ServicesList";
 import clsx from "clsx";
 
 export default function Services() {

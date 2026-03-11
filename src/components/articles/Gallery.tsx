@@ -1,9 +1,9 @@
-import styles from "./activities.module.css";
+import styles from "./articles.module.css";
 import {IoIosArrowBack, IoIosArrowForward} from "react-icons/io";
 import useEmblaCarousel from "embla-carousel-react";
 import clsx from "clsx";
-import GalleryLoading from "../skeletons/activities-list-loading/gallery-loading";
-import {useImagePreload} from "../../hooks/use-img-preload";
+import GalleryLoading from "../skeletons/articles-list-loading/GalleryLoading";
+import {useImagePreload} from "../../hooks/useImgPreload";
 
 export default function Gallery({images}: { images: string[] }) {
     const preloaded = useImagePreload(images);

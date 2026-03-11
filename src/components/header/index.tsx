@@ -1,12 +1,12 @@
 import styles from './header.module.css';
-import NavBar from "./nav-bar";
-import SidebarButton from "./sidebar-button";
-import LanguageSwitcher from "./language-switcher";
-import Socials from "./socials";
+import NavBar from "./NavBar";
+import SidebarButton from "./SidebarButton";
+import LanguageSwitcher from "./LanguageSwitcher";
+import Socials from "./Socials";
 import {ReactComponent as KosiceLogo} from "../../assets/logo-white.svg";
 import {useLocation, useNavigate} from "react-router-dom";
 import clsx from "clsx";
-import useScrolledFromTop from "../../hooks/use-scrolled-from-top";
+import useScrolledFromTop from "../../hooks/useScrolledFromTop";
 
 export default function Header({
                                    sidebarToggle, toggleSidebar

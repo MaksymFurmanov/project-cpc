@@ -1,8 +1,8 @@
 import styles from "./footer.module.css";
 import {useLocation} from "react-router-dom";
-import WorkHours from "./work-hours";
-import SecondOfficeBlock from "./second-office-block";
-import FirstOfficeBlock from "./first-office-block";
+import WorkHours from "./WorkHours";
+import SecondOfficeBlock from "./SecondOfficeBlock";
+import FirstOfficeBlock from "./FirstOfficeBlock";
 
 export default function Footer() {
     const year = new Date().getFullYear();

@@ -1,11 +1,11 @@
 import styles from "../components/immigrants-map/immigrants-map.module.css";
-import BookContainer from "../components/immigrants-map/book-container";
+import BookContainer from "../components/immigrants-map/BookContainer";
 import {useTranslation} from "react-i18next";
 import {IoArrowDownCircle} from "react-icons/io5";
 import {useRef} from "react";
 import clsx from "clsx";
 
-export default function ImmigrantsMap() {
+export default function ImmigrantsMapPage() {
     const {t} = useTranslation(["immigrants-map"]);
 
     const endRef = useRef<HTMLDivElement>(null);

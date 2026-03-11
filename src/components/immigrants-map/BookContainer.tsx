@@ -24,9 +24,9 @@ export default function BookContainer() {
         detectDevice();
     }, []);
 
-    const enterFullscreen = () => {
+    const enterFullscreen = async () => {
         if (wrapperRef.current?.requestFullscreen) {
-            wrapperRef.current.requestFullscreen();
+            await wrapperRef.current.requestFullscreen();
         }
     };
 

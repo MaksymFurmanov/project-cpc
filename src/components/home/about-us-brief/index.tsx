@@ -1,6 +1,6 @@
 import styles from "./about-us-brief.module.css";
 import {useTranslation} from "react-i18next";
-import {useAppNavigation} from "../../../hooks/use-app-navigation";
+import {useAppNavigation} from "../../../hooks/useAppNavigation";
 
 export default function AboutUsBrief() {
     const {t} = useTranslation(["home"]);

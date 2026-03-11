@@ -2,6 +2,7 @@
   "homeLink": "Home",
   "aboutUsLink": "About Us",
   "contacts": "Contacts",
-  "activities": "Activities",
-  "immigrantsMap": "Immigrants' Map"
+  "news": "News",
+  "immigrantsMap": "Immigrants' Map",
+  "events": "Events"
 }

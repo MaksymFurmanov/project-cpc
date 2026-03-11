@@ -1,4 +1,4 @@
-import styles from "./activities.module.css";
+import styles from "./articles.module.css";
 import clsx from "clsx";
 
 export default function Pagination({curr, selectFn, total}: {

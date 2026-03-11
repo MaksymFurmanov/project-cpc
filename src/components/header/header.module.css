@@ -165,17 +165,18 @@
     height: 1em;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1140px) {
     .links {
         display: flex;
     }
 
     .burgerIconContainer {
-        visibility: hidden;
+        display: none;
     }
 
     .socials {
         display: flex;
+        margin-right: 0.5em;
     }
 }
 

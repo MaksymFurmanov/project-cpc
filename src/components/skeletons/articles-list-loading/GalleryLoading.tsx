@@ -1,4 +1,4 @@
-import styles from "./activities-list-loading.module.css";
+import styles from "./articles-list-loading.module.css";
 
 export default function GalleryLoading() {
     return (

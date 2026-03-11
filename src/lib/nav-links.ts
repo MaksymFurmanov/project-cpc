@@ -4,13 +4,17 @@ const navLinks = [
         url: `/`,
     },
     {
-        label: 'activities',
-        url: '/activities/1',
+        label: 'events',
+        url: '/events?page=1',
+    },
+    {
+        label: 'news',
+        url: '/news?page=1',
     },
     {
         label: 'immigrantsMap',
         url: '/immigrants-map',
-    },
+    }
 ];
 
 export default navLinks;

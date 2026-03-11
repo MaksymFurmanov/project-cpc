@@ -1,6 +1,6 @@
 import styles from "./nav-sidebar.module.css";
-import NavList from "./nav-list";
-import DownBlock from "./down-block";
+import NavList from "./NavList";
+import DownBlock from "./DownBlock";
 
 export default function NavSidebar({sidebarToggle, closeIfOpened}: {
     sidebarToggle: boolean,

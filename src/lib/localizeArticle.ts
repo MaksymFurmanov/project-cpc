@@ -1,6 +1,6 @@
-import {Activity} from "../types";
+import {MultilingualArticle} from "../types";
 
-const localizeActivity = (event: Activity, lang: string): {
+const localizeArticle = (event: MultilingualArticle, lang: string): {
     title: string,
     text: string,
     date: string
@@ -26,4 +26,4 @@ const localizeActivity = (event: Activity, lang: string): {
     return {title, text, date}
 }
 
-export default localizeActivity;
+export default localizeArticle;

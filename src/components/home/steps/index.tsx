@@ -1,4 +1,4 @@
-import Step from "./step";
+import Step from "./Step";
 import styles from "./steps.module.css";
 import {useTranslation} from "react-i18next";
 

@@ -2,6 +2,7 @@
   "homeLink": "Головна",
   "aboutUsLink": "Про Нас",
   "contacts": "Контакти",
-  "activities": "Новини",
-  "immigrantsMap": "Мапа Іноземців"
+  "news": "Новини",
+  "immigrantsMap": "Мапа Іноземців",
+  "events": "Заходи"
 }

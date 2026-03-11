@@ -22,6 +22,7 @@
 .gallery {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 0.5em;
 }
 
@@ -126,6 +127,33 @@
     display: none;
 }
 
+.article {
+    max-width: 64em;
+    margin: 2em min(7%, 2em);
+}
+
+.articleTitle {
+    font-size: 1.5rem;
+    margin-top: 1.25em;
+}
+
+.articleText {
+    margin-top: 2em;
+}
+
+.backBtn {
+    border: none;
+    background: none;
+    font-size: 1.1rem;
+    margin-bottom: 2em;
+    cursor: pointer;
+    transition: all 0.2s ease-in;
+}
+
+.backBtn:hover {
+    color: var(--accent);
+}
+
 @media (min-width: 640px) {
     .textContent {
         max-width: 70dvw;
@@ -149,5 +177,18 @@
 
     .gallery svg {
         margin: 0.5em;
+    }
+
+    .article {
+        margin: 2em auto 3em auto;
+        padding: 0 1.5em;
+    }
+
+    .articleTitle {
+        font-size: 2rem;
+    }
+
+    .backBtn {
+        font-size: 1.25rem;
     }
 }

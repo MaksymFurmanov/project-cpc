@@ -1,26 +1,26 @@
 import {InfiniteData, useSuspenseInfiniteQuery} from "@tanstack/react-query";
-import {ActivitiesPage} from "../types";
-import {getActivitiesPage} from "../api/activitiesData";
+import {ArticlesPage, ArticleType} from "../types";
 import {useEffect} from "react";
 import {useNavigate} from "react-router-dom";
+import {getArticlesPage} from "../api/articlesData";
 
-export function useActivitiesPage(currentPage: number): {
-    pages: ActivitiesPage[],
+export function useArticlesPage(currentPage: number, type: ArticleType): {
+    pages: ArticlesPage[],
     setPage: (currentPage: number) => void,
     loading: boolean,
     total: number
 } {
     const navigate = useNavigate();
     const {data, fetchNextPage, hasNextPage, isFetching} = useSuspenseInfiniteQuery<
-        ActivitiesPage,
+        ArticlesPage,
         Error,
-        InfiniteData<ActivitiesPage>,
-        ["activities"],
+        InfiniteData<ArticlesPage>,
+        ["articles"],
         string | undefined
     >({
-        queryKey: ["activities"],
+        queryKey: ["articles"],
         queryFn: ({pageParam}) =>
-            getActivitiesPage(pageParam),
+            getArticlesPage(type, pageParam),
         initialPageParam: undefined,
         getNextPageParam: lastPage => lastPage.nextOffset,
     });
@@ -38,7 +38,16 @@ export function useActivitiesPage(currentPage: number): {
         : data?.pages.length ?? 1;
 
     const setPage = (page: number) => {
-        navigate(`/activities/${page}`);
+        switch (type) {
+            case ArticleType.EVENT:
+                navigate(`/events?page=${page}`);
+                break;
+            case ArticleType.NEWS:
+                navigate(`/news?page=${page}`);
+                break;
+            default:
+                throw new Error("Invalid article type");
+        }
     };
 
     return {

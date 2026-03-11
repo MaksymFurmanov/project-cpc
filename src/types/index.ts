@@ -1,4 +1,9 @@
-export type Activity = {
+export enum ArticleType {
+    NEWS = "News",
+    EVENT = "Event"
+}
+
+export type MultilingualArticle = {
     id: string,
     titleEN: string,
     titleSK: string,
@@ -9,9 +14,10 @@ export type Activity = {
     date: string,
     showDate: boolean,
     images: string[],
+    type: ArticleType
 }
 
-export type ActivitiesPage = {
-    activities: Activity[],
+export type ArticlesPage = {
+    articles: MultilingualArticle[],
     nextOffset?: string
 }
