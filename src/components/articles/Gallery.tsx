@@ -14,31 +14,30 @@ export default function Gallery({images}: { images: string[] }) {
         containScroll: "trimSnaps",
     });
 
-    if (!preloaded) return <GalleryLoading />;
+    if (!preloaded) return <GalleryLoading/>;
 
     const isOneImg = images.length === 1;
 
     return (
         <div className={clsx(styles.gallery, "not-selectable")}>
             {!isOneImg && emblaApi?.canScrollPrev() && (
-                <IoIosArrowBack onClick={() => emblaApi.scrollPrev()} />
+                <IoIosArrowBack onClick={() => emblaApi.scrollPrev()}/>
             )}
 
             <div className={styles.carousel} ref={emblaRef}>
                 <div className={styles.wrapper}>
                     {images.map((img, index) => (
-                        <img
-                            key={index}
-                            src={img}
-                            alt=""
-                            className={styles.image}
+                        <img key={index}
+                             src={img}
+                             alt={""}
+                             className={styles.image}
                         />
                     ))}
                 </div>
             </div>
 
             {!isOneImg && emblaApi?.canScrollNext() && (
-                <IoIosArrowForward onClick={() => emblaApi.scrollNext()} />
+                <IoIosArrowForward onClick={() => emblaApi.scrollNext()}/>
             )}
         </div>
     );
