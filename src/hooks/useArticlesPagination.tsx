@@ -3,6 +3,7 @@ import {ArticlesPage, ArticleType} from "../types";
 import {useEffect} from "react";
 import {useNavigate} from "react-router-dom";
 import {getArticlesPage} from "../api/articlesData";
+import {useTranslation} from "react-i18next";
 
 export function useArticlesPage(currentPage: number, type: ArticleType): {
     pages: ArticlesPage[],
@@ -11,19 +12,22 @@ export function useArticlesPage(currentPage: number, type: ArticleType): {
     total: number
 } {
     const navigate = useNavigate();
+    const { i18n } = useTranslation();
     const {data, fetchNextPage, hasNextPage, isFetching} = useSuspenseInfiniteQuery<
         ArticlesPage,
         Error,
         InfiniteData<ArticlesPage>,
-        ["articles"],
+        ["articles", ArticleType, string],
         string | undefined
     >({
-        queryKey: ["articles"],
+        queryKey: ["articles", type, i18n.language],
         queryFn: ({pageParam}) =>
             getArticlesPage(type, pageParam),
         initialPageParam: undefined,
         getNextPageParam: lastPage => lastPage.nextOffset,
     });
+
+    console.log("type in useArticlesPage: ", type);
 
     const pagesLoaded = data?.pages.length ?? 0;
 

@@ -16,6 +16,8 @@ export default function ArticlesList({type}: {
     const currentPage = Number(page);
     if (isNaN(currentPage)) throw new Error("Page not found");
 
+    console.log("type in ArticlesList: ", type);
+
     const {pages, setPage, loading, total} = useArticlesPage(currentPage, type);
 
     if (pages.length < 1) return null;
