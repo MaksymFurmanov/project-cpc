@@ -1,29 +1,37 @@
-import {InfiniteData, useSuspenseInfiniteQuery} from "@tanstack/react-query";
-import {ArticlesPage, ArticleType} from "../types";
-import {useEffect} from "react";
-import {useNavigate} from "react-router-dom";
-import {getArticlesPage} from "../api/articlesData";
+import { InfiniteData, useSuspenseInfiniteQuery } from "@tanstack/react-query";
+import { ArticlesPage, ArticleType } from "../types";
+import { useEffect } from "react";
+import { useNavigate, useSearchParams } from "react-router-dom";
+import { getArticlesPage } from "../api/articlesData";
 
-export function useArticlesPage(currentPage: number, type: ArticleType): {
+export function useArticlesPagination(type: ArticleType): {
     pages: ArticlesPage[],
     setPage: (currentPage: number) => void,
     loading: boolean,
-    total: number
+    total: number,
+    currentPage: number
 } {
     const navigate = useNavigate();
-    const {data, fetchNextPage, hasNextPage, isFetching} = useSuspenseInfiniteQuery<
-        ArticlesPage,
-        Error,
-        InfiniteData<ArticlesPage>,
-        ["articles"],
-        string | undefined
-    >({
-        queryKey: ["articles"],
-        queryFn: ({pageParam}) =>
-            getArticlesPage(type, pageParam),
-        initialPageParam: undefined,
-        getNextPageParam: lastPage => lastPage.nextOffset,
-    });
+    const [searchParams] = useSearchParams();
+
+    const page = searchParams.get("page");
+    const currentPage = Number(page);
+
+    if (isNaN(currentPage)) throw new Error("Page not found");
+
+    const { data, fetchNextPage, hasNextPage, isFetching } =
+        useSuspenseInfiniteQuery<
+            ArticlesPage,
+            Error,
+            InfiniteData<ArticlesPage>,
+            ["articles"],
+            string | undefined
+        >({
+            queryKey: ["articles"],
+            queryFn: ({ pageParam }) => getArticlesPage(type, pageParam),
+            initialPageParam: undefined,
+            getNextPageParam: lastPage => lastPage.nextOffset,
+        });
 
     const pagesLoaded = data?.pages.length ?? 0;
 
@@ -54,6 +62,7 @@ export function useArticlesPage(currentPage: number, type: ArticleType): {
         pages: data?.pages,
         setPage,
         loading: isFetching,
-        total
+        total,
+        currentPage
     };
 }

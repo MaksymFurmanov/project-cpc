@@ -5,6 +5,7 @@ import {Suspense, useEffect} from "react";
 import ArticlesListLoading from "../components/skeletons/articles-list-loading/ArticlesListLoading";
 import ArticlesList from "../components/articles/ArticlesList";
 import {ArticleType} from "../types";
+import EventsCalendar from "../components/articles/EventsCalendar";
 
 export default function EventsListPage() {
     const {t} = useTranslation(["articles"]);
@@ -18,6 +19,8 @@ export default function EventsListPage() {
             <h1 className={styles.pageTitle}>
                 {t("eventsPageTitle")}
             </h1>
+
+            <EventsCalendar/>
 
             <ErrorBoundary fallback={<div></div>}>
                 <Suspense fallback={<ArticlesListLoading/>}>

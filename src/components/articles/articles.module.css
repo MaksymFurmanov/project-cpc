@@ -154,6 +154,33 @@
     color: var(--accent);
 }
 
+.calendarWrapper {
+
+}
+
+.eventCard {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.eventCardTitle {
+    font-size: 12px;
+    line-height: 1.2;
+    overflow: hidden;
+
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.eventCard img {
+    width: 100%;
+    height: 70%;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
 @media (min-width: 640px) {
     .textContent {
         max-width: 70dvw;

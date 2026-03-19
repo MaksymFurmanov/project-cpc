@@ -3,20 +3,13 @@ import {useTranslation} from "react-i18next";
 import Pagination from "./Pagination";
 import {useMemo} from "react";
 import ArticlesListLoading from "../skeletons/articles-list-loading/ArticlesListLoading";
-import {useArticlesPage} from "../../hooks/useArticlesPagination";
+import {useArticlesPagination} from "../../hooks/useArticlesPagination";
 import ArticleCard from "./ArticleCard";
 import {ArticlesPage, ArticleType} from "../../types";
-import {useSearchParams} from "react-router-dom";
 
-export default function ArticlesList({type}: {
-    type: ArticleType
-}) {
-    const [searchParams] = useSearchParams();
-    const page = searchParams.get("page");
-    const currentPage = Number(page);
-    if (isNaN(currentPage)) throw new Error("Page not found");
-
-    const {pages, setPage, loading, total} = useArticlesPage(currentPage, type);
+export default function ArticlesList({type}: { type: ArticleType }) {
+    const {pages, setPage, loading, total, currentPage} =
+        useArticlesPagination(type);
 
     if (pages.length < 1) return null;
 
@@ -24,17 +17,11 @@ export default function ArticlesList({type}: {
         <ArticlesListLoading/>
     ) : (
         <div className={styles.listContainer}>
-            <Pagination curr={currentPage}
-                        selectFn={setPage}
-                        total={total}
-            />
+            <Pagination curr={currentPage} selectFn={setPage} total={total} />
 
             <SortedArticles pages={pages} currentPage={currentPage}/>
 
-            <Pagination curr={currentPage}
-                        selectFn={setPage}
-                        total={total}
-            />
+            <Pagination curr={currentPage} selectFn={setPage} total={total} />
         </div>
     );
 }
