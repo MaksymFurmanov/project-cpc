@@ -5,7 +5,7 @@ import mapArticle from "../utils/mappers/mapArticles";
 //const APP_MODE = process.env.REACT_APP_APP_MODE;
 
 const AIRTABLE_BASE_ID = "appynslm7UcLg6XZ4";
-const AIRTABLE_TABLE_NAME = "Events";
+const AIRTABLE_TABLE_NAME = "Articles";
 const AIRTABLE_TOKEN = process.env.REACT_APP_AIRTABLE_TOKEN;
 const PAGE_SIZE = 3;
 
