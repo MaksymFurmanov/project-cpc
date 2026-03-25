@@ -1,0 +1,31 @@
+.tableRow {
+    display: grid;
+    align-items: center;
+    gap: 1em;
+    margin: 2em;
+}
+
+.imageWrapper {
+
+}
+
+.image {
+
+}
+
+.addImgInput {
+    display: none;
+}
+
+.addImgBtn {
+    min-width: 10em;
+    padding: 0.5em 1em;
+    border-radius: 25px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+}
+
+.addImgBtn:hover {
+    background-color: #eee;
+    color: black;
+}
