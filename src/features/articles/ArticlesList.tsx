@@ -29,7 +29,7 @@ export default function ArticlesList() {
                 {articles?.map((article) => (
                     <li key={article.id}
                         className={styles.tableRow}
-                        style={{gridTemplateColumns: `repeat(${article?.images ? 3 : 2}, 1fr)`}}>
+                    >
                         <h3>{article.title_sk}</h3>
 
                         <AddImageBtn articleId={article.id}/>
