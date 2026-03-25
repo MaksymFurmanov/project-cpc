@@ -32,24 +32,27 @@ export default function ArticlesList() {
                         style={{gridTemplateColumns: `repeat(${article?.images ? 3 : 2}, 1fr)`}}>
                         <h3>{article.title_sk}</h3>
 
-                        {article?.images && article.images.length > 0 && (
-                            <div>
-                                {article.images.map((img, index) => {
-                                    return (
-                                        <div key={index} className={styles.imageWrapper}>
-                                            <Image className={styles.image}
-                                                   src={img}
-                                                   width={350}
-                                                   height={150}
-                                                   alt={"Failed to show image"}
-                                            />
-                                        </div>
-                                    );
-                                })}
-                            </div>
-                        )}
-
                         <AddImageBtn articleId={article.id}/>
+
+                        <div>
+                            {
+                                article?.images &&
+                                article.images.length > 0 &&
+                                article.images.map((img, index) => {
+                                        return (
+                                            <div key={index} className={styles.imageWrapper}>
+                                                <Image className={styles.image}
+                                                       src={img}
+                                                       width={350}
+                                                       height={150}
+                                                       alt={"Failed to show image"}
+                                                />
+                                            </div>
+                                        );
+                                    }
+                                )
+                            }
+                        </div>
                     </li>
                 ))}
             </ul>
