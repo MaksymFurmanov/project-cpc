@@ -1,51 +1,42 @@
+"use client";
+
 import styles from "./articles.module.css";
-import {ChangeEvent} from "react";
+import { ChangeEvent } from "react";
 import axios from "axios";
 
-export const AddImageBtn = ({articleId}: {
-    articleId: string,
-}) => {
+export const AddImageBtn = ({ articleId }: { articleId: string }) => {
     const addImage = async (e: ChangeEvent<HTMLInputElement>) => {
         const file = e.target.files?.[0];
         if (!file) return;
 
         const formData = new FormData();
         formData.append("file", file);
-        formData.append("articleId", articleId);
 
         try {
-            const {data} = await axios.post(
+            const { data } = await axios.post(
                 `/api/articles/${articleId}/images`,
-                formData,
-
-                {
-                    headers: {
-                        "Content-Type": "multipart/form-data",
-                    },
-                }
+                formData
             );
 
             console.log("Uploaded:", data);
         } catch (error) {
             console.error("Upload failed:", error);
         }
-    }
+    };
 
     const inputId = `fileUpload-${articleId}`;
 
     return (
         <div>
-            <input className={styles.addImgInput}
-                   id={inputId}
-                   type={"file"}
-                   onChange={(e) => {
-                       addImage(e);
-                   }}
+            <input
+                className={styles.addImgInput}
+                id={inputId}
+                type={"file"}
+                onChange={addImage}
             />
-            <label htmlFor={inputId}
-                   className={styles.addImgBtn}>
+            <label htmlFor={inputId} className={styles.addImgBtn}>
                 Add image
             </label>
         </div>
     );
-}
+};

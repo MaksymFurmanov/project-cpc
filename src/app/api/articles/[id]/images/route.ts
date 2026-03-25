@@ -5,6 +5,7 @@ import {
     DeleteObjectCommand,
 } from "@aws-sdk/client-s3";
 import {randomUUID} from "crypto";
+import {supabaseAdmin} from "@/lib/supabase/admin";
 
 const BUCKET = process.env.AWS_BUCKET_NAME!;
 const REGION = process.env.AWS_REGION!;
@@ -44,8 +45,20 @@ export async function POST(req: NextRequest,
 
         const fileUrl = `https://${BUCKET}.s3.${REGION}.amazonaws.com/${key}`;
 
-        return NextResponse.json({url: fileUrl});
+        const { data: article } = await supabaseAdmin
+            .from("articles")
+            .select("images")
+            .eq("id", articleId)
+            .single();
 
+        const updatedImages = [...(article?.images || []), fileUrl];
+
+        await supabaseAdmin
+            .from("articles")
+            .update({ images: updatedImages })
+            .eq("id", articleId);
+
+        return NextResponse.json({url: fileUrl});
     } catch (error) {
         console.error("Upload failed:", error);
         return NextResponse.json(
@@ -54,9 +67,7 @@ export async function POST(req: NextRequest,
     }
 }
 
-export async function DELETE(req: NextRequest,
-                             context: { params: Promise<{ id: string }> }
-) {
+export async function DELETE(req: NextRequest) {
     try {
         const {url} = await req.json();
 

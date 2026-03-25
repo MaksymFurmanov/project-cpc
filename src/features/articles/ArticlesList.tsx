@@ -39,6 +39,8 @@ export default function ArticlesList() {
                                         <div key={index} className={styles.imageWrapper}>
                                             <Image className={styles.image}
                                                    src={img}
+                                                   width={350}
+                                                   height={150}
                                                    alt={"Failed to show image"}
                                             />
                                         </div>
