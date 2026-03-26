@@ -10,7 +10,7 @@
 .divider {
     height: 0;
     border-top: #d1d5db 1px solid;
-    width: 35%;
+    width: 30%;
     padding-bottom: 2em;
     margin: 0 auto;
 }
@@ -71,11 +71,13 @@
 
 .textContent h2 {
     margin: 1.25em 0;
+    text-align: center;
 }
 
 .date {
     margin: 0.75em 0;
     font-weight: 600;
+    text-align: center;
 }
 
 .text {
@@ -85,13 +87,14 @@
 }
 
 .readMoreButton {
+    display: block;
     text-transform: uppercase;
     padding: 1em 2em;
     border-radius: 0;
     border: 2px #bbbbbb solid;
     font-weight: 600;
     letter-spacing: 1.2px;
-    margin: 1.5em;
+    margin: 2.25em auto 2em;;
     cursor: pointer;
 }
 
@@ -100,7 +103,8 @@
 }
 
 .pagination {
-    margin-bottom: 1em;
+    margin: 1em 1em 2em;
+    text-align: center;
 }
 
 .pagination button {
