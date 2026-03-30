@@ -4,7 +4,6 @@ import styles from "./articles.module.css";
 import {useEffect, useState} from "react";
 import {Article} from "@/features/articles/articles.types";
 import axios from "axios";
-import Image from "next/image";
 import {AddImageBtn} from "@/features/articles/AddImageBtn";
 
 export default function ArticlesList() {
@@ -23,18 +22,35 @@ export default function ArticlesList() {
         fetchArticles();
     }, []);
 
+    const handleImageAdded = (articleId: string, imageUrl: string) => {
+        setArticles((prev) =>
+            prev?.map((article) =>
+                article.id === articleId
+                    ? {
+                        ...article,
+                        images: [...(article.images || []), imageUrl],
+                    }
+                    : article
+            )
+        );
+    };
+
     return (
-        <div>
+        <div className={styles.ArticlesList}>
             <ul>
                 {articles?.map((article) => (
                     <li key={article.id}
-                        className={styles.tableRow}
-                    >
+                        className={styles.tableRow}>
                         <h3>{article.title_sk}</h3>
 
-                        <AddImageBtn articleId={article.id}/>
+                        <p>{article.date.toString()}</p>
 
-                        <div>
+                        <AddImageBtn articleId={article.id}
+                                     onImageAdded={handleImageAdded}
+                        />
+
+                        {/*Images preview*/}
+                        {/*<div>
                             {
                                 article?.images &&
                                 article.images.length > 0 &&
@@ -52,7 +68,7 @@ export default function ArticlesList() {
                                     }
                                 )
                             }
-                        </div>
+                        </div>*/}
                     </li>
                 ))}
             </ul>

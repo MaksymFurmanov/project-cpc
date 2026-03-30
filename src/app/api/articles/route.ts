@@ -1,4 +1,5 @@
 import { createClient } from "@/lib/supabase/server";
+import {NextResponse} from "next/server";
 
 export async function GET() {
     const supabase = await createClient();
@@ -15,6 +16,32 @@ export async function GET() {
     return Response.json(data);
 }
 
-export async function POST() {
+export async function POST(req: Request) {
+    const supabase = await createClient();
 
+    const {
+        data: { user },
+    } = await supabase.auth.getUser();
+
+    if (!user) {
+        return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+    }
+
+    const { data: profile } = await supabase
+        .from('profiles')
+        .select('role')
+        .eq('id', user.id)
+        .single();
+
+    if (profile?.role !== 'admin') {
+        return NextResponse.json({ error: 'Forbidden' }, { status: 403 });
+    }
+
+    const body = await req.json();
+
+    const { data, error } = await supabase
+        .from('articles')
+        .insert(body);
+
+    return NextResponse.json({ data, error });
 }

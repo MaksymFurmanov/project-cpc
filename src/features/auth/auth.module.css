@@ -1,0 +1,62 @@
+.inputField {
+    display: grid;
+    grid-auto-flow: column;
+    align-items: center;
+    justify-content: start;
+
+    font-size: 1.4rem;
+    margin: 1em 0;
+}
+
+.inputField label {
+    margin-right: 1em;
+}
+
+.inputField input {
+    font-size: 1.25rem;
+    padding: 0.5em 1em;
+}
+
+.passwordEye {
+    cursor: pointer;
+    margin: 0 0.5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loginBtn {
+    margin-top: 1em;
+    cursor: pointer;
+    font-size: 1.25rem;
+    border-radius: 5px;
+    border: 1px solid var(--text-main);
+    background-color: var(--bg-main);
+    padding: 0.5em 2em;
+}
+
+.loginBtn:hover {
+    background-color: var(--text-main);
+    color: var(--bg-main);
+}
+
+.logOutBtn {
+    font-size: 1.1rem;
+    margin: 2em 0 0 3em;
+    padding: 0.5em 2em;
+
+    cursor: pointer;
+    border-radius: 25px;
+    border: 1px solid var(--text-main);
+    background-color: var(--bg-main);
+}
+
+.logOutBtn:hover {
+    background-color: var(--text-main);
+    color: var(--bg-main);
+}
+
+.error {
+    color: var(--error);
+    font-size: 1.1rem;
+}

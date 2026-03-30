@@ -42,6 +42,35 @@ a {
   text-decoration: none;
 }
 
+button, a {
+  transition: all 0.2s ease-in-out;
+}
+
+.pageCenter {
+  height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@property --bg-main {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #0a0a0a;
+}
+
+@property --text-main {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #ededed;
+}
+
+@property --error {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #f4f4f4;
+}
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;

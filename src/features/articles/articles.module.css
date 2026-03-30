@@ -1,9 +1,20 @@
 .tableRow {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 3fr 1fr 1fr;
     align-items: center;
-    gap: 1em;
+    justify-items: start;
+    gap: 5em;
     margin: 2em;
+}
+
+.articles h1 {
+    text-align: center;
+    margin: 1em 0;
+}
+
+.ArticlesList {
+    max-width: 80dvw;
+    margin: 0 auto;
 }
 
 .imageWrapper {
@@ -23,10 +34,12 @@
     padding: 0.5em 1em;
     border-radius: 25px;
     cursor: pointer;
-    border: 1px solid #ccc;
+    border: 1px solid var(--text-main);
+    background-color: var(--bg-main);
+    transition: all 0.2s ease-in-out;
 }
 
 .addImgBtn:hover {
-    background-color: #eee;
-    color: black;
+    background-color: var(--text-main);
+    color: var(--bg-main);
 }

@@ -4,7 +4,10 @@ import styles from "./articles.module.css";
 import { ChangeEvent } from "react";
 import axios from "axios";
 
-export const AddImageBtn = ({ articleId }: { articleId: string }) => {
+export const AddImageBtn = ({ articleId, onImageAdded }: {
+    articleId: string,
+    onImageAdded: (articleId: string, url: string) => void
+}) => {
     const addImage = async (e: ChangeEvent<HTMLInputElement>) => {
         const file = e.target.files?.[0];
         if (!file) return;
@@ -17,6 +20,8 @@ export const AddImageBtn = ({ articleId }: { articleId: string }) => {
                 `/api/articles/${articleId}/images`,
                 formData
             );
+
+            onImageAdded(articleId, data.url);
 
             console.log("Uploaded:", data);
         } catch (error) {
