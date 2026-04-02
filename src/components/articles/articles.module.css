@@ -65,8 +65,13 @@
 }
 
 .textContent {
+    overflow-wrap: anywhere;
     font-size: 0.9rem;
     margin: 0 min(7%, 2em);
+}
+
+.textContent a {
+    word-break: break-all;
 }
 
 .textContent h2 {
