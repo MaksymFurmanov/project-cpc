@@ -1,58 +1,43 @@
-import axios from "axios";
-import {ArticlesPage, ArticleType, MultilingualArticle} from "../types";
-import mapArticle from "../utils/mappers/mapArticles";
+import {ArticlePage, ArticleType, MultilingualArticle} from "../types";
+import {supabase} from "../lib/supabaseClient";
 
-//const APP_MODE = process.env.REACT_APP_APP_MODE;
-
-const AIRTABLE_BASE_ID = "appynslm7UcLg6XZ4";
-const AIRTABLE_TABLE_NAME = "Events";
-const AIRTABLE_TOKEN = process.env.REACT_APP_AIRTABLE_TOKEN;
 const PAGE_SIZE = 3;
 
 export async function getArticlesPage(
     type: ArticleType,
-    offset?: string,
-): Promise<ArticlesPage> {
-    const res = await axios.get(
-        `https://api.airtable.com/v0/${AIRTABLE_BASE_ID}/${AIRTABLE_TABLE_NAME}`,
-        {
-            headers: {
-                Authorization: `Bearer ${AIRTABLE_TOKEN}`,
-            },
-            params: {
-                pageSize: PAGE_SIZE,
-                offset,
-                sort: [
-                    {
-                        field: "Date",
-                        direction: "desc",
-                    },
-                ],
-                filterByFormula: `{Type}="${type}"`,
-            },
-        }
-    );
+    page: number
+): Promise<ArticlePage> {
+    const from = (page - 1) * PAGE_SIZE;
+    const to = from + PAGE_SIZE - 1;
+
+    const {data, error, count} = await supabase
+        .from("articles")
+        .select("*", {count: "exact"})
+        .eq("type", type.toLowerCase())
+        .order("date", {ascending: false})
+        .range(from, to);
+
+    if (error) throw new Error(error.message);
 
     return {
-        articles: res.data.records.map(mapArticle),
-        nextOffset: res.data.offset,
+        articles: data as MultilingualArticle[],
+        totalCount: count ?? 0
     };
 }
 
-export async function getArticleById(id: string): Promise<MultilingualArticle | null> {
-    try {
-        const res = await axios.get(
-            `https://api.airtable.com/v0/${AIRTABLE_BASE_ID}/${AIRTABLE_TABLE_NAME}/${id}`,
-            {
-                headers: {
-                    Authorization: `Bearer ${AIRTABLE_TOKEN}`,
-                },
-            }
-        );
+export async function getArticleById(
+    id: string
+): Promise<MultilingualArticle | null> {
+    const {data, error} = await supabase
+        .from("articles")
+        .select("*")
+        .eq("id", id)
+        .single();
 
-        return mapArticle(res.data);
-    } catch (error) {
-        console.error("Error fetching articles:", error);
+    if (error) {
+        console.error("Error fetching article:", error);
         return null;
     }
+
+    return data as MultilingualArticle;
 }

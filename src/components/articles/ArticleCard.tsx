@@ -49,11 +49,9 @@ export default function ArticleCard({article, lang, isLast, currentPage}: {
                         {title}
                     </h2>
 
-                    {article.showDate && date !== "Invalid Date" && (
-                        <p className={styles.date}>
-                            {date}
-                        </p>
-                    )}
+                    <p className={styles.date}>
+                        {date}
+                    </p>
 
                     <div className={styles.text}>
                         <ReactMarkdown>{textSliced}</ReactMarkdown>

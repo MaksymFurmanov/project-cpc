@@ -9,16 +9,16 @@ const localizeArticle = (event: MultilingualArticle, lang: string): {
 
     switch (lang) {
         case "en":
-            title = event.titleEN;
-            text = event.descriptionEN;
+            title = event.title_en;
+            text = event.description_en;
             break;
         case "uk":
-            title = event.titleUA;
-            text = event.descriptionUA;
+            title = event.title_ua;
+            text = event.description_ua;
             break;
         default:
-            title = event.titleSK;
-            text = event.descriptionSK;
+            title = event.title_sk;
+            text = event.description_sk;
     }
 
     const date = new Date(event.date).toLocaleDateString(lang)

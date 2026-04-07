@@ -52,16 +52,15 @@ export default function Article({articleData, type}: {
                 <h2 className={styles.articleTitle}>
                     {title}
                 </h2>
-                <b className={styles.date}>
+                <p className={styles.date}>
                     {date}
-                </b>
+                </p>
                 <p className={styles.articleText}>
                     <ReactMarkdown>
                         {text}
                     </ReactMarkdown>
                 </p>
             </div>
-
         </article>
     );
 }
