@@ -1,10 +1,11 @@
 "use client";
 
-import styles from "./articles.module.css";
-import { ChangeEvent } from "react";
+import styles from "../../articles.module.css";
+import {ChangeEvent} from "react";
 import axios from "axios";
+import clsx from "clsx";
 
-export const AddImageBtn = ({ articleId, onImageAdded }: {
+export const AddImageBtn = ({articleId, onImageAdded}: {
     articleId: string,
     onImageAdded: (articleId: string, url: string) => void
 }) => {
@@ -16,7 +17,7 @@ export const AddImageBtn = ({ articleId, onImageAdded }: {
         formData.append("file", file);
 
         try {
-            const { data } = await axios.post(
+            const {data} = await axios.post(
                 `/api/articles/${articleId}/images`,
                 formData
             );
@@ -33,13 +34,14 @@ export const AddImageBtn = ({ articleId, onImageAdded }: {
 
     return (
         <div>
-            <input
-                className={styles.addImgInput}
-                id={inputId}
-                type={"file"}
-                onChange={addImage}
+            <input className={styles.addImgInput}
+                   id={inputId}
+                   type={"file"}
+                   onChange={addImage}
             />
-            <label htmlFor={inputId} className={styles.addImgBtn}>
+            <label htmlFor={inputId}
+                   className={clsx("primaryBtn",
+                       styles.addImgBtn)}>
                 Add image
             </label>
         </div>

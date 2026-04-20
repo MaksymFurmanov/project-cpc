@@ -2,6 +2,8 @@
     font-size: 1.5rem;
     padding: 0.5em 2em;
     border: 1px solid var(--text-main);
+    text-decoration: none;
+    color: var(--text-main);
 }
 
 .adminBtn:hover {

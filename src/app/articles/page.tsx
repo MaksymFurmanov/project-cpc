@@ -1,5 +1,5 @@
 import styles from "@/features/articles/articles.module.css";
-import ArticlesList from "@/features/articles/ArticlesList";
+import ArticlesList from "@/features/articles/ui/articles/ArticlesList";
 import {redirect} from "next/navigation";
 import {createClient} from "@/lib/supabase/server";
 import LogOut from "@/features/auth/LogOut";

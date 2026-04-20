@@ -10,6 +10,30 @@
   }
 }
 
+@property --bg-main {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #0a0a0a;
+}
+
+@property --text-main {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #ededed;
+}
+
+@property --accent {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #21c788;
+}
+
+@property --error {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #ff3333;
+}
+
 html {
   height: 100%;
 }
@@ -31,19 +55,31 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+body:has(.white-bg) {
+  background-color: #ededed;
+  color: var(--bg-main);
+}
+
+button:has(.white-bg) {
+  color: var(--bg-main);
+}
+
 * {
   box-sizing: border-box;
-  padding: 0;
-  margin: 0;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-button, a {
+.primaryBtn {
+  font-size: 1.1rem;
+  padding: 0.5em 2em;
+  cursor: pointer;
+  border: 1px solid var(--text-main);
+  background-color: var(--bg-main);
   transition: all 0.2s ease-in-out;
+}
+
+.primaryBtn:hover {
+  background-color: var(--text-main);
+  color: var(--bg-main);
 }
 
 .pageCenter {
@@ -51,24 +87,6 @@ button, a {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-@property --bg-main {
-  syntax: "<color>";
-  inherits: false;
-  initial-value: #0a0a0a;
-}
-
-@property --text-main {
-  syntax: "<color>";
-  inherits: false;
-  initial-value: #ededed;
-}
-
-@property --error {
-  syntax: "<color>";
-  inherits: false;
-  initial-value: #f4f4f4;
 }
 
 @media (prefers-color-scheme: dark) {

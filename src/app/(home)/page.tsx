@@ -4,10 +4,10 @@ import Link from "next/link";
 export default function Home() {
     return (
         <main className={"pageCenter"}>
-            <Link href={"/articles"}
-                  className={styles.adminBtn}>
-                Admin
-            </Link>
+                <Link href={"/articles"}
+                      className={styles.adminBtn}>
+                    Admin
+                </Link>
         </main>
     );
 }

@@ -9,6 +9,8 @@ const nextConfig: NextConfig = {
             },
         ],
     },
+
+    transpilePackages: ["cpc-shared"],
 };
 
 export default nextConfig;

@@ -4,7 +4,6 @@
     align-items: center;
     justify-items: start;
     gap: 5em;
-    margin: 2em;
 }
 
 .articles h1 {
@@ -12,9 +11,24 @@
     margin: 1em 0;
 }
 
+/*
+.articles a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.articles button, a {
+    transition: all 0.2s ease-in-out;
+}
+*/
+
 .ArticlesList {
-    max-width: 80dvw;
+    max-width: 85dvw;
     margin: 0 auto;
+}
+
+.ArticlesList ul {
+    padding-inline-start: 0;
 }
 
 .imageWrapper {
@@ -31,15 +45,24 @@
 
 .addImgBtn {
     min-width: 10em;
-    padding: 0.5em 1em;
-    border-radius: 25px;
+}
+
+.ArticlesPage {
+    background-color: white;
+}
+
+.SaveBtn {
+    display: block;
+    font-size: 1.1rem;
+    margin: 3em auto;
+    padding: 0.5em 2em;
     cursor: pointer;
-    border: 1px solid var(--text-main);
+    border: 2px solid var(--bg-main);
     background-color: var(--bg-main);
     transition: all 0.2s ease-in-out;
 }
 
-.addImgBtn:hover {
+.SaveBtn:hover {
     background-color: var(--text-main);
     color: var(--bg-main);
 }
