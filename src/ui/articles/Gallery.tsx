@@ -7,7 +7,9 @@ import clsx from "clsx";
 import GalleryLoading from "./skeletons/GalleryLoading";
 import {useImgPreload} from "../../hooks";
 
-export function Gallery({images}: { images: string[] }) {
+export function Gallery({images}: {
+    images: string[]
+}) {
     const [emblaRef, emblaApi] = useEmblaCarousel({
         dragFree: true,
         loop: true,
@@ -24,23 +26,29 @@ export function Gallery({images}: { images: string[] }) {
         <div>
             <div className={clsx(styles.gallery, "not-selectable")}>
                 {!isOneImg && emblaApi?.canScrollPrev() && (
-                    <IoIosArrowBack onClick={() => emblaApi.scrollPrev()}/>
+                    <IoIosArrowBack
+                        className={styles.galleryIcon}
+                        onClick={() => emblaApi.scrollPrev()}
+                    />
                 )}
 
                 <div className={styles.carousel} ref={emblaRef}>
                     <div className={styles.wrapper}>
                         {images.map((img, index) => (
-                            <img key={index}
+                            <img className={styles.image}
+                                 key={index}
                                  src={img}
                                  alt={""}
-                                 className={styles.image}
                             />
                         ))}
                     </div>
                 </div>
 
                 {!isOneImg && emblaApi?.canScrollNext() && (
-                    <IoIosArrowForward onClick={() => emblaApi.scrollNext()}/>
+                    <IoIosArrowForward
+                        className={styles.galleryIcon}
+                        onClick={() => emblaApi.scrollNext()}
+                    />
                 )}
             </div>
         </div>

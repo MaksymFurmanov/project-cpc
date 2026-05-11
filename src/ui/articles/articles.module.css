@@ -15,9 +15,7 @@
     margin: 0 auto;
 }
 
-.galleryWrapper {
-    padding: 0 1.5em;
-}
+/* ArticleGallery */
 
 .gallery {
     display: flex;
@@ -28,7 +26,7 @@
     margin: 0 auto;
 }
 
-.gallery svg {
+.galleryIcon {
     width: 1.25rem;
     height: 1.25rem;
     flex-shrink: 0;
@@ -38,7 +36,7 @@
     transition: all 0.1s ease-in-out;
 }
 
-.gallery svg:hover {
+.galleryIcon:hover {
     background-color: #d1d5db;
 }
 
@@ -61,9 +59,8 @@
     border-radius: 6px;
 }
 
-.hoverEffect:hover {
-    color: var(--accent);
-    cursor: pointer;
+.ArticleText {
+
 }
 
 .textContent {
@@ -134,7 +131,7 @@
     display: none;
 }
 
-.ArticleContainer {
+.mainContainer {
     max-width: 64em;
     margin: 2em min(7%, 2em);
 }
@@ -144,7 +141,7 @@
     margin-top: 1.25em;
 }
 
-.articleText {
+.textField {
     margin-top: 2em;
 }
 
