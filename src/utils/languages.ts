@@ -1,4 +1,6 @@
-export const languages = [
+import {LanguageOption} from "../types";
+
+export const languages: LanguageOption[] = [
     {
         label: "SK",
         flagImg: "/langFlags/sk.webp",

@@ -30,33 +30,26 @@ var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: tru
 // src/index.ts
 var index_exports = {};
 __export(index_exports, {
-  ArticleContainer: () => ArticleContainer,
+  ArticleLayout: () => ArticleLayout,
   ArticleLoading: () => ArticleLoading,
-  ArticleText: () => ArticleText,
   ArticleType: () => ArticleType,
   ArticlesListLoading: () => ArticlesListLoading,
   BackBtn: () => BackBtn,
   Gallery: () => Gallery,
+  languages: () => languages,
   useImgPreload: () => useImgPreload
 });
 module.exports = __toCommonJS(index_exports);
 
-// src/ui/articles/ArticleContainer.tsx
-var import_articles = __toESM(require("./articles.module-2IFUF3IW.module.css"));
-var import_jsx_runtime = require("react/jsx-runtime");
-function ArticleContainer({ children }) {
-  return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("article", { className: import_articles.default.ArticleContainer, children });
-}
-
 // src/ui/articles/BackBtn.tsx
-var import_articles2 = __toESM(require("./articles.module-2IFUF3IW.module.css"));
-var import_jsx_runtime2 = require("react/jsx-runtime");
+var import_articles = __toESM(require("./articles.module-ZNDBINPV.module.css"));
+var import_jsx_runtime = require("react/jsx-runtime");
 function BackBtn({ children, onBack }) {
-  return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("button", { className: import_articles2.default.backBtn, onClick: () => onBack(), children });
+  return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", { className: import_articles.default.backBtn, onClick: () => onBack(), children });
 }
 
 // src/ui/articles/Gallery.tsx
-var import_articles3 = __toESM(require("./articles.module-2IFUF3IW.module.css"));
+var import_articles2 = __toESM(require("./articles.module-ZNDBINPV.module.css"));
 var import_io = require("react-icons/io");
 var import_embla_carousel_react = __toESM(require("embla-carousel-react"));
 var import_clsx2 = __toESM(require("clsx"));
@@ -64,9 +57,9 @@ var import_clsx2 = __toESM(require("clsx"));
 // src/ui/articles/skeletons/GalleryLoading.tsx
 var import_articles_skeletons = __toESM(require("./articles-skeletons.module-V6WRGZMG.module.css"));
 var import_clsx = __toESM(require("clsx"));
-var import_jsx_runtime3 = require("react/jsx-runtime");
+var import_jsx_runtime2 = require("react/jsx-runtime");
 function GalleryLoading() {
-  return /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: (0, import_clsx.default)(import_articles_skeletons.default.gallerySkeleton, import_articles_skeletons.default.skeleton) });
+  return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", { className: (0, import_clsx.default)(import_articles_skeletons.default.gallerySkeleton, import_articles_skeletons.default.skeleton) });
 }
 
 // src/hooks/useImgPreload.ts
@@ -95,7 +88,7 @@ function useImgPreload(images) {
 }
 
 // src/ui/articles/Gallery.tsx
-var import_jsx_runtime4 = require("react/jsx-runtime");
+var import_jsx_runtime3 = require("react/jsx-runtime");
 function Gallery({ images }) {
   const [emblaRef, emblaApi] = (0, import_embla_carousel_react.default)({
     dragFree: true,
@@ -103,48 +96,64 @@ function Gallery({ images }) {
     containScroll: "trimSnaps"
   });
   const preloaded = useImgPreload(images);
-  if (!preloaded) return /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(GalleryLoading, {});
+  if (!preloaded) return /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(GalleryLoading, {});
   const isOneImg = images.length === 1;
-  return /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { children: /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: (0, import_clsx2.default)(import_articles3.default.gallery, "not-selectable"), children: [
-    !isOneImg && emblaApi?.canScrollPrev() && /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(import_io.IoIosArrowBack, { onClick: () => emblaApi.scrollPrev() }),
-    /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { className: import_articles3.default.carousel, ref: emblaRef, children: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { className: import_articles3.default.wrapper, children: images.map((img, index) => /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
+  return /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { children: /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: (0, import_clsx2.default)(import_articles2.default.gallery, "not-selectable"), children: [
+    !isOneImg && emblaApi?.canScrollPrev() && /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+      import_io.IoIosArrowBack,
+      {
+        className: import_articles2.default.galleryIcon,
+        onClick: () => emblaApi.scrollPrev()
+      }
+    ),
+    /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: import_articles2.default.carousel, ref: emblaRef, children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { className: import_articles2.default.wrapper, children: images.map((img, index) => /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
       "img",
       {
+        className: import_articles2.default.image,
         src: img,
-        alt: "",
-        className: import_articles3.default.image
+        alt: ""
       },
       index
     )) }) }),
-    !isOneImg && emblaApi?.canScrollNext() && /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(import_io.IoIosArrowForward, { onClick: () => emblaApi.scrollNext() })
+    !isOneImg && emblaApi?.canScrollNext() && /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+      import_io.IoIosArrowForward,
+      {
+        className: import_articles2.default.galleryIcon,
+        onClick: () => emblaApi.scrollNext()
+      }
+    )
   ] }) });
 }
 
-// src/ui/articles/ArticleText.tsx
-var import_articles4 = __toESM(require("./articles.module-2IFUF3IW.module.css"));
-var import_jsx_runtime5 = require("react/jsx-runtime");
-function ArticleText({ title, date, children }) {
-  return /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: import_articles4.default.textContent, children: [
-    /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("h2", { className: import_articles4.default.articleTitle, children: title }),
-    /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("b", { className: import_articles4.default.date, children: date }),
-    /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { className: import_articles4.default.articleText, children })
+// src/ui/articles/ArticleLayout.tsx
+var import_articles3 = __toESM(require("./articles.module-ZNDBINPV.module.css"));
+var import_jsx_runtime4 = require("react/jsx-runtime");
+function ArticleLayout({ navigation, gallery, title, date, content }) {
+  return /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("article", { className: import_articles3.default.mainContainer, children: [
+    navigation,
+    gallery,
+    /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("div", { className: import_articles3.default.textContent, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("h2", { className: import_articles3.default.titleField, children: title }),
+      /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("b", { className: import_articles3.default.dateField, children: date }),
+      /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", { className: import_articles3.default.textField, children: content })
+    ] })
   ] });
 }
 
 // src/ui/articles/skeletons/ArticleLoading.tsx
 var import_articles_skeletons2 = __toESM(require("./articles-skeletons.module-V6WRGZMG.module.css"));
-var import_jsx_runtime6 = require("react/jsx-runtime");
+var import_jsx_runtime5 = require("react/jsx-runtime");
 function ArticleLoading() {
-  return /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: import_articles_skeletons2.default.card, children: [
-    /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(GalleryLoading, {}),
-    /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: import_articles_skeletons2.default.textContent, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: `${import_articles_skeletons2.default.titleSkeleton} ${import_articles_skeletons2.default.skeleton}` }),
-      /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: `${import_articles_skeletons2.default.dateSkeleton} ${import_articles_skeletons2.default.skeleton}` }),
-      /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: import_articles_skeletons2.default.textSkeleton, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("span", { className: import_articles_skeletons2.default.skeleton }),
-        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("span", { className: import_articles_skeletons2.default.skeleton }),
-        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("span", { className: import_articles_skeletons2.default.skeleton }),
-        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("span", { className: import_articles_skeletons2.default.skeleton })
+  return /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: import_articles_skeletons2.default.card, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(GalleryLoading, {}),
+    /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: import_articles_skeletons2.default.textContent, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { className: `${import_articles_skeletons2.default.titleSkeleton} ${import_articles_skeletons2.default.skeleton}` }),
+      /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", { className: `${import_articles_skeletons2.default.dateSkeleton} ${import_articles_skeletons2.default.skeleton}` }),
+      /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", { className: import_articles_skeletons2.default.textSkeleton, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("span", { className: import_articles_skeletons2.default.skeleton }),
+        /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("span", { className: import_articles_skeletons2.default.skeleton }),
+        /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("span", { className: import_articles_skeletons2.default.skeleton }),
+        /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("span", { className: import_articles_skeletons2.default.skeleton })
       ] })
     ] })
   ] });
@@ -152,11 +161,11 @@ function ArticleLoading() {
 
 // src/ui/articles/skeletons/ArticlesListLoading.tsx
 var import_articles_skeletons3 = __toESM(require("./articles-skeletons.module-V6WRGZMG.module.css"));
-var import_jsx_runtime7 = require("react/jsx-runtime");
+var import_jsx_runtime6 = require("react/jsx-runtime");
 function ArticlesListLoading() {
-  return /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)("div", { className: import_articles_skeletons3.default.container, children: [
-    /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("div", { children: /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("div", { className: `${import_articles_skeletons3.default.paginationSkeleton} ${import_articles_skeletons3.default.skeleton}` }) }),
-    /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(ArticleLoading, {})
+  return /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("div", { className: import_articles_skeletons3.default.container, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", { className: `${import_articles_skeletons3.default.paginationSkeleton} ${import_articles_skeletons3.default.skeleton}` }) }),
+    /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(ArticleLoading, {})
   ] });
 }
 
@@ -166,15 +175,34 @@ var ArticleType = /* @__PURE__ */ ((ArticleType2) => {
   ArticleType2["EVENT"] = "event";
   return ArticleType2;
 })(ArticleType || {});
+
+// src/utils/languages.ts
+var languages = [
+  {
+    label: "SK",
+    flagImg: "/langFlags/sk.webp",
+    systemName: "sk"
+  },
+  {
+    label: "EN",
+    flagImg: "/langFlags/en.webp",
+    systemName: "en"
+  },
+  {
+    label: "UA",
+    flagImg: "/langFlags/ua.webp",
+    systemName: "uk"
+  }
+];
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
-  ArticleContainer,
+  ArticleLayout,
   ArticleLoading,
-  ArticleText,
   ArticleType,
   ArticlesListLoading,
   BackBtn,
   Gallery,
+  languages,
   useImgPreload
 });
 //# sourceMappingURL=index.js.map
