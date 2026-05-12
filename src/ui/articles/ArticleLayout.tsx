@@ -17,11 +17,11 @@ export function ArticleLayout({navigation, gallery, title, date, content}: {
             {gallery}
 
             <div className={styles.textContent}>
-                <h2 className={styles.articleTitle}>
+                <h2 className={styles.titleField}>
                     {title}
                 </h2>
 
-                <b className={styles.date}>
+                <b className={styles.dateField}>
                     {date}
                 </b>
 
