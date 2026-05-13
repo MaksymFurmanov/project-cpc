@@ -1,12 +1,12 @@
 // src/ui/articles/BackBtn.tsx
-import styles from "./articles.module-EGIOVSRM.module.css";
+import styles from "./articles.module-BY7OUETJ.module.css";
 import { jsx } from "react/jsx-runtime";
 function BackBtn({ children, onBack }) {
   return /* @__PURE__ */ jsx("button", { className: styles.backBtn, onClick: () => onBack(), children });
 }
 
 // src/ui/articles/Gallery.tsx
-import styles3 from "./articles.module-EGIOVSRM.module.css";
+import styles3 from "./articles.module-BY7OUETJ.module.css";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import useEmblaCarousel from "embla-carousel-react";
 import clsx2 from "clsx";
@@ -83,7 +83,7 @@ function Gallery({ images }) {
 }
 
 // src/ui/articles/ArticleLayout.tsx
-import styles4 from "./articles.module-EGIOVSRM.module.css";
+import styles4 from "./articles.module-BY7OUETJ.module.css";
 import { jsx as jsx4, jsxs as jsxs2 } from "react/jsx-runtime";
 function ArticleLayout({ navigation, gallery, title, date, content }) {
   return /* @__PURE__ */ jsxs2("article", { className: styles4.mainContainer, children: [

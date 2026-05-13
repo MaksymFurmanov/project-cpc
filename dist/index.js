@@ -42,14 +42,14 @@ __export(index_exports, {
 module.exports = __toCommonJS(index_exports);
 
 // src/ui/articles/BackBtn.tsx
-var import_articles = __toESM(require("./articles.module-EGIOVSRM.module.css"));
+var import_articles = __toESM(require("./articles.module-BY7OUETJ.module.css"));
 var import_jsx_runtime = require("react/jsx-runtime");
 function BackBtn({ children, onBack }) {
   return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", { className: import_articles.default.backBtn, onClick: () => onBack(), children });
 }
 
 // src/ui/articles/Gallery.tsx
-var import_articles2 = __toESM(require("./articles.module-EGIOVSRM.module.css"));
+var import_articles2 = __toESM(require("./articles.module-BY7OUETJ.module.css"));
 var import_io = require("react-icons/io");
 var import_embla_carousel_react = __toESM(require("embla-carousel-react"));
 var import_clsx2 = __toESM(require("clsx"));
@@ -126,7 +126,7 @@ function Gallery({ images }) {
 }
 
 // src/ui/articles/ArticleLayout.tsx
-var import_articles3 = __toESM(require("./articles.module-EGIOVSRM.module.css"));
+var import_articles3 = __toESM(require("./articles.module-BY7OUETJ.module.css"));
 var import_jsx_runtime4 = require("react/jsx-runtime");
 function ArticleLayout({ navigation, gallery, title, date, content }) {
   return /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)("article", { className: import_articles3.default.mainContainer, children: [
