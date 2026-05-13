@@ -8,6 +8,7 @@
   ],
   "sideEffects": false,
   "scripts": {
+    "dev": "tsc --watch",
     "build": "tsup src/index.ts --format esm,cjs --dts",
     "prepare": "npm run build"
   },
@@ -17,7 +18,7 @@
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
     "tsup": "^8.0.0",
-    "typescript": "^5.0.0"
+    "typescript": "^5.9.3"
   },
   "peerDependencies": {
     "react": "^18 || ^19",
