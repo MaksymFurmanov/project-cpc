@@ -11,11 +11,11 @@ export type MultilingualArticle = {
     type: ArticleType,
 
     title_sk: string,
-    title_ua: string,
+    title_uk: string,
     title_en: string,
 
     description_sk: string,
-    description_ua: string,
+    description_uk: string,
     description_en: string,
 
     images: string[],
