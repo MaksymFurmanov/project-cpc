@@ -1,0 +1,15 @@
+{
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "kosice4you.sk"
+        }
+      ],
+      "destination": "https://kosiceforyou.sk/$1",
+      "permanent": true
+    }
+  ]
+}

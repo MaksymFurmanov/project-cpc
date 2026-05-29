@@ -1,0 +1,70 @@
+{
+  "aboutKosice": {
+    "title": "KOŠICE",
+    "text": "Košice sú otvoreným a priateľským mestom, ktoré srdečne víta cudzincov prichádzajúcich za prácou, štúdiom či podnikaním. Ponúkajú pestré možnosti profesionálneho uplatnenia, kvalitné vzdelávacie inštitúcie a priaznivé podnikateľské prostredie. S bohatou kultúrou, živým spoločenským životom a multikultúrnou atmosférou sa Košice stávajú miestom, kde sa ľudia z rôznych krajín cítia ako doma. Košičania sú známi svojou pohostinnosťou a ochotou pomôcť cudzincom pri integrácii do miestnej komunity."
+  },
+  "aboutUsBrief": {
+    "title": "Centrum podpory cudzincov",
+    "text": "Ciel’om Magistrátu mesta Košice je rozvíjať podporu pre nových prisťahovalcov. Aj preto v jeho štruktúrach pôsobí Centrum podpory cudzincov, ktoré poskytuje svoje služby prostredníctvom kancelárie prvého kontaktu (KPK) pre cudzincov.",
+    "contactsButton": "Kontakty"
+  },
+  "services": {
+    "title": "Naše služby",
+    "schools": {
+      "title": "Hľadanie školky/školy",
+      "description": "Zabezpečujeme výber vzdelávacej inštitúcie pre dieťa, poskytujeme konzultačnú podporu počas prijímacieho procesu a v prípade potreby zabezpečujeme aj sprievod. Naším cieľom je nájsť pre dieťa komfortné, bezpečné a kvalitné vzdelávacie prostredie."
+    },
+    "translation": {
+      "title": "Tlmočenie a sprevádzanie",
+      "description": "Poskytujeme podporu cudzincom v každodennom živote, pri štúdiu aj práci a pomáhame prekonávať jazykové bariéry. Tlmočenie a osobné sprevádzanie uľahčujú komunikáciu s úradmi, zamestnávateľmi a školami."
+    },
+    "institutions": {
+      "title": "Prvý kontakt s Košickými inštitúciami",
+      "description": "Pomáhame nadviazať prvý kontakt s verejnými inštitúciami v Košiciach, čím zjednodušujeme administratívne procesy a urýchľujeme adaptáciu v novom prostredí."
+    },
+    "police": {
+      "title": "Cudzinecka polícia/legalizácia",
+      "description": "Poskytujeme poradenstvo a asistenciu pri komunikácii s cudzineckou políciou a pri procesoch súvisiacich s legalizáciou pobytu v súlade s platnou legislatívou."
+    },
+    "print": {
+      "title": "Vyplnenie žiadostí/formulárov",
+      "description": "Pomáhame s vyplňovaním žiadostí, formulárov a oficiálnych dokumentov tak, aby boli správne a bez chýb, čo predchádza zbytočným komplikáciám a zdržaniam pri spracovaní dokumentov."
+    },
+    "integrationService": {
+      "title": "Komplexné integračné poradenstvo",
+      "description": "Ponúkame komplexné poradenstvo zamerané na úspešnú integráciu do miestnej komunity - práca, vzdelávanie, kultúra a voľné aktivity."
+    }
+  },
+  "contactMaps": {
+    "title": "Kontaktujte nás",
+    "phone": "Telefón",
+    "email": "Email",
+    "openingHours": "Otváracie hodiny",
+    "lunchBreak": "Obedňajšia prestávka",
+    "days": {
+      "monday": "Pondelok",
+      "tuesday": "Utorok",
+      "wednesday": "Streda",
+      "thursday": "Štvrtok",
+      "friday": "Piatok"
+    }
+  },
+  "heroSection": {
+    "welcomeMsg": "Vitajte v Košiciach"
+  },
+  "steps": {
+    "header": "Získať konzultáciu",
+    "step1": {
+      "title": "Kontaktujte nás",
+      "text": "Navštívte jednu z našich kancelárií centra alebo nám zavolajte, aby ste si dohodli stretnutie."
+    },
+    "step2": {
+      "title": "Vysvetlite situáciu",
+      "text": "Povedzte nám, akú pomoc by ste potrebovali alebo s akými ťažkosťami sa stretávate pri integrácii v meste Košice."
+    },
+    "step3": {
+      "title": "Postupujte podľa rád našich pracovníkov",
+      "text": "Urobíme všetko, čo je v našich silách, aby ste sa lepšie zorientovali vo svojej situácii."
+    }
+  }
+}

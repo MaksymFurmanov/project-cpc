@@ -1,0 +1,74 @@
+{
+  "aboutKosice": {
+    "title": "KOŠICE",
+    "text": "Košice is an open and friendly city that warmly welcomes foreigners coming for work, study, or business. It offers diverse opportunities for professional development, quality educational institutions, and a favorable business environment. With its rich culture, vibrant social life, and multicultural atmosphere, Košice has become a place where people from different countries feel at home. The people of Košice are known for their hospitality and willingness to help foreigners integrate into the local community."
+  },
+  "aboutUsBrief": {
+    "title": "Foreigners' Support Center",
+    "text": "The goal of the Municipality of Košice is to systematically develop support for the newcomers. That is why the Foreigners' Support Center operates within its structure, providing its services through the First Contact Office for foreigners.",
+    "contactsButton": "Contacts"
+  },
+  "services": {
+    "title": "Our Services",
+    "schools": {
+      "title": "Finding schools/nursery schools",
+      "description": "We provide selection of an educational institution for a child, offer consultation support during the admission process, and, if necessary, ensure personal assistance. Our goal is to find a comfortable, safe, and high-quality educational environment for the child."
+    },
+    "translation": {
+      "title": "Translation, interpretation and assistance",
+      "description": "We provide support to foreigners in everyday life, education, and employment, helping them overcome the language barrier. Our assistance and interpreting services facilitate communication with authorities, employers, and educational institutions"
+    },
+    "institutions": {
+      "title": "First contact with Košice institutions",
+      "description": "We help establish initial contact with state and municipal institutions in Košice. This simplifies administrative processes and makes adaptation to a new environment faster and clearer."
+    },
+    "police": {
+      "title": "Foreign Police/legalization",
+      "description": "We provide consultation and assistance when dealing with the Foreign Police, helping with legalization and integration processes in accordance with current legislation."
+    },
+    "print": {
+      "title": "Filling out applications/forms",
+      "description": "We assist with the accurate and clear completion of applications, questionnaires, and official forms to avoid mistakes and delays in document processing."
+    },
+    "integrationService": {
+      "title": "Comprehensive integration counseling",
+      "description": "We provide comprehensive consultations aimed at successful integration into the local community, including matters related to daily life, work, education, and culture."
+    }
+  },
+  "contactMaps": {
+    "title": "Contact us",
+    "phone": "Phone",
+    "email": "Email",
+    "openingHours": "Opening hours",
+    "lunchBreak": "Lunch break",
+    "days": {
+      "monday": "Monday",
+      "tuesday": "Tuesday",
+      "wednesday": "Wednesday",
+      "thursday": "Thursday",
+      "friday": "Friday"
+    }
+  },
+  "immigrantsMapPreview": {
+    "title": "",
+    "description": ""
+  },
+  "heroSection": {
+    "welcomeMsg": "Welcome to Košice"
+  },
+  "steps": {
+    "header": "Get in Touch",
+    "step1": {
+      "title": "Contact us",
+      "text": "Visit one of our support center offices or call us to arrange an appointment."
+    },
+    "step2": {
+      "title": "Explain your situation",
+      "text": "Tell us what kind of help you need or what are the difficulties you are facing in integrating into the city of Košice."
+    },
+    "step3": {
+      "title": "Follow the advices of our consultants",
+      "text": "We will do everything possible to help you."
+    }
+  }
+}

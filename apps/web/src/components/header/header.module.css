@@ -1,0 +1,198 @@
+.header {
+    position: sticky;
+    top: 0;
+    max-width: 100dvw;
+    height: 12dvh;
+    max-height: 6em;
+    background-color: var(--main-blue);
+    color: #f4f4f4;
+    transition: all 0.8s ease;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1dvh 2em;
+}
+
+.scrolled {
+    background-color: var(--main-blue) !important;
+    padding: 0.25dvh 2em;
+}
+
+.logo {
+    fill: #f4f4f4;
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    cursor: pointer;
+}
+
+.kosiceLogo {
+    display: none;
+    width: 8em;
+    max-height: 9dvh;
+}
+
+.cpcLogo {
+    width: 8em;
+}
+
+.links {
+    display: none;
+    gap: 1.5em;
+    margin: 0 auto;
+}
+
+.links p {
+    font-size: 1.25rem;
+    cursor: pointer;
+    border-bottom: 1px solid #f4f4f4;
+    padding-bottom: 0.1em;
+    display: inline-block;
+}
+
+.links p:hover {
+    color: #c5c5c5;
+    border-bottom: 1px solid #c5c5c5;
+}
+
+.buttonsRight {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+
+.buttonsRight svg {
+    width: 1.5em;
+    height: 1.5em;
+    cursor: pointer;
+    fill: #f4f4f4;
+}
+
+.buttonsRight svg:hover {
+    fill: #c5c5c5;
+}
+
+.socials {
+    display: none;
+    gap: 1em;
+}
+
+.socialsBtn {
+    height: 1.5em;
+}
+
+.burgerIconContainer {
+    visibility: visible;
+    height: 1.5em;
+}
+
+.burgerIconContainer svg:hover {
+    color: #c5c5c5;
+}
+
+.languageSwitcher {
+    position: relative;
+    height: 1.5em;
+}
+
+.languageSwitcher svg {
+    position: relative;
+    z-index: 2;
+    transition: fill 0.5s ease-in-out;
+}
+
+.languageSwitcher:hover svg {
+    fill: #000000;
+    cursor: auto;
+}
+
+.languagesContainer {
+    position: absolute;
+    top: -0.5em;
+    right: -0.75em;
+    padding: 0.1em 0.3em;
+    margin-right: 0.5em;
+    background-color: rgba(244, 244, 244, 0);
+    color: var(--white);
+    border-radius: 12px;
+    z-index: 1;
+    overflow: hidden;
+    transition: max-width 0.5s ease,
+    max-height 0.5s ease,
+    opacity 0.6s ease-in-out,
+    background-color 0.5s ease,
+    color 0.3s ease-in-out;
+    max-height: 2.25em;
+}
+
+.languageSwitcher:hover .languagesContainer {
+    background-color: var(--white);
+    color: black;
+    opacity: 1;
+    max-height: 10em;
+    max-width: 6em;
+}
+
+.selectedContainer {
+    position: absolute;
+    z-index: 0;
+    height: 2em;
+    background: #cacaca;
+    border-radius: 25px;
+    margin: 0 0.25em;
+    transition: transform 0.3s ease-in-out;
+    transform: translateY(0);
+}
+
+.languageVariant {
+    display: flex;
+    align-items: center;
+    gap: 0.75em;
+    cursor: pointer;
+    padding: 0.5em;
+    position: relative;
+    z-index: 3;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.languageVariant p {
+    margin: 0;
+}
+
+.languageVariant img {
+    width: 1.5em;
+    height: 1em;
+}
+
+@media (min-width: 1140px) {
+    .links {
+        display: flex;
+    }
+
+    .burgerIconContainer {
+        display: none;
+    }
+
+    .socials {
+        display: flex;
+        margin-right: 0.5em;
+    }
+}
+
+@media (min-width: 768px) {
+    .kosiceLogo {
+        display: block;
+    }
+}
+
+@media (min-width: 1400px) {
+    .logo {
+        gap: 2em;
+    }
+
+    .kosiceLogo {
+        width: 9em;
+    }
+}
+
