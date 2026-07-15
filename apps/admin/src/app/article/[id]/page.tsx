@@ -1,20 +1,29 @@
 "use client";
 
-import {useArticles} from "@/app/providers/ArticlesProvider";
+import styles from "./../../../features/article/article.module.css";
 import {useParams} from "next/navigation";
-import {ArticleLoading} from "cpc-shared";
-import Article from "@/features/articles/ui/article/Article";
+import {ArticleLoading} from "@cpc/article-system";
+import Article from "@/features/article/ui/Article";
+import {useArticleEditor} from "@/app/providers/ArticleEditorProvider";
+import {useEffect} from "react";
 
 export default function ArticlePage() {
-    const params = useParams();
-    const articleId = params.id! as string;
+    const params = useParams<{ id: string }>();
+    const articleId = params.id;
+
+    const {editExisting, loading} = useArticleEditor();
+
     if (!articleId) throw new Error("No article found");
 
-    const {articlesMap, loading} = useArticles();
+    useEffect(() => {
+        editExisting(articleId);
+    }, [articleId]);
 
-    const article = articlesMap.get(articleId);
-
-    if (!article && !loading) throw new Error("No article found");
-
-    return !article ? <ArticleLoading/> : <Article articleData={article} />;
+    return loading ? (
+        <div className={styles.navigationLoading}>
+            <ArticleLoading/>
+        </div>
+    ) : (
+        <Article/>
+    );
 }

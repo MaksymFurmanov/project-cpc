@@ -56,7 +56,7 @@ body {
 }
 
 body:has(.white-bg) {
-  background-color: #ededed;
+  background-color: #ffffff;
   color: var(--bg-main);
 }
 

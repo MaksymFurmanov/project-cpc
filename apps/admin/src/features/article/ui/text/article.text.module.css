@@ -1,0 +1,77 @@
+/* TipTapEditorContent */
+.editorEmpty {
+    border: 1px solid #000;
+    border-radius: 4px;
+}
+
+.editorEmpty p {
+    margin: 0;
+}
+
+/* TitleEditor */
+
+.titleInput {
+    all: unset;
+    display: block;
+    width: 100%;
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+    overflow: hidden;
+}
+
+.titleInput::placeholder {
+    opacity: 0.4;
+}
+
+/* DateField */
+
+.dateInput {
+    all: unset;
+    cursor: pointer;
+}
+
+/* EditorPanel */
+
+.editorPanel {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 2em;
+    padding: 1em 2em;
+    gap: 1.25em;
+    border: 1px solid var(--bg-main);
+    max-width: fit-content;
+}
+
+.editorPanel button {
+    background-color: var(--bg-main);
+    border: 0;
+    border-radius: 3px;
+    font-size: 0.9rem;
+    padding: 0.5em 1em;
+    cursor: pointer;
+    transition: background-color 0.15s ease-in-out;
+    flex-shrink: 0;
+    white-space: nowrap;
+}
+
+.editorPanel button:hover {
+    background-color: #333333;
+}
+
+/* SaveBtn */
+
+.saveBtn {
+    display: block;
+    font-size: 1.1rem;
+    margin: 2.5em auto;
+    padding: 0.5em 2em;
+    cursor: pointer;
+    border: 2px solid var(--bg-main);
+    background-color: var(--bg-main);
+    transition: all 0.2s ease-in-out;
+}
+
+.saveBtn:hover {
+    background-color: var(--text-main);
+    color: var(--bg-main);
+}

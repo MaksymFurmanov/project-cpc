@@ -1,8 +1,8 @@
 import styles from "@/features/articles/articles.module.css";
-import ArticlesList from "@/features/articles/ui/articles/ArticlesList";
 import {redirect} from "next/navigation";
 import {createClient} from "@/lib/supabase/server";
 import LogOut from "@/features/auth/LogOut";
+import ArticlesByType from "@/features/articles/ArticlesByType";
 
 export default async function ArticlesPage() {
     const supabase = await createClient();
@@ -29,7 +29,7 @@ export default async function ArticlesPage() {
                 Članky
             </h1>
 
-            <ArticlesList/>
+            <ArticlesByType/>
         </main>
     );
 }

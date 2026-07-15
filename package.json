@@ -1,14 +1,14 @@
 {
   "name": "cpc-monorepo",
-  "version": "1.0.0",
-  "description": "",
-  "main": "dist/index.js",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
   "scripts": {
-    "build": "tsc"
-  },
-  "dependencies": {},
-  "devDependencies": {
-    "typescript": "^5.5.3"
-  },
-  "private": true
+    "admin": "npm run dev --workspace=admin-project-cpc",
+    "web": "npm run dev --workspace=project-cpc",
+    "build:admin": "npm run build --workspace=admin-project-cpc",
+    "build:web": "npm run build --workspace=project-cpc"
+  }
 }

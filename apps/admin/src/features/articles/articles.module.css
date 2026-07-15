@@ -1,68 +1,105 @@
+.articles h1 {
+    text-align: center;
+    margin: 1em 0 1.5em 0;
+}
+
+/* ArticlesByType */
+
+.articlesList {
+    max-width: 85dvw;
+    margin: 0 auto;
+}
+
+.selectedBtn {
+    background-color: white !important;
+    color: black;
+}
+
+.typesButtons {
+    display: flex;
+    justify-content: space-around;
+    border: 2px solid white;
+    border-radius: 5px;
+    padding: 1em 0;
+    margin-bottom: 1em;
+}
+
+.typesButtons button {
+    font-size: 1.1rem;
+    border: 0;
+    border-radius: 5px;
+    padding: 0.75em 2em;
+    cursor: pointer;
+    background-color: #0a0a0a;
+    transition: all 0.15s ease-in-out;
+}
+
+.typesButtons button:hover {
+    box-shadow: inset 0 0 0 2px white;
+}
+
+/* ArticlesList */
+
+.articlesList ul {
+    padding-inline-start: 0;
+}
+
+.articlesList .loading {
+    display: block;
+    margin: 12% auto;
+    max-width: fit-content;
+}
+
+.articlesList .error {
+    display: flex;
+    justify-content: center;
+    color: white;
+}
+
+.articlesPage {
+    background-color: white;
+}
+
 .tableRow {
     display: grid;
     grid-template-columns: 3fr 1fr 1fr;
     align-items: center;
     justify-items: start;
-    gap: 5em;
+    gap: 4em;
 }
 
-.articles h1 {
-    text-align: center;
-    margin: 1em 0;
+.tableRow .date {
+    white-space: nowrap;
 }
 
-/*
-.articles a {
-    color: inherit;
-    text-decoration: none;
-}
+/* AddNewWindow */
 
-.articles button, a {
-    transition: all 0.2s ease-in-out;
-}
-*/
-
-.ArticlesList {
-    max-width: 85dvw;
-    margin: 0 auto;
-}
-
-.ArticlesList ul {
-    padding-inline-start: 0;
-}
-
-.imageWrapper {
+.addImgWindow {
 
 }
 
-.image {
-
+.addNewButton {
+    position: fixed;
+    z-index: 10;
+    bottom: 5%;
+    right: 5%;
+    margin: 1em auto;
+    width: fit-content;
 }
 
-.addImgInput {
-    display: none;
+.addNewButton button {
+    background: none;
 }
 
-.addImgBtn {
-    min-width: 10em;
-}
-
-.ArticlesPage {
-    background-color: white;
-}
-
-.SaveBtn {
-    display: block;
-    font-size: 1.1rem;
-    margin: 3em auto;
-    padding: 0.5em 2em;
+.addNewButton svg {
+    width: 3.5em;
+    height: 3.5em;
     cursor: pointer;
-    border: 2px solid var(--bg-main);
-    background-color: var(--bg-main);
-    transition: all 0.2s ease-in-out;
+    fill: white;
+    stroke: black;
+    transition: fill 0.2s ease-in;
 }
 
-.SaveBtn:hover {
-    background-color: var(--text-main);
-    color: var(--bg-main);
+.addNewButton svg:hover {
+    fill: #b5b5b5;
 }

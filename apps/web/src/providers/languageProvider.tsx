@@ -1,9 +1,10 @@
 import {createContext, ReactNode, useContext, useEffect, useState} from "react";
 import {useTranslation} from "react-i18next";
+import {Language} from "@cpc/languages";
 
 const LanguageContext = createContext<{
-    lang: string,
-    changeLangWithAnimation: (lang: string) => void,
+    lang: Language,
+    changeLangWithAnimation: (lang: Language) => void,
     isChanging: boolean,
     setIsLangChanging: (isChanging: boolean) => void
 } | undefined>(undefined);
@@ -11,7 +12,7 @@ const LanguageContext = createContext<{
 export default function LanguageProvider({children}: {children: ReactNode}) {
     const { i18n } = useTranslation();
     const currentLanguage = i18n.language.toLowerCase().slice(0, 2);
-    const [lang, setLang] = useState<string>(currentLanguage);
+    const [lang, setLang] = useState<Language>(currentLanguage);
     const [isChanging, setIsLangChanging] = useState(false);
 
     useEffect(() => {
@@ -28,7 +29,7 @@ export default function LanguageProvider({children}: {children: ReactNode}) {
         };
     }, [i18n]);
 
-    const changeLangWithAnimation = async (lang: string) => {
+    const changeLangWithAnimation = async (lang: Language) => {
         setIsLangChanging(true);
 
         await i18n.changeLanguage(lang);

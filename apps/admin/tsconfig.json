@@ -1,7 +1,12 @@
 {
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
     "target": "ES2017",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -13,13 +18,20 @@
     "isolatedModules": true,
     "jsx": "react-jsx",
     "incremental": true,
+
     "plugins": [
       {
         "name": "next"
       }
     ],
+
+    "baseUrl": ".",
+
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@cpc/article-system": ["../../packages/article-system/src"],
+      "@cpc/languages": ["../../packages/languages/src"],
+      "@cpc/hooks": ["../../packages/hooks/src"],
     }
   },
   "include": [

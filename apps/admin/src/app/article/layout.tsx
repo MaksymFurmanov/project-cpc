@@ -1,11 +1,14 @@
 import {ReactNode} from "react";
+import ArticleEditorProvider from "@/app/providers/ArticleEditorProvider";
 
 export default function ArticleLayout({children}: {
-    children: ReactNode;
+    children: ReactNode
 }) {
     return (
-        <section className={"white-bg"}>
-            {children}
-        </section>
+        <ArticleEditorProvider>
+            <section className={"white-bg"}>
+                {children}
+            </section>
+        </ArticleEditorProvider>
     );
 }

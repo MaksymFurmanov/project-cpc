@@ -1,0 +1,115 @@
+/* AddImageBtn */
+
+.addImgInput {
+    display: none;
+}
+
+.addImgBtn {
+    min-width: 10em;
+}
+
+/* ArticleCropper */
+
+.articleCropper {
+    position: relative;
+    width: 100%;
+    max-width: 70dvw;
+    margin: 0 auto;
+
+    aspect-ratio: 2 / 1;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+/* ZoomBar */
+
+.zoomBar {
+    position: absolute;
+    left: 50%;
+    bottom: 5%;
+    transform: translateX(-50%);
+
+    width: calc(100% - 2em);
+    height: 0.5em;
+
+    background: rgba(255, 255, 255, 0.25);
+    border-radius: 100px;
+
+    cursor: pointer;
+    backdrop-filter: blur(6px);
+}
+
+.zoomTrackFill {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+
+    background: #ffffff;
+    border-radius: 100px;
+}
+
+.zoomThumb {
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 0.9em;
+    height: 0.9em;
+
+    background: #ffffff;
+    border-radius: 50%;
+
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    pointer-events: none;
+}
+
+/* ImageButtons */
+
+.imageButtons {
+    position: absolute;
+    z-index: 5;
+    top: 10%;
+    right: 5%;
+
+    display: flex;
+    gap: 0.75em;
+}
+
+.imageButtons button {
+    cursor: pointer;
+    padding: 0.35em 1em;
+    border: 0;
+    border-radius: 40px;
+    background-color: #0a0a0a;
+    box-shadow: 0 0 6px #ffffffd4;
+
+    opacity: 0.7;
+    transition: opacity 0.1s ease-in-out;
+}
+
+.imageButtons button:hover {
+    opacity: 1;
+}
+
+/* AddImageWindow */
+.addImgWindow {
+    width: min(100%, 70dvw);
+    margin: 0 auto;
+    box-sizing: border-box;
+
+    aspect-ratio: 2 / 1;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px dashed #bbbbbb;
+    border-radius: 6px;
+}
+
+@media (min-width: 640px) {
+    .addImgWindow {
+        aspect-ratio: 3 / 1;
+    }
+}
