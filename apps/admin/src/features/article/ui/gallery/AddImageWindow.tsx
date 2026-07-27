@@ -2,8 +2,6 @@
 
 import styles from "./article.gallery.module.css";
 import {ChangeEvent} from "react";
-import clsx from "clsx";
-
 import {useArticleEditor} from "@/app/providers/ArticleEditorProvider";
 
 export default function AddImageWindow() {
@@ -40,13 +38,10 @@ export default function AddImageWindow() {
             />
 
             <label
-                className={clsx(
-                    "primaryBtn",
-                    styles.addImgBtn
-                )}
+                className={styles.addImgBtn}
                 htmlFor={"article-image-upload"}
             >
-                Add image
+                <p>Add image</p>
             </label>
         </div>
     );

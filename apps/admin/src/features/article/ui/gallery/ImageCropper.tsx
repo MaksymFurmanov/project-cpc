@@ -7,9 +7,10 @@ import ZoomBar from "@/features/article/ui/gallery/ZoomBar";
 import {useIsDesktop} from "@/lib/hooks/useIsDesktop";
 import ImageButtons from "./ImageButtons";
 
-export default function ArticleCropper({img, index}: {
+export default function ImageCropper({img, index, unselectHandler}: {
     img: string,
-    index: number
+    index: number,
+    unselectHandler: () => void,
 }) {
     const [crop, setCrop] = useState<{ x: number, y: number }>({x: 0, y: 0});
     const [zoom, setZoom] = useState<number>(1);
@@ -40,6 +41,7 @@ export default function ArticleCropper({img, index}: {
             <ImageButtons img={img}
                           index={index}
                           croppedAreaPixels={croppedAreaPixels}
+                          unselectHandler={unselectHandler}
             />
         </div>
     );

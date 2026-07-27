@@ -6,18 +6,27 @@ import {getCroppedImg} from "@/lib/utils/getCroppedImage";
 import {Area} from "react-easy-crop";
 import {useParams} from "next/navigation";
 
-export default function ImageButtons({img, index, croppedAreaPixels}: {
+export default function ImageButtons({img, index, croppedAreaPixels, unselectHandler}: {
     img: string,
     index: number,
-    croppedAreaPixels: Area | null
+    croppedAreaPixels: Area | null,
+    unselectHandler: () => void,
 }) {
     return (
         <div className={styles.imageButtons}>
-            <ChangeButton/>
-            <SaveBtn img={img}
-                     index={index}
-                     croppedAreaPixels={croppedAreaPixels}
-            />
+            <div>
+                <button onClick={unselectHandler}>
+                    Zrušiť
+                </button>
+            </div>
+
+            <div className={styles.changingButtons}>
+                <ChangeButton/>
+                <SaveBtn img={img}
+                         index={index}
+                         croppedAreaPixels={croppedAreaPixels}
+                />
+            </div>
         </div>
     );
 }

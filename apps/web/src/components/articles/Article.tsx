@@ -61,7 +61,6 @@ export default function Article({articleData, type}: {
                     </ReactMarkdown>
                 </p>
             </div>
-
         </article>
     );
 }
