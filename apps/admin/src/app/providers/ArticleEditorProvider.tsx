@@ -22,7 +22,10 @@ const ArticleEditorContext = createContext<{
     setTitle: (lang: Language, value: string) => void,
     setDescription: (lang: Language, value: string) => void,
     setDate: (value: string) => void,
-    setImages: (value: ArticleEditorImage[]) => void,
+    addImage: (value: ArticleEditorImage) => void,
+    updateImage: (index: number, value: ArticleEditorImage) => void,
+    removeImage: (index: number) => void,
+    moveImage: (from: number, to: number) => void,
     setPublished: (value: boolean) => void,
     setType: (value: ArticleType) => void,
 
@@ -80,10 +83,30 @@ export default function ArticleEditorProvider({children}: {
             value,
         });
 
-    const setImages = (value: ArticleEditorImage[]) =>
+    const addImage = (value: ArticleEditorImage) =>
         dispatch({
-            type: "SET_IMAGES",
+            type: "ADD_IMAGE",
             value,
+        });
+
+    const updateImage = (index: number, value: ArticleEditorImage) =>
+        dispatch({
+            type: "UPDATE_IMAGE",
+            index,
+            value
+        });
+
+    const removeImage = (index: number) =>
+        dispatch({
+            type: "REMOVE_IMAGE",
+            index
+        });
+
+    const moveImage = (from: number, to: number) =>
+        dispatch({
+            type: "MOVE_IMAGE",
+            from,
+            to
         });
 
     const setPublished = (value: boolean) =>
@@ -221,7 +244,10 @@ export default function ArticleEditorProvider({children}: {
             setTitle,
             setDescription,
             setDate,
-            setImages,
+            addImage,
+            removeImage,
+            updateImage,
+            moveImage,
             setPublished,
             setType,
 

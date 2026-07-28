@@ -38,10 +38,18 @@ export function articleReducer(
                 type: action.value,
             };
 
-        case "SET_IMAGES":
+        case "ADD_IMAGE":
             return {
                 ...state,
-                images: action.value,
+                images: [...state.images, action.value]
+            };
+
+        case "UPDATE_IMAGE":
+            return {
+                ...state,
+                images: state.images.map((image, i) =>
+                    i === action.index ? action.value : image
+                ),
             };
 
         case "REMOVE_IMAGE":
