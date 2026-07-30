@@ -19,6 +19,7 @@ const ArticleEditorContext = createContext<{
     loading: boolean,
     error: string | null,
 
+    setType: (value: ArticleType) => void,
     setTitle: (lang: Language, value: string) => void,
     setDescription: (lang: Language, value: string) => void,
     setDate: (value: string) => void,
@@ -27,7 +28,6 @@ const ArticleEditorContext = createContext<{
     removeImage: (index: number) => void,
     moveImage: (from: number, to: number) => void,
     setPublished: (value: boolean) => void,
-    setType: (value: ArticleType) => void,
 
     editExisting: (id: string) => Promise<void>,
     saveArticle: (lang: Language) => Promise<void>
@@ -62,6 +62,12 @@ export default function ArticleEditorProvider({children}: {
     const [article, dispatch] = useReducer(articleReducer, emptyArticle);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
+
+    const setType = (value: ArticleType) =>
+        dispatch({
+            type: "SET_TYPE",
+            value,
+        });
 
     const setTitle = (lang: Language, value: string) =>
         dispatch({
@@ -115,12 +121,6 @@ export default function ArticleEditorProvider({children}: {
             value,
         });
 
-    const setType = (value: ArticleType) =>
-        dispatch({
-            type: "SET_TYPE",
-            value,
-        });
-
     const editExisting = useCallback(async (id: string) => {
         try {
             setLoading(true);
@@ -152,7 +152,6 @@ export default function ArticleEditorProvider({children}: {
         setError(null);
     }, []);
 
-
     const createArticle = useCallback(
         async () => {
             const res = await axios.post(
@@ -163,7 +162,7 @@ export default function ArticleEditorProvider({children}: {
 
                     date: article.date,
                     type: article.type,
-                    images: article.images,
+                    images: article.images.map(img => img.preview.src),
                     published: article.published,
                 }
             );
@@ -195,7 +194,7 @@ export default function ArticleEditorProvider({children}: {
 
                     date: article.date,
                     type: article.type,
-                    images: article.images,
+                    images: article.images.map(img => img.preview.src),
                     published: article.published,
                 }
             );
@@ -241,6 +240,7 @@ export default function ArticleEditorProvider({children}: {
             loading,
             error,
 
+            setType,
             setTitle,
             setDescription,
             setDate,
@@ -249,7 +249,6 @@ export default function ArticleEditorProvider({children}: {
             updateImage,
             moveImage,
             setPublished,
-            setType,
 
             editExisting,
             saveArticle,

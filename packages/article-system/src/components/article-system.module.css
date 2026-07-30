@@ -35,6 +35,8 @@
     display: flex;
 }
 
+
+
 .image {
     flex: 0 0 100%;
     min-width: 0;

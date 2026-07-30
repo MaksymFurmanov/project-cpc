@@ -1,23 +1,5 @@
 /* AddImageBtn */
 
-.addImgInput {
-    display: none;
-}
-
-.addImgBtn {
-    width: 100%;
-    height: 100%;
-    cursor: pointer;
-    transition: all 0.2s ease-in-out;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.4em;
-}
-
-.addImgBtn:hover {
-    background-color: #f1f1f1;
-}
 
 /* ArticleCropper */
 
@@ -121,6 +103,7 @@
 }
 
 /* ImageButtons */
+
 .imageButtons {
     display: flex;
     justify-content: space-between;
@@ -153,7 +136,12 @@
     opacity: 1;
 }
 
-/* AddImageWindow */
+/* AddImageWindow and AddImageBtn */
+
+.addImgInput {
+    display: none;
+}
+
 .addImgWindow {
     width: min(100%, 70dvw);
     margin: 0 auto;
@@ -167,6 +155,35 @@
 
     border: 1px dashed #bbbbbb;
     border-radius: 6px;
+}
+
+.addImgWindow label {
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.4em;
+}
+
+.addImgWindow label:hover {
+    background-color: #f1f1f1;
+}
+
+.addImgBtn {
+    display: inline-block;
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+    padding: 0.5em 1.5em;
+    border: 2px solid #000000;
+    border-radius: 4px;
+    margin-bottom: 1em;
+}
+
+.addImgBtn:hover {
+    background-color: #f1f1f1;
 }
 
 @media (min-width: 640px) {

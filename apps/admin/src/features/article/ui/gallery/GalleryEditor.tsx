@@ -6,10 +6,10 @@ import {useState} from "react";
 import {Gallery} from "@cpc/article-system";
 import {useArticleEditor} from "@/app/providers/ArticleEditorProvider";
 import GalleryWrapper from "@/features/article/ui/gallery/GalleryWrapper";
+import AddImageBtn from "@/features/article/ui/gallery/AddImageBtn";
 
 export default function GalleryEditor() {
     const {article} = useArticleEditor();
-    const images = article.images;
 
     const [selected, setSelected] = useState<number | null>(null);
     const [currentImage, setCurrentImage] = useState<number>(0);
@@ -18,24 +18,23 @@ export default function GalleryEditor() {
         setSelected(null);
     }
 
-    return images.length > 0 ? (
+    console.log("article.images", article.images);
+
+    return article.images.length > 0 ? (
         <div>
+            <AddImageBtn/>
+
             {selected !== null ? (
-                <Gallery images={article.images.map(
-                    image => image.src
-                )}
+                <Gallery images={article.images.map(src => src.original.src)}
                          setCurrImg={setCurrentImage}
                          viewport={
-                             <ImageCropper img={images[selected].src}
-                                           index={selected}
+                             <ImageCropper index={selected}
                                            unselectHandler={unselectHandler}
                              />
                          }
                 />
             ) : (
-                <Gallery images={article.images.map(
-                    image => image.src
-                )}
+                <Gallery images={article.images.map(src => src.preview.src)}
                          setCurrImg={setCurrentImage}
                          overlay={
                              <GalleryWrapper selectImage={() => {

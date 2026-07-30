@@ -19,8 +19,18 @@ export const mapArticleToEditorState = (
     },
     images: (article.images ?? []).map(
         (src: string) => ({
-            src,
-            file: null,
+            original: {
+                src,
+                file: undefined,
+            },
+
+            preview: {
+                src,
+                file: undefined,
+            },
+
+            crop: {x: 0, y: 0},
+            zoom: 1
         })
     ),
     published: article.published,
