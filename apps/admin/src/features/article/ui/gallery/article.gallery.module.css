@@ -173,16 +173,21 @@
 }
 
 .addImgBtn {
-    display: inline-block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1.5em;
+}
+
+.addImgBtn label {
     cursor: pointer;
     transition: all .2s ease-in-out;
     padding: 0.5em 1.5em;
     border: 2px solid #000000;
     border-radius: 4px;
-    margin-bottom: 1em;
 }
 
-.addImgBtn:hover {
+.addImgBtn label:hover {
     background-color: #f1f1f1;
 }
 

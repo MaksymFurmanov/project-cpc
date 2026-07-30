@@ -18,8 +18,6 @@ export default function GalleryEditor() {
         setSelected(null);
     }
 
-    console.log("article.images", article.images);
-
     return article.images.length > 0 ? (
         <div>
             <AddImageBtn/>

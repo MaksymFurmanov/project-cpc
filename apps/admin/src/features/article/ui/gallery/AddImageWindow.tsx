@@ -17,7 +17,7 @@ export default function AddImageWindow() {
             />
 
             <label htmlFor={"window-upload-image"}>
-                <p>Add image</p>
+                <p>Pridať obrazok</p>
             </label>
         </div>
     );

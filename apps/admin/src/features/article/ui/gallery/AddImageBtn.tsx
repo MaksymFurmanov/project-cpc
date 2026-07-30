@@ -7,7 +7,7 @@ export default function AddImageBtn() {
     const uploadHandler = useImageUpload();
 
     return (
-        <div>
+        <div className={styles.addImgBtn}>
             <input
                 className={styles.addImgInput}
                 id={"article-image-upload"}
@@ -16,9 +16,8 @@ export default function AddImageBtn() {
                 onChange={uploadHandler}
             />
 
-            <label htmlFor={"article-image-upload"}
-                   className={styles.addImgBtn}>
-                Add image
+            <label htmlFor={"article-image-upload"}>
+                Pridať obrazok
             </label>
         </div>
     );

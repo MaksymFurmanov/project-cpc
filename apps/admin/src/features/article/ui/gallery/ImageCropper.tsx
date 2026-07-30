@@ -54,8 +54,6 @@ export default function ImageCropper({index, unselectHandler}: {
                 croppedAreaPixels
             );
 
-            console.log("img saved with crop:", img.crop);
-
             updateImage(index, {
                 ...img,
                 preview: {

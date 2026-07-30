@@ -12,7 +12,6 @@ export function Gallery({images, setCurrImg, overlay, viewport}: {
     overlay?: ReactNode,
     viewport?: ReactNode
 }) {
-    console.log("Gallery images", images);
     const [emblaRef, emblaApi] = useEmblaCarousel({
         dragFree: true,
         loop: true,
@@ -21,47 +20,56 @@ export function Gallery({images, setCurrImg, overlay, viewport}: {
     });
 
     useEffect(() => {
-        emblaApi?.reInit();
-        console.log("React images:", images.length);
-        console.log("Embla slides:", emblaApi?.slideNodes().length);
-    }, [images, emblaApi]);
+        if (!emblaApi || !setCurrImg) return;
 
-    useEffect(() => {
-        if (!setCurrImg) return;
-        if (!emblaApi) return;
-
-        const handleScroll = () => {
-            setCurrImg?.(emblaApi.selectedScrollSnap());
+        const handleSelect = () => {
+            setCurrImg(emblaApi.selectedScrollSnap());
         };
 
-        handleScroll();
-        emblaApi.on("select", handleScroll);
+        handleSelect();
+
+        emblaApi.on("select", handleSelect);
 
         return () => {
-            emblaApi.off("select", handleScroll);
+            emblaApi.off("select", handleSelect);
         };
-    }, [images, emblaApi, setCurrImg]);
+    }, [emblaApi, setCurrImg]);
 
-    const isOneImg = images.length === 1;
+    const showArrows = images.length > 1;
+
+    const handlePrev = () => {
+        if (viewport) return;
+        emblaApi?.scrollPrev();
+    };
+
+    const handleNext = () => {
+        if (viewport) return;
+        emblaApi?.scrollNext();
+    };
 
     return (
         <div>
             <div className={clsx(styles.gallery, "not-selectable")}>
-                {!isOneImg && emblaApi?.canScrollPrev() && (
+                {showArrows && (
                     <IoIosArrowBack
                         className={styles.galleryIcon}
-                        onClick={() => emblaApi.scrollPrev()}
+                        onClick={handlePrev}
                     />
                 )}
 
-                <div className={styles.carousel} ref={emblaRef}>
-                    {viewport ? viewport : (
+                <div className={styles.carousel}
+                     ref={emblaRef}
+                >
+                    {viewport ? (
+                        viewport
+                    ) : (
                         <div className={styles.wrapper}>
                             {images.map((src, index) => (
-                                <img src={src}
-                                     alt={""}
-                                     key={index}
-                                     className={styles.image}
+                                <img
+                                    key={index}
+                                    src={src}
+                                    alt={""}
+                                    className={styles.image}
                                 />
                             ))}
                         </div>
@@ -70,10 +78,10 @@ export function Gallery({images, setCurrImg, overlay, viewport}: {
                     {overlay}
                 </div>
 
-                {!isOneImg && emblaApi?.canScrollNext() && (
+                {showArrows && (
                     <IoIosArrowForward
                         className={styles.galleryIcon}
-                        onClick={() => emblaApi.scrollNext()}
+                        onClick={handleNext}
                     />
                 )}
             </div>
