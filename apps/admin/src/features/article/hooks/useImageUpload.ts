@@ -16,6 +16,8 @@ export function useImageUpload() {
         const previewUrl = URL.createObjectURL(file);
 
         addImage({
+            id: crypto.randomUUID(),
+
             original: {
                 src: previewUrl,
                 file,

@@ -3,6 +3,8 @@ import {Language} from "@cpc/languages";
 import {Point} from "react-easy-crop";
 
 export interface ArticleEditorImage {
+    id: string,
+
     original: {
         src: string,
         file?: File,

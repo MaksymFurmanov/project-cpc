@@ -53,7 +53,7 @@ export async function getCroppedImg(imageSrc: string, crop: Area): Promise<File>
     );
 }
 
-function createImage(url: string): Promise<HTMLImageElement> {
+async function createImage(url: string): Promise<HTMLImageElement> {
     return new Promise((resolve, reject) => {
         const image = new Image();
 

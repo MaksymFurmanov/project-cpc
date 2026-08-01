@@ -9,7 +9,7 @@ import ImageButtons from "./ImageButtons";
 import {useImgPreload} from "@cpc/article-system";
 import GalleryLoading from "project-cpc/src/components/skeletons/articles-list-loading/GalleryLoading";
 import {useArticleEditor} from "@/app/providers/ArticleEditorProvider";
-import {getCroppedImg} from "@/lib/utils/getCroppedImage";
+import {getCroppedImg} from "@/features/article/utils/getCroppedImage";
 
 export default function ImageCropper({index, unselectHandler}: {
     index: number,
@@ -32,6 +32,8 @@ export default function ImageCropper({index, unselectHandler}: {
         const url = URL.createObjectURL(file);
 
         updateImage(index, {
+            id: img.id,
+
             original: {
                 src: url,
                 file: file

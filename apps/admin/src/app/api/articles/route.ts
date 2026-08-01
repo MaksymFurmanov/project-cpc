@@ -1,7 +1,6 @@
 import {createClient} from "@/lib/supabase/server";
 import {NextResponse} from "next/server";
 import {S3Client, PutObjectCommand} from "@aws-sdk/client-s3";
-import {randomUUID} from "crypto";
 import {createAdminClient} from "@/lib/supabase/server-admin";
 
 const s3 = new S3Client({
@@ -60,13 +59,17 @@ export async function POST(req: Request) {
         .single();
 
     const files = formData.getAll("images") as File[];
-    const imageUrls: string[] = [];
-    for (const file of files) {
-        const buffer = Buffer.from(await file.arrayBuffer());
+    const imageIds = formData.getAll("imageIds") as string[];
 
+    const imageUrls: string[] = [];
+    for (let i = 0; i < files.length; i++) {
+        const file = files[i];
+        const imageId = imageIds[i];
+
+        const buffer = Buffer.from(await file.arrayBuffer());
         const extension = file.name.split(".").pop();
 
-        const key = `articles/${article.id}/${randomUUID()}.${extension}`;
+        const key = `articles/${article.id}/${imageId}.${extension}`;
 
         await s3.send(
             new PutObjectCommand({

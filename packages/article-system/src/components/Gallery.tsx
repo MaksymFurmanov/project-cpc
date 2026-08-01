@@ -45,7 +45,7 @@ export function Gallery({images, setCurrImg, overlay, viewport}: {
     const handleNext = () => {
         if (viewport) return;
         emblaApi?.scrollNext();
-    };
+    }
 
     return (
         <div>

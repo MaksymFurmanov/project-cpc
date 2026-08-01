@@ -1,7 +1,7 @@
 "use client";
 
 import styles from "./article.gallery.module.css";
-import {useImageUpload} from "@/lib/hooks/useImageUpload";
+import {useImageUpload} from "@/features/article/hooks/useImageUpload";
 
 export default function AddImageBtn() {
     const uploadHandler = useImageUpload();

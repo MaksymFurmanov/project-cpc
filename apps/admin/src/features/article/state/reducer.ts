@@ -1,5 +1,5 @@
 import {ArticleEditorState} from "@/features/article/types";
-import {Action} from "@/features/article/actions";
+import {Action} from "@/features/article/state/actions";
 
 export function articleReducer(
     state: ArticleEditorState,

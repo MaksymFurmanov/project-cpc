@@ -9,9 +9,9 @@ import {
 
 import axios from "axios";
 import {ArticleType} from "@cpc/article-system";
-import {mapArticleToEditorState} from "@/features/article/mapArticleToEditorState";
+import {mapArticleToEditorState} from "@/features/article/utils/mapArticleToEditorState";
 import {ArticleEditorImage, ArticleEditorState} from "@/features/article/types";
-import {articleReducer} from "@/features/article/reducer";
+import {articleReducer} from "@/features/article/state/reducer";
 import {Language} from "@cpc/languages";
 
 const ArticleEditorContext = createContext<{
@@ -168,10 +168,9 @@ export default function ArticleEditorProvider({children}: {
         formData.append("type", article.type);
         formData.append("published", String(article.published));
 
-        article.images.forEach(img => {
-            if (img.preview.file) {
-                formData.append("images", img.preview.file);
-            }
+        article.images.forEach((img) => {
+            formData.append("images", img.preview.file!);
+            formData.append("imageIds", img.id);
         });
 
         const res = await axios.post(
@@ -184,22 +183,41 @@ export default function ArticleEditorProvider({children}: {
         });
     }, [article]);
 
-    const updateArticle = useCallback(async (lang: Language) => {
+    const updateArticle = useCallback(async () => {
         if (!article.id) {
             throw new Error("ID for the article is not found");
         }
 
-        const res = await axios.post(`/api/articles/${article.id}`, {
-            lang,
+        const formData = new FormData();
 
-            title: article.titles[lang],
-            description: article.descriptions[lang],
+        formData.append("title_sk", article.titles.sk);
+        formData.append("title_en", article.titles.en);
+        formData.append("title_uk", article.titles.uk);
 
-            date: article.date,
-            type: article.type,
-            images: article.images.map(img => img.preview.src),
-            published: article.published,
+        formData.append("description_sk", article.descriptions.sk);
+        formData.append("description_en", article.descriptions.en);
+        formData.append("description_uk", article.descriptions.uk);
+
+        formData.append("date", article.date);
+        formData.append("type", article.type);
+        formData.append("published", String(article.published));
+
+        formData.append(
+            "imageIds",
+            JSON.stringify(
+                article.images.map((img) => img.id)
+            )
+        );
+
+        article.images.forEach((img) => {
+            if (img.preview.file) {
+                formData.append(img.id, img.preview.file);
+            }
         });
+
+        const res = await axios.post(
+            `/api/articles/${article.id}`, formData
+        );
 
         dispatch({
             type: "RESET",
