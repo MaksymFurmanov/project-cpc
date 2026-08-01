@@ -6,8 +6,6 @@ import Cropper, {Area, Point} from "react-easy-crop";
 import ZoomBar from "@/features/article/ui/gallery/ZoomBar";
 import {useIsDesktop} from "@/lib/hooks/useIsDesktop";
 import ImageButtons from "./ImageButtons";
-import {useImgPreload} from "@cpc/article-system";
-import GalleryLoading from "project-cpc/src/components/skeletons/articles-list-loading/GalleryLoading";
 import {useArticleEditor} from "@/app/providers/ArticleEditorProvider";
 import {getCroppedImg} from "@/features/article/utils/getCroppedImage";
 
@@ -71,9 +69,6 @@ export default function ImageCropper({index, unselectHandler}: {
             console.error(e);
         }
     }
-
-    const preloaded = useImgPreload([img], "original");
-    if (!preloaded) return <GalleryLoading/>;
 
     return (
         <div className={styles.articleCropper}>
