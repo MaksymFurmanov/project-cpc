@@ -7,23 +7,18 @@ import {useArticleEditor} from "@/app/providers/ArticleEditorProvider";
 export function SaveBtn() {
     const {lang} = useLanguage();
 
-    const {saveArticle} = useArticleEditor();
+    const {article, createArticle, updateArticle} = useArticleEditor();
 
     const handleSave = async () => {
-        await saveArticle(lang);
-    };
-
-    let uploadBtnText;
-
-    switch (lang) {
-        case "en":
-            uploadBtnText = "Upload";
-            break;
-        case "uk":
-            uploadBtnText = "Зберегти";
-            break;
-        default:
-            uploadBtnText = "Uložiť";
+        try {
+            if (article.id) {
+                await updateArticle(lang);
+            } else {
+                await createArticle();
+            }
+        } catch (e) {
+            console.error(e);
+        }
     }
 
     return (
@@ -32,7 +27,7 @@ export function SaveBtn() {
             className={styles.saveBtn}
             onClick={handleSave}
         >
-            {uploadBtnText}
+            Uložiť
         </button>
     );
 }

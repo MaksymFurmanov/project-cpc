@@ -30,7 +30,8 @@ const ArticleEditorContext = createContext<{
     setPublished: (value: boolean) => void,
 
     editExisting: (id: string) => Promise<void>,
-    saveArticle: (lang: Language) => Promise<void>
+    createArticle: () => Promise<void>,
+    updateArticle: (lang: Language) => Promise<void>,
     resetArticle: () => void,
 } | undefined>(undefined);
 
@@ -152,87 +153,59 @@ export default function ArticleEditorProvider({children}: {
         setError(null);
     }, []);
 
-    const createArticle = useCallback(
-        async () => {
-            const res = await axios.post(
-                "/api/articles",
-                {
-                    titles: article.titles,
-                    descriptions: article.descriptions,
+    const createArticle = useCallback(async () => {
+        const formData = new FormData();
 
-                    date: article.date,
-                    type: article.type,
-                    images: article.images.map(img => img.preview.src),
-                    published: article.published,
-                }
-            );
+        formData.append("title_sk", article.titles.sk);
+        formData.append("title_en", article.titles.en);
+        formData.append("title_uk", article.titles.uk);
 
-            dispatch({
-                type: "RESET",
-                value: mapArticleToEditorState(
-                    res.data
-                ),
-            });
-        },
-        [article]
-    );
+        formData.append("description_sk", article.descriptions.sk);
+        formData.append("description_en", article.descriptions.en);
+        formData.append("description_uk", article.descriptions.uk);
 
-    const updateArticle = useCallback(
-        async (lang: Language) => {
-            if (!article.id) {
-                throw new Error("ID for the article is not found");
+        formData.append("date", article.date);
+        formData.append("type", article.type);
+        formData.append("published", String(article.published));
+
+        article.images.forEach(img => {
+            if (img.preview.file) {
+                formData.append("images", img.preview.file);
             }
+        });
 
-            const res = await axios.post(
-                `/api/articles/${article.id}`,
-                {
-                    lang,
+        const res = await axios.post(
+            "/api/articles", formData
+        );
 
-                    title: article.titles[lang],
-                    description:
-                        article.descriptions[lang],
+        dispatch({
+            type: "RESET",
+            value: mapArticleToEditorState(res.data),
+        });
+    }, [article]);
 
-                    date: article.date,
-                    type: article.type,
-                    images: article.images.map(img => img.preview.src),
-                    published: article.published,
-                }
-            );
+    const updateArticle = useCallback(async (lang: Language) => {
+        if (!article.id) {
+            throw new Error("ID for the article is not found");
+        }
 
-            dispatch({
-                type: "RESET",
-                value: mapArticleToEditorState(
-                    res.data
-                ),
-            });
-        },
-        [article]
-    );
+        const res = await axios.post(`/api/articles/${article.id}`, {
+            lang,
 
-    const saveArticle = useCallback(
-        async (lang: Language) => {
-            try {
-                setLoading(true);
+            title: article.titles[lang],
+            description: article.descriptions[lang],
 
-                if (article.id) {
-                    await updateArticle(lang);
-                } else {
-                    await createArticle();
-                }
-            } catch (e) {
-                console.error(e);
+            date: article.date,
+            type: article.type,
+            images: article.images.map(img => img.preview.src),
+            published: article.published,
+        });
 
-                setError(
-                    article.id
-                        ? "Failed to save the article"
-                        : "Failed to create the article"
-                );
-            } finally {
-                setLoading(false);
-            }
-        },
-        [article.id, createArticle, updateArticle]
-    );
+        dispatch({
+            type: "RESET",
+            value: mapArticleToEditorState(res.data),
+        });
+    }, [article]);
 
     return (
         <ArticleEditorContext.Provider value={{
@@ -251,7 +224,8 @@ export default function ArticleEditorProvider({children}: {
             setPublished,
 
             editExisting,
-            saveArticle,
+            createArticle,
+            updateArticle,
             resetArticle
         }}>
             {children}

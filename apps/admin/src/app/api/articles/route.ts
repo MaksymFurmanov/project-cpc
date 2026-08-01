@@ -1,10 +1,24 @@
 import {createClient} from "@/lib/supabase/server";
 import {NextResponse} from "next/server";
+import {S3Client, PutObjectCommand} from "@aws-sdk/client-s3";
+import {randomUUID} from "crypto";
+import {createAdminClient} from "@/lib/supabase/server-admin";
+
+const s3 = new S3Client({
+    region: process.env.AWS_REGION!,
+    credentials: {
+        accessKeyId: process.env.AWS_ACCESS_KEY_ID!,
+        secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY!,
+    },
+});
+
+const BUCKET = process.env.AWS_BUCKET_NAME!;
+const REGION = process.env.AWS_REGION!;
 
 export async function GET(req: Request) {
     const supabase = await createClient();
 
-    const { searchParams } = new URL(req.url);
+    const {searchParams} = new URL(req.url);
     const type = searchParams.get("type");
 
     const {data, error} = await supabase
@@ -21,29 +35,68 @@ export async function GET(req: Request) {
 }
 
 export async function POST(req: Request) {
-    const supabase = await createClient();
+    const supabase = await createAdminClient();
 
-    const {data: {user}} = await supabase.auth.getUser();
+    const formData = await req.formData();
 
-    if (!user) {
-        return NextResponse.json({error: 'Unauthorized'}, {status: 401});
-    }
+    const {data: article, error} = await supabase
+        .from("articles")
+        .insert({
+            title_sk: formData.get("title_sk"),
+            title_en: formData.get("title_en"),
+            title_uk: formData.get("title_uk"),
 
-    const {data: profile} = await supabase
-        .from('profiles')
-        .select('role')
-        .eq('id', user.id)
+            description_sk: formData.get("description_sk"),
+            description_en: formData.get("description_en"),
+            description_uk: formData.get("description_uk"),
+
+            date: formData.get("date"),
+            type: formData.get("type"),
+            published: formData.get("published") === "true",
+
+            images: [],
+        })
+        .select()
         .single();
 
-    if (profile?.role !== 'admin') {
-        return NextResponse.json({error: 'Forbidden'}, {status: 403});
+    const files = formData.getAll("images") as File[];
+    const imageUrls: string[] = [];
+    for (const file of files) {
+        const buffer = Buffer.from(await file.arrayBuffer());
+
+        const extension = file.name.split(".").pop();
+
+        const key = `articles/${article.id}/${randomUUID()}.${extension}`;
+
+        await s3.send(
+            new PutObjectCommand({
+                Bucket: BUCKET,
+                Key: key,
+                Body: buffer,
+                ContentType: file.type,
+            })
+        );
+
+        imageUrls.push(
+            `https://${BUCKET}.s3.${REGION}.amazonaws.com/${key}`
+        );
     }
 
-    const body = await req.json();
+    const {data: updatedArticle} = await supabase
+        .from("articles")
+        .update({
+            images: imageUrls,
+        })
+        .eq("id", article.id)
+        .select()
+        .single();
 
-    const {data, error} = await supabase
-        .from('articles')
-        .insert(body);
+    if (error) {
+        return NextResponse.json(
+            {error},
+            {status: 500}
+        );
+    }
 
-    return NextResponse.json({data, error});
+    return NextResponse.json(updatedArticle);
 }

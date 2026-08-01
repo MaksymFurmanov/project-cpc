@@ -1,6 +1,7 @@
 import {createClient} from "@/lib/supabase/server";
 import {ArticleType} from "@cpc/article-system";
 import {Language} from "@cpc/languages";
+import {createAdminClient} from "@/lib/supabase/server-admin";
 
 export async function GET(req: Request,
                           {params}: { params: Promise<{ id: string }> }
@@ -35,7 +36,7 @@ type UpdateArticleBody = {
 export async function POST(req: Request, {params}: {
     params: Promise<{ id: string }>
 }) {
-    const supabase = await createClient();
+    const supabase = await createAdminClient();
     const {id} = await params;
 
     const body: UpdateArticleBody = await req.json();
