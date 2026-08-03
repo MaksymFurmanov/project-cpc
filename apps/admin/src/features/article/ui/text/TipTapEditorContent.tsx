@@ -6,7 +6,6 @@ import StarterKit from "@tiptap/starter-kit";
 import {marked} from "marked";
 import TurndownService from "turndown";
 import {useEffect} from "react";
-import {SaveBtn} from "@/features/article/ui/text/SaveBtn";
 import EditorPanel from "@/features/article/ui/text/EditorPanel";
 import {useLanguage} from "@/app/providers/LanguageProvider";
 import {useArticleEditor} from "@/app/providers/ArticleEditorProvider";
@@ -78,8 +77,6 @@ export default function TipTapEditorContent() {
             )}>
                 <EditorContent editor={editor}/>
             </div>
-
-            <SaveBtn/>
         </div>
     );
 }

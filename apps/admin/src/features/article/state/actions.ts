@@ -40,10 +40,6 @@ export type Action =
     to: number,
 }
     | {
-    type: "SET_PUBLISHED",
-    value: boolean,
-}
-    | {
     type: "RESET",
     value: ArticleEditorState,
 }

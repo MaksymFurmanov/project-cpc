@@ -68,12 +68,6 @@ export function articleReducer(
                 images,
             };
 
-        case "SET_PUBLISHED":
-            return {
-                ...state,
-                published: action.value,
-            };
-
         case "RESET":
             return action.value;
 

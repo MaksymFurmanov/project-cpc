@@ -21,7 +21,7 @@ export default function ArticlesList({type}: {
         try {
             setLoading(true);
             const res =
-                await axios.get(`/api/articles?type=${type}`);
+                await axios.get<ArticlesItem[]>(`/api/admin/articles?type=${type}`);
             setArticles(res.data);
         } catch (e) {
             console.error(e);
@@ -48,6 +48,13 @@ export default function ArticlesList({type}: {
                     <p className={styles.date}>
                         {article.date.toString()}
                     </p>
+
+                    <span className={article.published
+                        ? styles.published
+                        : styles.draft
+                    }>
+                        {article.published ? "Publikované" : "Koncept"}
+                    </span>
 
                     <button className={"primaryBtn"}
                             onClick={() => {

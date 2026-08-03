@@ -1,4 +1,4 @@
-primaryBtn:root {
+:root {
   --background: #ffffff;
   --foreground: #171717;
 }
@@ -20,6 +20,12 @@ primaryBtn:root {
   syntax: "<color>";
   inherits: false;
   initial-value: #ededed;
+}
+
+@property --main-blue {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #6896ca;
 }
 
 @property --accent {

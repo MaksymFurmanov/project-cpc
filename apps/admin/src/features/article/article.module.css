@@ -4,9 +4,21 @@
     margin-top: 7.25em;
 }
 
-/* Article */
+/* EditorHeading */
 
-.editorHeading {
+.actionsBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5em;
+}
+
+.rightActions {
+    display: flex;
+    gap: 1.5em;
+}
+
+.switchers {
     display: grid;
     grid-template-columns: 1fr auto 1fr;
     align-items: center;
@@ -14,6 +26,8 @@
     width: 100%;
     margin-bottom: 2em;
 }
+
+/* TypeSwitcher */
 
 .types {
     display: flex;
@@ -131,6 +145,40 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .languageVariant img {
     width: 1.5em;
     height: 1em;
+}
+
+/* SaveBtn */
+
+.actionBtn {
+    display: block;
+    font-size: 1.1rem;
+    padding: 0.5em 1.5em;
+    cursor: pointer;
+    border: 2px solid var(--black);
+    background-color: var(--black);
+    transition: all 0.2s ease-in-out;
+    white-space: nowrap;
+}
+
+.actionBtn:hover {
+    background-color: var(--white);
+    color: var(--black);
+}
+
+.actionIconBtn {
+    padding: 0.5em 0.5em 0;
+}
+
+.actionIconBtn svg {
+    width: 1.25em;
+    height: 1.25em;
+    cursor: pointer;
+    fill: var(--black);
+    transition: fill 0.2s ease-in-out;
+}
+
+.actionIconBtn:hover svg {
+    fill: var(--accent);
 }
 
 @media (min-width: 640px) {
