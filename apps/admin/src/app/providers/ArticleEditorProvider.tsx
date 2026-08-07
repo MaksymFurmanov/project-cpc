@@ -13,11 +13,20 @@ import {mapArticleToEditorState} from "@/features/article/utils/mapArticleToEdit
 import {ArticleEditorImage, ArticleEditorState} from "@/features/article/types";
 import {articleReducer} from "@/features/article/state/reducer";
 import {Language} from "@cpc/languages";
+import {validateArticle} from "@/features/article/validators/articleValidator";
+
+export type ArticleMessage = {
+    type: "error" | "validation",
+    title: string,
+    details?: string[],
+}
 
 const ArticleEditorContext = createContext<{
     article: ArticleEditorState,
     loading: boolean,
-    error: string | null,
+
+    message: ArticleMessage | null,
+    setMessages: (value: ArticleMessage | null) => void,
 
     setType: (value: ArticleType) => void,
     setTitle: (lang: Language, value: string) => void,
@@ -29,8 +38,8 @@ const ArticleEditorContext = createContext<{
     moveImage: (from: number, to: number) => void,
 
     editExisting: (id: string) => Promise<void>,
-    submitArticle: (published?: boolean) => Promise<void>,
-    deleteArticle: () => Promise<void>,
+    submitArticle: (published?: boolean) => Promise<boolean>,
+    deleteArticle: () => Promise<boolean>,
 
     resetArticle: () => void,
 } | undefined>(undefined);
@@ -62,7 +71,7 @@ export default function ArticleEditorProvider({children}: {
 }) {
     const [article, dispatch] = useReducer(articleReducer, emptyArticle);
     const [loading, setLoading] = useState(false);
-    const [error, setError] = useState<string | null>(null);
+    const [messages, setMessages] = useState<ArticleMessage | null>(null);
 
     const setType = (value: ArticleType) =>
         dispatch({
@@ -119,7 +128,7 @@ export default function ArticleEditorProvider({children}: {
     const editExisting = useCallback(async (id: string) => {
         try {
             setLoading(true);
-            setError(null);
+            setMessages(null);
 
             const res = await axios.get(`/api/admin/articles/${id}`);
 
@@ -129,7 +138,11 @@ export default function ArticleEditorProvider({children}: {
             });
         } catch (e) {
             console.error(e);
-            setError("Failed to fetch the article");
+
+            setMessages({
+                type: "error",
+                title: "Článok sa nepodarilo načítať",
+            });
         } finally {
             setLoading(false);
         }
@@ -138,7 +151,21 @@ export default function ArticleEditorProvider({children}: {
     const submitArticle = useCallback(async (published = article.published) => {
         try {
             setLoading(true);
-            setError(null);
+            setMessages(null);
+
+            const validation = validateArticle(article, published);
+
+            if (!validation.success) {
+                const missing = validation.issues.map(issue => issue.message);
+
+                setMessages({
+                    type: "validation",
+                    title: "Článok sa nepodarilo načítať",
+                    details: missing,
+                });
+
+                return false;
+            }
 
             const formData = new FormData();
 
@@ -180,32 +207,61 @@ export default function ArticleEditorProvider({children}: {
                 type: "RESET",
                 value: mapArticleToEditorState(res.data),
             });
+
+            return true;
         } catch (e) {
             console.error(e);
-            setError(
-                article.id
-                    ? "Failed to update the article"
-                    : "Failed to create the article"
-            );
+
+            setMessages({
+                type: "error",
+                title: article.id
+                    ? "Článok sa nepodarilo upraviť"
+                    : "Článok sa nepodarilo vytvoriť",
+            });
+
+            return false;
         } finally {
             setLoading(false);
         }
     }, [article]);
 
     const deleteArticle = useCallback(async () => {
+        setMessages(null);
+
         if (!article.id) {
-            throw new Error("ID for the article is not found");
+            setMessages({
+                type: "error",
+                title: "ID článku nebolo nájdené"
+            });
+
+            return false;
         }
 
-        await axios.delete(`/api/admin/articles/${article.id}`);
+        try {
+            setLoading(true);
 
-        dispatch({
-            type: "RESET",
-            value: {
-                ...emptyArticle,
-                date: new Date().toISOString(),
-            },
-        });
+            await axios.delete(`/api/admin/articles/${article.id}`);
+
+            dispatch({
+                type: "RESET",
+                value: {
+                    ...emptyArticle,
+                    date: new Date().toISOString(),
+                },
+            });
+
+            return true;
+        } catch (e) {
+            console.error(e);
+            setMessages({
+                type: "error",
+                title: "Článok sa nepodarilo odstrániť"
+            });
+
+            return false;
+        } finally {
+            setLoading(false);
+        }
     }, [article.id]);
 
     const resetArticle = useCallback(() => {
@@ -217,14 +273,16 @@ export default function ArticleEditorProvider({children}: {
             },
         });
 
-        setError(null);
+        setMessages(null);
     }, []);
 
     return (
         <ArticleEditorContext.Provider value={{
             article,
             loading,
-            error,
+
+            message: messages,
+            setMessages,
 
             setType,
             setTitle,

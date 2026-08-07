@@ -7,24 +7,20 @@ export default function PublishToggle() {
     const {push} = useRouter();
 
     const handlePublish = async () => {
-        try{
-            await submitArticle(true);
+        const success = await submitArticle(true);
 
+        if (success) {
             push("/articles");
-        } catch (e) {
-            console.error(e);
         }
-    }
+    };
 
     const handleUnpublish = async () => {
-        try{
-            await submitArticle(false);
+        const success = await submitArticle(false);
 
+        if (success) {
             push("/articles");
-        } catch (e) {
-            console.error(e);
         }
-    }
+    };
 
     return article.published ? (
         <button className={styles.actionBtn}

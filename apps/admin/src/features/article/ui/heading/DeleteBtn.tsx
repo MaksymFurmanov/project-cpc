@@ -6,16 +6,14 @@ import {useArticleEditor} from "@/app/providers/ArticleEditorProvider";
 import {useRouter} from "next/navigation";
 
 export default function DeleteBtn() {
-    const { deleteArticle } = useArticleEditor();
+    const {deleteArticle} = useArticleEditor();
     const {push} = useRouter();
 
     const handleDelete = async () => {
-        try {
-            await deleteArticle();
+        const success = await deleteArticle();
 
+        if (success) {
             push("/articles");
-        } catch (e) {
-            console.error(e);
         }
     }
 

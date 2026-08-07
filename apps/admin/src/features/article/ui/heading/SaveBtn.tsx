@@ -9,12 +9,10 @@ export function SaveBtn() {
     const {push} = useRouter();
 
     const handleSave = async () => {
-        try {
-            await submitArticle();
+        const success = await submitArticle();
 
+        if (success) {
             push("/articles");
-        } catch (e) {
-            console.error(e);
         }
     }
 
