@@ -2,16 +2,14 @@
 
 import styles from "./article.gallery.module.css";
 import {ChangeEvent, useRef} from "react";
+import ImageNavigation from "@/features/article/ui/gallery/ImageNavigation";
+import {useArticleEditor} from "@/app/providers/ArticleEditorProvider";
 
-export default function ImageButtons({
-                                         unselectHandler,
-                                         changeImage,
-                                         saveChanges,
-                                     }: {
-    unselectHandler: () => void,
+export default function ImageButtons({changeImage, saveChanges}: {
     changeImage: (file: File) => void,
     saveChanges: () => void,
 }) {
+    const {article, unselectImage, removeImage} = useArticleEditor();
     const inputRef = useRef<HTMLInputElement>(null);
 
     const handleChange = (
@@ -23,7 +21,13 @@ export default function ImageButtons({
 
         changeImage(file);
         e.target.value = "";
-    };
+    }
+
+    const handleDelete = () => {
+        if (!article.imageSelected) return;
+        removeImage();
+        unselectImage();
+    }
 
     return (
         <>
@@ -37,21 +41,25 @@ export default function ImageButtons({
 
             <div className={styles.imageButtons}>
                 <div>
-                    <button onClick={unselectHandler}>
+                    <button onClick={unselectImage}>
                         Zrušiť
                     </button>
                 </div>
 
+                {article.images.length > 1 && <ImageNavigation/>}
+
                 <div className={styles.changingButtons}>
-                    <button
-                        onClick={() => inputRef.current?.click()}
+                    <button onClick={handleDelete}>
+                        Vymazať
+                    </button>
+
+                    <button onClick={() =>
+                        inputRef.current?.click()}
                     >
                         Zmeniť
                     </button>
 
-                    <button
-                        onClick={saveChanges}
-                    >
+                    <button onClick={saveChanges}>
                         Uložiť
                     </button>
                 </div>

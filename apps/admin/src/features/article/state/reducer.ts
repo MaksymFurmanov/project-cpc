@@ -38,35 +38,99 @@ export function articleReducer(
                 type: action.value,
             };
 
+        case "SET_CURRENT_IMAGE":
+            return {
+                ...state,
+                currentImage: action.index,
+            };
+
+        case "SELECT_IMAGE":
+            return {
+                ...state,
+                imageSelected: true,
+            };
+
+        case "UNSELECT_IMAGE":
+            return {
+                ...state,
+                imageSelected: false,
+            };
+
         case "ADD_IMAGE":
             return {
                 ...state,
-                images: [...state.images, action.value]
+                images: [
+                    ...state.images,
+                    action.value,
+                ],
             };
 
         case "UPDATE_IMAGE":
             return {
                 ...state,
-                images: state.images.map((image, i) =>
-                    i === action.index ? action.value : image
+                images: state.images.map(
+                    (image, index) =>
+                        index === state.currentImage
+                            ? action.value
+                            : image
                 ),
             };
 
-        case "REMOVE_IMAGE":
-            return {
-                ...state,
-                images: state.images.filter((_, i) => i !== action.index),
-            };
+        case "REMOVE_IMAGE": {
+            if (state.images.length === 0) {
+                return state;
+            }
 
-        case "MOVE_IMAGE":
-            const images = [...state.images];
-            const [img] = images.splice(action.from, 1);
-            images.splice(action.to, 0, img);
+            const images = state.images.filter(
+                (_, index) =>
+                    index !== state.currentImage
+            );
+
+            let currentImage = state.currentImage;
+
+            if (images.length === 0) {
+                currentImage = 0;
+            } else if (
+                currentImage >= images.length
+            ) {
+                currentImage = images.length - 1;
+            }
 
             return {
                 ...state,
                 images,
+                currentImage,
+                imageSelected: false,
             };
+        }
+
+        case "MOVE_IMAGE": {
+            if (
+                state.images.length === 0 ||
+                state.currentImage === action.to
+            ) {
+                return state;
+            }
+
+            const images = [...state.images];
+
+            const [image] = images.splice(
+                state.currentImage,
+                1
+            );
+
+            images.splice(
+                action.to,
+                0,
+                image
+            );
+
+            return {
+                ...state,
+                images,
+                currentImage: action.to,
+            };
+        }
 
         case "SET_PUBLISHED":
             return {

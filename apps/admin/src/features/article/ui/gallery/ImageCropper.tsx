@@ -1,7 +1,7 @@
 "use client";
 
 import styles from "./article.gallery.module.css";
-import {useCallback, useState} from "react";
+import {useCallback, useEffect, useState} from "react";
 import Cropper, {Area, Point} from "react-easy-crop";
 import ZoomBar from "@/features/article/ui/gallery/ZoomBar";
 import {useIsDesktop} from "@/lib/hooks/useIsDesktop";
@@ -9,12 +9,10 @@ import ImageButtons from "./ImageButtons";
 import {useArticleEditor} from "@/app/providers/ArticleEditorProvider";
 import {getCroppedImg} from "@/features/article/utils/getCroppedImage";
 
-export default function ImageCropper({index, unselectHandler}: {
-    index: number,
-    unselectHandler: () => void,
-}) {
-    const {article, updateImage} = useArticleEditor();
-    const img = article.images[index];
+export default function ImageCropper() {
+    const {article, updateImage, unselectImage} = useArticleEditor();
+
+    const img = article.images[article.currentImage];
 
     const [crop, setCrop] = useState<Point>(img.crop);
     const [zoom, setZoom] = useState<number>(img.zoom);
@@ -22,53 +20,67 @@ export default function ImageCropper({index, unselectHandler}: {
 
     const isDesktop = useIsDesktop();
 
-    const handleCropComplete = useCallback((_: Area, area: Area) => {
-        setCroppedAreaPixels(area);
-    }, []);
+    useEffect(() => {
+        setCrop(img.crop);
+        setZoom(img.zoom);
+        setCroppedAreaPixels(null);
+    }, [img.crop, img.zoom]);
+
+    const handleCropComplete = useCallback(
+        (_: Area, area: Area) => {
+            setCroppedAreaPixels(area);
+        }, []
+    );
 
     const changeImage = (file: File) => {
         const url = URL.createObjectURL(file);
 
-        updateImage(index, {
+        updateImage({
             id: img.id,
 
             original: {
                 src: url,
-                file: file
+                file,
             },
+
             preview: {
                 src: url,
-                file: file
+                file,
             },
+
             crop: {x: 0, y: 0},
-            zoom: 1
+
+            zoom: 1,
         });
-    }
+    };
 
     const saveChanges = async () => {
         try {
             if (!croppedAreaPixels) return;
 
-            const croppedFile = await getCroppedImg(
-                img.original.src,
-                croppedAreaPixels
-            );
+            const croppedFile =
+                await getCroppedImg(
+                    img.original.src,
+                    croppedAreaPixels
+                );
 
-            updateImage(index, {
+            updateImage({
                 ...img,
+
                 preview: {
                     src: URL.createObjectURL(croppedFile),
-                    file: croppedFile
+                    file: croppedFile,
                 },
-                crop: crop,
-                zoom: zoom
+
+                crop,
+                zoom,
             });
 
-            unselectHandler();
+            unselectImage();
         } catch (e) {
             console.error(e);
         }
-    }
+    };
 
     return (
         <div className={styles.articleCropper}>
@@ -88,8 +100,7 @@ export default function ImageCropper({index, unselectHandler}: {
                      setCrop={setCrop}
             />
 
-            <ImageButtons unselectHandler={unselectHandler}
-                          changeImage={changeImage}
+            <ImageButtons changeImage={changeImage}
                           saveChanges={saveChanges}
             />
         </div>

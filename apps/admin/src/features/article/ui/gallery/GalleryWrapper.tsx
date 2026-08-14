@@ -1,15 +1,16 @@
 "use client";
 
 import styles from "./article.gallery.module.css";
+import {useArticleEditor} from "@/app/providers/ArticleEditorProvider";
 
-export default function GalleryWrapper({selectImage}: {
-    selectImage: () => void
-}) {
+export default function GalleryWrapper() {
+    const {selectImage} = useArticleEditor();
+
     return (
         <div className={styles.galleryHover}>
             <button className={styles.selectImageBtn}
                     onClick={selectImage}>
-                Select image
+                Upraviť obrázok
             </button>
         </div>
     );

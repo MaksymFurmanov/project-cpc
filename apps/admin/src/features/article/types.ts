@@ -32,5 +32,7 @@ export type ArticleEditorState = {
         string
     >,
     images: ArticleEditorImage[],
+    currentImage: number,
+    imageSelected: boolean,
     published: boolean
 }

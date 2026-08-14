@@ -2,43 +2,41 @@
 
 import ImageCropper from "@/features/article/ui/gallery/ImageCropper";
 import AddImageWindow from "@/features/article/ui/gallery/AddImageWindow";
-import {useState} from "react";
 import {Gallery} from "@cpc/article-system";
 import {useArticleEditor} from "@/app/providers/ArticleEditorProvider";
 import GalleryWrapper from "@/features/article/ui/gallery/GalleryWrapper";
 import AddImageBtn from "@/features/article/ui/gallery/AddImageBtn";
 
 export default function GalleryEditor() {
-    const {article} = useArticleEditor();
+    const {article, setCurrentImage} = useArticleEditor();
 
-    const [selected, setSelected] = useState<number | null>(null);
-    const [currentImage, setCurrentImage] = useState<number>(0);
+    const images = article.images;
 
-    const unselectHandler = () => {
-        setSelected(null);
-    }
+    console.log("currentImage:", article.currentImage);
 
-    return article.images.length > 0 ? (
+    return images.length > 0 ? (
         <div>
             <AddImageBtn/>
 
-            {selected !== null ? (
-                <Gallery images={article.images.map(src => src.original.src)}
-                         setCurrImg={setCurrentImage}
-                         viewport={
-                             <ImageCropper index={selected}
-                                           unselectHandler={unselectHandler}
-                             />
-                         }
+            {article.imageSelected ? (
+                <Gallery
+                    images={images.map(
+                        image => image.original.src
+                    )}
+                    currentIndex={article.currentImage}
+                    setCurrImg={setCurrentImage}
+                    viewport={<ImageCropper/>}
                 />
             ) : (
-                <Gallery images={article.images.map(src => src.preview.src)}
-                         setCurrImg={setCurrentImage}
-                         overlay={
-                             <GalleryWrapper selectImage={() => {
-                                 setSelected(currentImage);
-                             }}/>
-                         }
+                <Gallery
+                    images={images.map(
+                        image => image.preview.src
+                    )}
+                    currentIndex={article.currentImage}
+                    setCurrImg={setCurrentImage}
+                    overlay={
+                        <GalleryWrapper/>
+                    }
                 />
             )}
         </div>

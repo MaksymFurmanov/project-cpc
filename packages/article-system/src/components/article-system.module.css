@@ -22,6 +22,12 @@
     background-color: #d1d5db;
 }
 
+.galleryIcon.disabled, .galleryIcon.disabled:hover {
+    cursor: default;
+    opacity: 0.35;
+    background-color: transparent;
+}
+
 .carousel {
     overflow: hidden;
     border-radius: 6px;
@@ -35,12 +41,14 @@
     display: flex;
 }
 
-
-
-.image {
+.slide {
     flex: 0 0 100%;
     min-width: 0;
+}
+
+.image {
     width: 100%;
+    height: 100%;
     object-fit: cover;
     object-position: center;
     aspect-ratio: 2 / 1;
@@ -149,13 +157,8 @@
         margin: 0.5em;
     }
 
-/*    .galleryWrapper {
-        margin: 0 auto;
-        max-width: 70%;
-    }*/
-
     .image {
-        aspect-ratio: 3/1;
+        aspect-ratio: 3 / 1;
     }
 
     .mainContainer {
