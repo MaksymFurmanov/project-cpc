@@ -84,6 +84,8 @@ export default function ImageCropper({index, unselectHandler}: {
 
             <ZoomBar zoom={zoom}
                      setZoom={setZoom}
+                     crop={crop}
+                     setCrop={setCrop}
             />
 
             <ImageButtons unselectHandler={unselectHandler}
