@@ -3,7 +3,7 @@
 import ImageCropper from "@/features/article/ui/gallery/ImageCropper";
 import AddImageWindow from "@/features/article/ui/gallery/AddImageWindow";
 import {Gallery} from "@cpc/article-system";
-import {useArticleEditor} from "@/app/providers/ArticleEditorProvider";
+import {useArticleEditor} from "@/features/providers/ArticleEditorProvider";
 import GalleryWrapper from "@/features/article/ui/gallery/GalleryWrapper";
 import AddImageBtn from "@/features/article/ui/gallery/AddImageBtn";
 
@@ -11,8 +11,6 @@ export default function GalleryEditor() {
     const {article, setCurrentImage} = useArticleEditor();
 
     const images = article.images;
-
-    console.log("currentImage:", article.currentImage);
 
     return images.length > 0 ? (
         <div>

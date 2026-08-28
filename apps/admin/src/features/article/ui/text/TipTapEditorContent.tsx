@@ -8,8 +8,8 @@ import TurndownService from "turndown";
 import {useEffect} from "react";
 import {SaveBtn} from "@/features/article/ui/text/SaveBtn";
 import EditorPanel from "@/features/article/ui/text/EditorPanel";
-import {useLanguage} from "@/app/providers/LanguageProvider";
-import {useArticleEditor} from "@/app/providers/ArticleEditorProvider";
+import {useLanguage} from "@/features/providers/LanguageProvider";
+import {useArticleEditor} from "@/features/providers/ArticleEditorProvider";
 import clsx from "clsx";
 
 const turndown = new TurndownService({

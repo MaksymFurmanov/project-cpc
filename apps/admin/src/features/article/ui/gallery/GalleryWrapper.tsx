@@ -1,7 +1,7 @@
 "use client";
 
 import styles from "./article.gallery.module.css";
-import {useArticleEditor} from "@/app/providers/ArticleEditorProvider";
+import {useArticleEditor} from "@/features/providers/ArticleEditorProvider";
 
 export default function GalleryWrapper() {
     const {selectImage} = useArticleEditor();

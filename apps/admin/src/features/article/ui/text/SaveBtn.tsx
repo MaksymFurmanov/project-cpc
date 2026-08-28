@@ -1,8 +1,8 @@
 "use client";
 
 import styles from "./article.text.module.css";
-import {useLanguage} from "@/app/providers/LanguageProvider";
-import {useArticleEditor} from "@/app/providers/ArticleEditorProvider";
+import {useLanguage} from "@/features/providers/LanguageProvider";
+import {useArticleEditor} from "@/features/providers/ArticleEditorProvider";
 
 export function SaveBtn() {
     const {lang} = useLanguage();

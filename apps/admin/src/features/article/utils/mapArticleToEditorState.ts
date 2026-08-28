@@ -36,5 +36,7 @@ export const mapArticleToEditorState = (
             zoom: 1
         })
     ),
+    currentImage: 0,
+    imageSelected: false,
     published: article.published,
 });

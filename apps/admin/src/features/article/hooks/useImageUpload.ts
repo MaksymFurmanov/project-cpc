@@ -1,12 +1,12 @@
 "use client";
 
 import {ChangeEvent} from "react";
-import {useArticleEditor} from "@/app/providers/ArticleEditorProvider";
+import {useArticleEditor} from "@/features/providers/ArticleEditorProvider";
 
 export function useImageUpload() {
     const {addImage} = useArticleEditor();
 
-    const uploadHandler = (
+    return (
         e: ChangeEvent<HTMLInputElement>
     ) => {
         const file = e.target.files?.[0];
@@ -34,6 +34,4 @@ export function useImageUpload() {
 
         e.target.value = "";
     };
-
-    return uploadHandler;
 }

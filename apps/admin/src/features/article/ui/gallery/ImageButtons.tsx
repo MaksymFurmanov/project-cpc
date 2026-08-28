@@ -3,7 +3,7 @@
 import styles from "./article.gallery.module.css";
 import {ChangeEvent, useRef} from "react";
 import ImageNavigation from "@/features/article/ui/gallery/ImageNavigation";
-import {useArticleEditor} from "@/app/providers/ArticleEditorProvider";
+import {useArticleEditor} from "@/features/providers/ArticleEditorProvider";
 
 export default function ImageButtons({changeImage, saveChanges}: {
     changeImage: (file: File) => void,

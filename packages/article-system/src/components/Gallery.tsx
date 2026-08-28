@@ -43,9 +43,7 @@ export function Gallery({images, currentIndex = 0, setCurrImg, overlay, viewport
         if (!emblaApi || !setCurrImg) return;
 
         const handleSelect = () => {
-            setCurrImg(
-                emblaApi.selectedScrollSnap()
-            );
+            setCurrImg(emblaApi.selectedScrollSnap());
         };
 
         handleSelect();
@@ -79,10 +77,7 @@ export function Gallery({images, currentIndex = 0, setCurrImg, overlay, viewport
                     <IoIosArrowBack
                         className={clsx(
                             styles.galleryIcon,
-                            {
-                                [styles.disabled]:
-                                arrowsDisabled
-                            }
+                            {[styles.disabled]: arrowsDisabled}
                         )}
                         onClick={handlePrev}
                     />
@@ -107,7 +102,6 @@ export function Gallery({images, currentIndex = 0, setCurrImg, overlay, viewport
                             </div>
                         ))}
                     </div>
-
                     {overlay}
                 </div>
 
@@ -115,10 +109,7 @@ export function Gallery({images, currentIndex = 0, setCurrImg, overlay, viewport
                     <IoIosArrowForward
                         className={clsx(
                             styles.galleryIcon,
-                            {
-                                [styles.disabled]:
-                                arrowsDisabled
-                            }
+                            {[styles.disabled]: arrowsDisabled}
                         )}
                         onClick={handleNext}
                     />

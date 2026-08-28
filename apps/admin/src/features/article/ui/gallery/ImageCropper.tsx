@@ -6,7 +6,7 @@ import Cropper, {Area, Point} from "react-easy-crop";
 import ZoomBar from "@/features/article/ui/gallery/ZoomBar";
 import {useIsDesktop} from "@/lib/hooks/useIsDesktop";
 import ImageButtons from "./ImageButtons";
-import {useArticleEditor} from "@/app/providers/ArticleEditorProvider";
+import {useArticleEditor} from "@/features/providers/ArticleEditorProvider";
 import {getCroppedImg} from "@/features/article/utils/getCroppedImage";
 
 export default function ImageCropper() {
