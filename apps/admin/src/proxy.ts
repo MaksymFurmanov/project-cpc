@@ -2,8 +2,6 @@ import {createServerClient} from "@supabase/ssr";
 import {NextRequest, NextResponse} from "next/server";
 
 export async function proxy(request: NextRequest) {
-    console.log("PROXY:", request.nextUrl.pathname);
-
     let supabaseResponse = NextResponse.next({
         request,
     });
@@ -41,8 +39,6 @@ export async function proxy(request: NextRequest) {
     const {
         data: {user},
     } = await supabase.auth.getUser();
-
-    console.log("PROXY USER:", user?.id ?? "NO USER");
 
     if (!user) {
         return NextResponse.redirect(

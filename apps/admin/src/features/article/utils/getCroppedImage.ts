@@ -58,9 +58,11 @@ async function createImage(url: string): Promise<HTMLImageElement> {
         const image = new Image();
 
         image.crossOrigin = "anonymous";
-        image.src = url;
 
         image.onload = () => resolve(image);
-        image.onerror = () => reject(new Error("Failed to load image"));
+        image.onerror = () => reject(new Error(`Failed to load image: ${url}`));
+
+        const separator = url.includes("?") ? "&" : "?";
+        image.src = `${url}${separator}crop`;
     });
 }
