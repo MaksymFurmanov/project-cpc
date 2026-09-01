@@ -1,18 +1,15 @@
 "use client";
 
 import styles from "./article.text.module.css";
-import {useLanguage} from "@/features/providers/LanguageProvider";
 import {useArticleEditor} from "@/features/providers/ArticleEditorProvider";
 
 export function SaveBtn() {
-    const {lang} = useLanguage();
-
     const {article, createArticle, updateArticle} = useArticleEditor();
 
     const handleSave = async () => {
         try {
             if (article.id) {
-                await updateArticle(lang);
+                await updateArticle();
             } else {
                 await createArticle();
             }
