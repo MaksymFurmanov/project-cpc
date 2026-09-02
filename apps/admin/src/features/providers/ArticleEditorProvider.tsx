@@ -191,9 +191,7 @@ export default function ArticleEditorProvider({children}: {
 
                 dispatch({
                     type: "RESET",
-                    value: mapArticleToEditorState(
-                        res.data
-                    ),
+                    value: mapArticleToEditorState(res.data),
                 });
             } catch (e) {
                 console.error(e);

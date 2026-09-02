@@ -2,9 +2,11 @@
 
 import styles from "./article.text.module.css";
 import {useArticleEditor} from "@/features/providers/ArticleEditorProvider";
+import {useRouter} from "next/navigation";
 
 export function SaveBtn() {
     const {article, createArticle, updateArticle} = useArticleEditor();
+    const {push} = useRouter();
 
     const handleSave = async () => {
         try {
@@ -13,6 +15,8 @@ export function SaveBtn() {
             } else {
                 await createArticle();
             }
+
+            push("/articles");
         } catch (e) {
             console.error(e);
         }

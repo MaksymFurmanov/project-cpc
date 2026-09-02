@@ -8,6 +8,10 @@
     margin: 0;
 }
 
+.contentContainer p {
+    margin: 0.5em 0;
+}
+
 /* TitleEditor */
 
 .titleInput {

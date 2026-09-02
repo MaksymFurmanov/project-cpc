@@ -20,7 +20,7 @@ const turndown = new TurndownService({
 turndown.addRule("paragraph", {
     filter: "p",
     replacement(content: string): string {
-        return `\n\n${content.trim()}\n\n`;
+        return `\n${content.trim()}\n`;
     },
 });
 
@@ -41,7 +41,13 @@ export default function TipTapEditorContent() {
     const isEmpty = !selectedText;
 
     const editor = useEditor({
-        extensions: [StarterKit],
+        extensions: [
+            StarterKit.configure({
+                trailingNode: {
+                    notAfter: ["paragraph", "heading"],
+                },
+            }),
+        ],
 
         content: selectedText
             ? marked.parse(selectedText)
@@ -74,7 +80,7 @@ export default function TipTapEditorContent() {
             <EditorPanel editor={editor}/>
 
             <div className={clsx(
-                isEmpty && styles.editorEmpty
+                isEmpty ? styles.editorEmpty : styles.contentContainer
             )}>
                 <EditorContent editor={editor}/>
             </div>

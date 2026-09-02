@@ -74,11 +74,15 @@ button:has(.white-bg) {
   cursor: pointer;
   border: 1px solid black;
   transition: all 0.2s ease-in-out;
+
+  background-color: var(--white);
+  color: var(--black);
 }
 
 .primaryBtn:hover {
-  background-color: var(--white);
-  color: var(--black);
+  border: 1px solid var(--white);
+  background-color: var(--black);
+  color: var(--white);
 }
 
 .pageCenter {
